@@ -1,0 +1,19 @@
+@import "./cssReset";
+@import "./variables";
+@import "./fonts";
+
+@import "./customeClasses";
+@import "./header";
+@import "./home";
+@import "./footer";
+
+body {
+    background-color: var(--bg);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+.hero {
+    font-family: "syne";
+    font-weight: bold;
+}
+

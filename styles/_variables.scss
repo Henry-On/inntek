@@ -1,0 +1,23 @@
+
+:root {
+    --primary: #ED8C18;
+    --text:#464646;
+    --secondary:#464224;
+    --bg:#F6F6F6;
+    --white:#ffffff;
+    --black:black;
+    --border:#DFDFDF;
+
+    --space-sm: .5rem;
+    --space-md: .7rem;
+    --space-lg: 1rem;
+
+    --font-body: "proxima-nova";
+    --font-heading: "syne";
+}
+
+$w-xs: 480px;
+$w-sm: 768px;
+$w-md: 992px;
+$w-lg: 1200px;
+$w-xl: 1400px;
