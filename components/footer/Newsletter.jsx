@@ -20,7 +20,7 @@ const Newsletter = () => {
           <div className="fa-pseudo wrapper-input">
             <input type="text" name="" id="" placeholder="Email Address" />
           </div>
-          <button className="bbtn bg-sec text-white" type="submit">Subscribe</button>
+          <button className="btn-newsletter ibtn bg-sec text-white" type="submit">Subscribe</button>
         </form>
       </div>
     </div>

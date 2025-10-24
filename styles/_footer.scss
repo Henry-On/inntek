@@ -1,6 +1,7 @@
 
 .footer {
-    border-top: 1px solid var(--primary);
+    border-top: 1px solid var(--border);
+    background-color: white;
 
     .content {
         padding-bottom: 1.2rem;
@@ -135,10 +136,12 @@
         }
     }
 
-    .bbtn {
+    .btn-newsletter {
         border: none;
         padding-top: 12px;
         padding-bottom: 12px;
+        border-radius: 4px;
+        background-color: var(--secondary);
     }
 }
 

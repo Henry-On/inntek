@@ -1,17 +1,23 @@
 "use client"
 import React from 'react'
-
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { usePathname } from "next/navigation"
 
 function Hamburger() {
 
-    let menuWrapper = null;
+    const pathname = usePathname()
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(prev=>!prev)
-        menuWrapper = document.querySelector(".wrapper-nav").classList.toggle("visible")
+        document.querySelector(".wrapper-nav").classList.toggle("visible")
     }
+
+    useEffect(()=> {
+        setMenuOpen(false)
+        const menu = document.querySelector(".wrapper-nav")
+    if (menu) menu.classList.remove("visible")
+    }, [pathname])
 
     return (
         <div aria-hidden="true" className={`menu-hamburger ${menuOpen ? "clicked" : ""} d-lg-none`} onClick={toggleMenu} >

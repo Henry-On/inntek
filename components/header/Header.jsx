@@ -10,13 +10,13 @@ const Header = () => {
         </div>
         <div className='menu-group'>
           <nav className="wrapper-nav" >
-            <Link className="nav-link" href="#">Home</Link>
-            <Link className="nav-link" href="#">About Us</Link>
-            <Link className="nav-link" href="#">Our Services</Link>
-            <Link className="nav-link" href="#">Contact Us</Link>
+            <Link className="nav-link" href="/">Home</Link>
+            <Link className="nav-link" href="/about-us">About Us</Link>
+            <Link className="nav-link" href="/our-services">Our Services</Link>
+            <Link className="nav-link" href="/contact-us">Contact Us</Link>
             <Link className="nav-link header-action" href="#">Our Products</Link>
           </nav>
-          <Link className="nav-link header-action d-lg-none" href="/">Our Products</Link>
+          <Link className="nav-link header-action d-lg-none" href="/">Products</Link>
           <Hamburger/>
         </div>
     </div>

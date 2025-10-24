@@ -1,13 +1,8 @@
-import { Hero } from '@/components/home/Hero'
+import Home from './home/page'
 import React from 'react'
 
-const Home = () => {
-    return (
-        <div>
-            <Hero />
-            <div>Home Page Section</div>
-        </div>
-    )
+const Index = () => {
+    return <Home />
 }
 
-export default Home
+export default Index
