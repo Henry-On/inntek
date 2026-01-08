@@ -1,30 +1,29 @@
-$base: "../public/fonts/";
 
 @font-face {
     font-family: "proxima-nova";
-    src: url(../public/fonts/proxima_font/bold.otf);
+    src: url(../../public/fonts/proxima_font/bold.otf);
     font-weight: 400;
 }
 
 @font-face {
     font-family: "proxima-nova";
-    src: url(../public/fonts/proxima_font/regular.otf);
+    src: url(../../public/fonts/proxima_font/regular.otf);
     font-weight: 400;
 }
 
 @font-face {
     font-family: "proxima-nova";
-    src: url(../public/fonts/proxima_font/thin.otf);
+    src: url(../../public/fonts/proxima_font/thin.otf);
     font-weight: 200;
 }
 
 @font-face {
     font-family: "syne";
-    src: url(../public/fonts/Syne-VariableFont_wght.ttf);
+    src: url(../../public/fonts/Syne-VariableFont_wght.ttf);
     font-weight: 400;
 }
 @font-face {
     font-family: "syne";
-    src: url(../public/fonts/Syne-VariableFont_wght.ttf);
+    src: url(../../public/fonts/Syne-VariableFont_wght.ttf);
     font-weight: 700;
 }

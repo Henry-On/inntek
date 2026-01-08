@@ -14,7 +14,7 @@ const Newsletter = () => {
   
   return (
     <div className="footer-newsletter">
-      <div className="content">
+      <div className="content content-inner">
         <h3 className="font-heading text-white">Get updates on new services, offers, and tech insights</h3>
         <form name="form" onSubmit={submitForm}>
           <div className="fa-pseudo wrapper-input">

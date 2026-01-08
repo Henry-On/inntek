@@ -42,7 +42,7 @@ function Footer() {
       </div>
       <Newsletter />
       <div className='footer-bottom'>
-        <div className='content'>
+        <div className='content content-inner'>
           <div className='wrapper-groups'>
             <div className='group'>
               <span className="caption">Contact Info</span>
@@ -77,7 +77,7 @@ function Footer() {
         </div>
       </div>
       <div className='footer-attribution'>
-        <div className='content'>
+        <div className='content content-inner'>
           <span className='year'>&Copy; Twenty Twenty Five</span>
           <span>Let's build the future, together</span>
         </div>

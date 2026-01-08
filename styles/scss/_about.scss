@@ -1,13 +1,5 @@
-@mixin section-title {
-    font-size: 18px;
-    font-family: var(--font-heading);
-    font-weight: bold;
-    color: black
-}
-
-.section-title {
-    @include section-title;
-}
+@use "./variables" as *;
+@use "./mixins" as *;
 
 .about {
 

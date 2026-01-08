@@ -1,9 +1,11 @@
+@use "./variables" as *;
+@use "./mixins" as *;
 
 .footer {
     border-top: 1px solid var(--border);
     background-color: white;
 
-    .content {
+    .content.content-inner {
         padding-bottom: 1.2rem;
         padding-top: 1.2rem;
     }
@@ -57,11 +59,9 @@
 
 
     .column-title {
-        opacity: .5;
+        color: var(--text-accent);
         display: inline-block;
         margin-bottom: .5rem;
-        // text-decoration: underline;
-        font-weight: lighter;
     }
 
     ul > li {

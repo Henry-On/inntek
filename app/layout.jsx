@@ -1,6 +1,6 @@
 import '@/public/bootstrap/css/bootstrap.min.css';
 import '@/public/fontawesome5/css/fontawesome.min.css';
-import "@/styles/stylesheet.scss"
+import "@/styles/scss/stylesheet.scss"
 import Header from "@/components/header/Header"
 import Footer from "@/components/footer/Footer"
 import BootstrapClient from '@/components/BootstrapClient'

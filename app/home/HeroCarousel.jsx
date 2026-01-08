@@ -1,16 +1,38 @@
 import React from 'react'
 import Link from "next/link"
-import Hamburger from './Hamburger'
 
-const HeroCarousel = ({title, text, }) => {
+const HeroCarousel = ({ title, text, }) => {
   return (
-    <div className="carousel">
-        <img src="/images/logo.png" alt="logo"/>
-        <div className='menu-group'>
-            <h2>{title}</h2>
-            <p>{text}</p>
-          <Link className="nav-link header-action d-lg-none" href="/">Our Products</Link>
+    <div className="hero-carousel">
+      <img className='hero-portrait' src="/images/portrait-hero.png" alt="logo" />
+      <div className='menu-group'>
+        <h2 className='section-title text-white'>{title}</h2>
+        <p>{text}</p>
+        <Link className="ibtn" href="/">Our Products</Link>
+      </div>
+
+      <div className="carousel-controls">
+        <div className="slide-names">
+          <SlideName name="Innovation" />
+          <SlideName name="Testimonies" state='current'/>
+          <SlideName name="Intellectual" />
         </div>
+        <span className="slide-button left">
+          <i class="fa fa-caret-left"></i>
+        </span>
+        <span className="slide-button right">
+          <i class="fa fa-caret-right"></i>
+        </span>
+      </div>
+    </div>
+  )
+}
+
+const SlideName = ({ name, state }) => {
+  return (
+    <div className={`slide-name ${state}`}>
+      <span className='name'>{name}</span>
+      <div className="progress-bar"></div>
     </div>
   )
 }

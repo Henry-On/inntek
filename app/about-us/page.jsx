@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ServiceCardA } from '@/components/cards'
 import React from 'react'
 import { ButtonLink } from '@/components/buttons'
+import { SectionTitle } from '../home/page'
 
 const About = () => {
     return (
@@ -17,7 +18,7 @@ const About = () => {
             />
             <div className='about__introduction'>
                 <div className='content introduction_content'>
-                    <h3 className='itext-primary fw-lighter'>Indigeneous I.T Company</h3>
+                    <h3 className='itext-primary fw-lighter small'>Indigeneous I.T Company</h3>
                     <h1 className='font-heading fw-bold title'>Innovation Radii</h1>
                     <p>INN RADII is a home-grown IT leader committed to empowering organizations in today’s digital age. Well known for delivering end-to-end solutions that drive efficiency, innovation, and sustainable growth across multiple industries.</p>
                     <img src="/images/illustration-building.png" alt="" width={100} />
@@ -52,7 +53,7 @@ const About = () => {
                     <div className="text-content">
                         <div className="content">
                             <div>
-                                <p className='itext-primary'>Our Team / Services</p>
+                                <p className='itext-primary small'>Our Team / Services</p>
                                 <SectionTitle title="How We Are Different" className="text-white mb-4" />
                             </div>
                             <ul className='qualities-list'>
@@ -110,12 +111,6 @@ const Story = ({ imageName, title, children, className }) => {
                 </div>
             </div>
         </div>
-    )
-}
-
-const SectionTitle = ({ title, Tag = "span", className, ...props }) => {
-    return (
-        <Tag className={`section-title ${className}`} {...props} >{title}</Tag>
     )
 }
 
