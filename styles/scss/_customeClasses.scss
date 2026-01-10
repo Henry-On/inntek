@@ -90,6 +90,15 @@
     @include section-title;
 }
 
+.hide-x-scrollbar {
+  overflow-x: scroll;
+}
+
+.hide-x-scrollbar::-webkit-scrollbar {
+  height: 0;
+}
+
+
 .card {
     padding: 24px;
     @include flex-column;
@@ -132,8 +141,10 @@
             height: 50px;
             border-radius: 50%;
             background-color: #ed8c182e;
+            background-color: #464224db;
             display: flex;
             justify-content: center;
+            border-bottom: 1px solid var(--primary);
         }
 
         img {
@@ -189,8 +200,9 @@
     max-width: 567px;
     margin: auto;
 }
-
+.text-light {
+    color: var(--text-light);
+}
 .text-white {
-    color: var(--text-white) !important;
-    color: rgb(222, 222, 222);
+    color: white;
 }

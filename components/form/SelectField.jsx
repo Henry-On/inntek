@@ -18,7 +18,7 @@ function SelectField({
                 <option value={def?.value ?? ""}>{def?.name ?? "Options..."}</option>
                 {
                     data?.map((e) => (
-                        <option value={e.value}>{e.name}</option>
+                        <option key={e.value} value={e.value}>{e.name}</option>
                     ))
                 }
             </select>

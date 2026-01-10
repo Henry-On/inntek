@@ -5,7 +5,7 @@ import { ServiceCardB } from '@/components/cards'
 import Card_A from "@/components/cards/Card_A"
 import { ButtonLink } from '@/components/buttons'
 import IndustryList from './IndustryList'
-import bgImg1 from "@/public/images/hero-background.png"
+import bgImg1 from "@/public/images/hero-background-2.png"
 import Testimonials from '@/components/testimonial/Testimonials'
 import InputField from '@/components/form/InputField'
 import TextareaField from '@/components/form/TextareaField'
@@ -17,16 +17,16 @@ import HeroCarousel from './HeroCarousel'
 const Home = () => {
 
   const contactFormSubjects = [
-    {value:"Enquiry", name:"Make Enquiries"},
-    {value:"Get Quote", name:"Get quote for a service"},
-    {value:"Complaint", name:"Submit a complain(s) to our support team"},
-    {value:"Others", name:"Others"},
+    { value: "Enquiry", name: "Make Enquiries" },
+    { value: "Get Quote", name: "Get quote for a service" },
+    { value: "Complaint", name: "Submit a complain(s) to our support team" },
+    { value: "Others", name: "Others" },
   ]
 
   return (
     <>
       <HeroContainer>
-        <HeroCarousel 
+        <HeroCarousel
           title="Robust IT Solutions"
           text="We deliver solutions that are tested, proven and continually evolving. Our commitment to excellence ensures that every service meets the highest standards - today and in the future"
         />
@@ -55,10 +55,10 @@ const Home = () => {
       <div className="industries">
         <div className="content">
           <div className="image-container">
-            <Image src={bgImg1} alt='' fill style={{ objectFit: "contain" }} />
+            <Image src={bgImg1} alt='' fill style={{ objectFit: "cover" }} />
           </div>
           <div className='content-text'>
-            <div >
+            <div className='text-white' >
               <span className='small bg-pry text-white'>Ideas Meet Innovation</span>
               <h3 className='section-title item-heading'>We Serve Your Industry</h3>
               We are fully committed to delivering high-quality, innovative tech solutions that simplify business operations across every industry.
@@ -98,32 +98,34 @@ const Home = () => {
         <div className="content">
           <div className='text-center'>
             <span className='small itext-primary'>End-to-End</span>
-            <h2 className='section-title'>Tech Solutions for Startups</h2>
+            <h2 className='section-title'>Solutions for Startups</h2>
             From Idea to launch - we build, scale, and support your product every step of the way
           </div>
-          <div className='wrapper-cards'>
-            <ServiceCardB title="Idea and Strategy" description="Workshop sessions, business analysis, brand identity designs, wireframes, MVP planning" imageName="st-light.svg"
-            />
-            <ServiceCardB title="Idea and Development" description="we design intuitive interfaces and build scalable web and mobile apps using the right stack" imageName="st-tools.svg" />
-            <ServiceCardB title="Launch and Scale" description="Deployment, user testing, feedback cycles, support & maintenance, feature upgrades" imageName="st-rocket.svg" />
-          </div>
-          <div className='get-started' >
-            <p>
-              <strong className='fw-bold'>Ready to Launch Your Startup?</strong><br />
-              Whether you're just validating your concept or ready for MVP development, we’ll walk the journey with you. Let’s work together to turn your vision into a scalable digital product
-            </p>
-            <ul className='service-list'>
-              <li>Startup websites</li>
-              <li>Admin Dashboards</li>
-              <li>MVP Development</li>
-              <li>LAN solutions</li>
-              <li>Payment Integration</li>
-              <li>App Launch Support</li>
-              <li>Landing Pages</li>
-              <li>Analytics and tracking</li>
-              <li>Meeting Room Setup</li>
-            </ul>
-            <ButtonLink text="Get Started" href="./contact-us" className="ibtn-primary" style={{ alignSelf: "center" }} />
+          <div style={{padding:"16px", backgroundColor:"#46422478"}}>
+            <div className='wrapper-cards'>
+              <ServiceCardB title="Idea and Strategy" description="Workshop sessions, business analysis, brand identity designs, wireframes, MVP planning" imageName="st-light.svg"
+              />
+              <ServiceCardB title="Idea and Development" description="we design intuitive interfaces and build scalable web and mobile apps using the right stack" imageName="st-tools.svg" />
+              <ServiceCardB title="Launch and Scale" description="Deployment, user testing, feedback cycles, support & maintenance, feature upgrades" imageName="st-rocket.svg" />
+            </div>
+            <div className='get-started' >
+              <p>
+                <strong className='fw-bold text-white'>Ready to Launch Your Startup?</strong><br />
+                Whether you're just validating your concept or ready for MVP development, we’ll walk the journey with you.
+              </p>
+              <ul className='service-list d-none'>
+                <li>Startup websites</li>
+                <li>Admin Dashboards</li>
+                <li>MVP Development</li>
+                <li>LAN solutions</li>
+                <li>Payment Integration</li>
+                <li>App Launch Support</li>
+                <li>Landing Pages</li>
+                <li>Analytics and tracking</li>
+                <li>Meeting Room Setup</li>
+              </ul>
+              <ButtonLink text="Get Started" href="./contact-us" className="ibtn-primary" style={{ alignSelf: "center"}} />
+            </div>
           </div>
         </div>
       </div>
@@ -132,7 +134,7 @@ const Home = () => {
         <div className="content">
           <div className='container-title text-center'>
             <h3 className='section-title text-white pseudo-underline'>Cutting-edge Solutions</h3>
-            <p>Our teams are committed to delivering enduring, quality technology solutions. We provide a wide range of cutting-edge tech services—whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance. Every solution is designed to fit your goals and scale with your business</p>
+            <p>We provide wide range of cutting-edge tech services—whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance. Every solution is designed to fit your goals and scale with your business</p>
           </div>
           <div className="container-service-cards">
             <Card_A
@@ -175,37 +177,41 @@ const Home = () => {
             <h3 className='section-title mb-3 pseudo-underline'>Our Development Process</h3>
             <p>As a team, We ensure to follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
           </div>
-          <ul className="container-toggles">
-            <li className='procedure-toggle'>
+          <ul className="container-toggles hide-x-scrollbar">
+            <li className='procedure-toggle active' data-process="1">
               <span className='stage-count'>1</span>
               Discovery and Definition
             </li>
-            <li className='procedure-toggle active'>
+            <li className='procedure-toggle' data-process="2">
               <span className='stage-count'>2</span>
               Planning
             </li>
-            <li className='procedure-toggle'>
+            <li className='procedure-toggle' data-process="3">
               <span className='stage-count'>3</span>
               Building
             </li>
-            <li className='procedure-toggle'>
+            <li className='procedure-toggle' data-process="4">
               <span className='stage-count'>4</span>
               Deployment
             </li>
           </ul>
-          <ul className='card'>
-            <li>
+          <ul className='container-stages hide-x-scrollbar'>
+            <li className="procedure-stage active" data-process='1'>
+              <h2 className='section-title '>Understanding of the problem</h2>
               Understanding your needs is our first step toward building the right solution
               We study the existing challenges, evaluate current processes, and identify bottlenecks to define the right digital approach.
             </li>
-            <li>
+            <li className="procedure-stage" >
+              <h2 className='section-title'>Solution Planning</h2>
               At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices.
             </li>
-            <li>
+            <li className="procedure-stage" >
+              <h2 className='section-title'>Solution Implementation</h2>
               Based on insights, we design a practical, scalable solution aligned with your business goals and user expectations.
               At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices.
             </li>
-            <li>
+            <li className="procedure-stage" >
+              <h2 className='section-title'>Project / Product Delivery</h2>
               We test, refine, and deliver a polished product, followed by ongoing support, feedback integration, and system monitoring.
             </li>
           </ul>

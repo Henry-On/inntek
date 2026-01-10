@@ -7,12 +7,12 @@ import Newsletter from './Newsletter'
 function Footer() {
   return (
     <div className="footer" >
-      <div className='footer-top'>
-        <div className='content'>
+      <div className="content">
+        <div className='footer-top'>
           <div className='wrapper-columns'>
             <div className='column'>
               <div className="brand-logo">
-                <img src="/images/logo-footer.png" alt="brand-logo"  />
+                <img src="/images/logo-footer.png" alt="brand-logo" />
               </div>
               Trusted by businesses to deliver reliable, innovative tech solutions with integrity, professionalism, and a focus on results
             </div>
@@ -39,46 +39,58 @@ function Footer() {
             </div>
           </div>
         </div>
-      </div>
-      <Newsletter />
-      <div className='footer-bottom'>
-        <div className='content content-inner'>
-          <div className='wrapper-groups'>
-            <div className='group'>
-              <span className="caption">Contact Info</span>
-              <ul className='has-icon'>
-                <li><i className="fab fa-whatsapp"></i>+(234) 9029198353</li>
-                <li><i className="fa fa-phone-alt"></i> +(234)0 8144447196</li>
-                <li><i className="fa fa-envelope-open"></i> services@inntek.ng</li>
-              </ul>
-            </div>
-            <div className='group'>
-              <span className="caption">Useful Links</span>
-              <ul>
-                <li>Read Our Blog</li>
-                <li>Frequently Asked Questions</li>
-                <li>Partner with Us</li>
-                <li>Careers</li>
-              </ul>
-            </div>
-            <div className="group">
-              <span className="caption">Like Us on Facebook</span>
-              <FacebookPageClient />
-            </div>
-            <div className='group'>
-              <span className="caption">Connect with Us</span>
-              <ul className='has-icon'>
-                <li><i className="fab fa-twitter"></i> @innTekLTD</li>
-                <li><i className="fab fa-instagram"></i> InnTek_connect</li>
-                <li><i className="fab fa-linkedin-in"></i> InnTek Services</li>
-              </ul>
-            </div>
+        <Newsletter />
+        <div className='wrapper-groups'>
+          <div className='group'>
+            {/* <span className="caption">Useful Links</span> */}
+            <ul>
+              <li>Read Our Blog</li>
+              <li>Frequently Asked Questions</li>
+              <li>Partner with Us</li>
+              <li>Careers</li>
+            </ul>
+          </div>
+          <div className="group">
+            <span className="caption">Like Us on Facebook</span>
+            <FacebookPageClient />
+          </div>
+          <div className='group'>
+            <span className="caption">Connect with Us</span>
+            <ul className='social-media-links'>
+              <li><a href="#" className="fab fa-twitter"></a></li>
+              <li><a href="#" className="fab fa-instagram"></a></li>
+              <li><a href="#" className="fab fa-linkedin-in"></a></li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div className='footer-attribution'>
-        <div className='content content-inner'>
-          <span className='year'>&Copy; Twenty Twenty Five</span>
+        <div className='contact-info'>
+          {/* <span className="caption">Contact Info</span> */}
+          <ul className=''>
+            <li className='contact-item'>
+              <i className="fab fa-whatsapp"></i>
+              <ul>
+                <li className='field-name'>WhatsApp</li>
+                <li className='text-black'>+ (234)0 9029198353</li>
+              </ul>
+            </li>
+            <li className='contact-item'>
+              <i className="fa fa-phone-alt"></i>
+              <ul>
+                <li className='field-name'>Phone</li>
+                <li className='text-black'>+ (234)0 8144447196</li>
+              </ul>
+            </li>
+            <li className='contact-item'>
+              <i className="fa fa-envelope-open"></i>
+              <ul>
+                <li className='field-name'>Email Address</li>
+                <li className='text-black'>services@inntek.ng</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div className='footer-attribution'>
+          <span className='year'>&copy; Twenty Twenty Six</span>
           <span>Let's build the future, together</span>
         </div>
       </div>

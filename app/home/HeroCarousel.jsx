@@ -18,10 +18,10 @@ const HeroCarousel = ({ title, text, }) => {
           <SlideName name="Intellectual" />
         </div>
         <span className="slide-button left">
-          <i class="fa fa-caret-left"></i>
+          <i className="fa fa-caret-left"></i>
         </span>
         <span className="slide-button right">
-          <i class="fa fa-caret-right"></i>
+          <i className="fa fa-caret-right"></i>
         </span>
       </div>
     </div>

@@ -8,7 +8,7 @@ const Testimonials = () => {
           <h3 className='section-title'>What People think of Us</h3>
           We value our customers, and being customer centric has not failed us in any way. Some of our clients has some nice things to say about us
         </div>
-        <div className='wrapper-testimonies'>
+        <div className='wrapper-testimonies hide-x-scrollbar'>
           <UserTestimony
             name="Peter Osagie"
             comment="centric has not failed us in any way. Some of our clients has some nice things"

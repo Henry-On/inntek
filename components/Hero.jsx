@@ -4,7 +4,6 @@ import Image from 'next/image'
 export const Hero = ({ breadCrumb, title, description, button, image, alignImage = "left", ...props }) => {
   return (
     <div className="hero" >
-      <div className={`content hero__content`}>
         {alignImage == "left" &&
           <>
             <div className="width-placeholder"></div>
@@ -23,7 +22,6 @@ export const Hero = ({ breadCrumb, title, description, button, image, alignImage
             <div className="image-container to-right">{image}</div>
           </>
         }
-      </div>
     </div>
   )
 }

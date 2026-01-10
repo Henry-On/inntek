@@ -4,18 +4,21 @@ import { ServiceCardA } from '@/components/cards'
 import React from 'react'
 import { ButtonLink } from '@/components/buttons'
 import { SectionTitle } from '../home/page'
+import HeroContainer from '@/components/HeroContainer'
 
 const About = () => {
     return (
         <div className='about'>
-            <Hero
-                image={<Image className='hero-image' src="/images/portrait-hero.png" alt='hero-man-holding-laptop' width={300} height={500} style={{ width: "auto", height: "100%" }} />}
-                breadCrumb="/ about-us"
-                title="Empowering Growth Through Smart Technology"
-                description="At INN RADII, we harness automation, data insights, and seamless connectivity to streamline your operations, elevate decision-making, and tackle today’s toughest challenges"
-                button={<a href="" className='ibtn'>Read More</a>}
-            // alignImage='right'
-            />
+            <HeroContainer>
+                <Hero
+                    image={<Image className='hero-image' src="/images/portrait-hero.png" alt='hero-man-holding-laptop' width={300} height={500} style={{ width: "auto", height: "100%" }} />}
+                    breadCrumb="/ about-us"
+                    title="Empowering Growth Through Smart Technology"
+                    description="At INN RADII, we harness automation, data insights, and seamless connectivity to streamline your operations, elevate decision-making, and tackle today’s toughest challenges"
+                    button={<a href="" className='ibtn'>Read More</a>}
+                // alignImage='right'
+                />
+            </HeroContainer>
             <div className='about__introduction'>
                 <div className='content introduction_content'>
                     <h3 className='itext-primary fw-lighter small'>Indigeneous I.T Company</h3>
@@ -31,9 +34,21 @@ const About = () => {
                         We have clearly defined principles and standards that guide every solution we deliver. This is how we ensure consistency, and quality outcomes every time.
                     </div>
                     <div className="core-columns">
-                        <CorePrinciple title="values" description="We value core principles of operation, building an agile, tech forward environment that enables organizations to thrive,  eliminating inefficiencies and  redundant procedures" imageName="core-values.svg" />
-                        <CorePrinciple title="Mission" description="To deliver transformative, user-focused tech products and services that are reliable, user-focused, enhance everyday life, and drive sustainable digital growth" imageName="core-mission.svg" isActive={true} />
-                        <CorePrinciple title="Commitment" description="We’re fueled by innovation, committed to continuous improvement, creative thinking, and pushing boundaries to build impactful solutions and exceed expectations" imageName="core-diamond.svg" />
+                        <CorePrinciple
+                            title="values"
+                            description="We value core principles of operation, building an agile, tech forward environment that enables organizations to thrive,  eliminating inefficiencies and  redundant procedures"
+                            imageName="core-values.svg"
+                        />
+                        <CorePrinciple
+                            title="Mission"
+                            description="To deliver transformative, user-focused tech products and services that are reliable, user-focused, enhance everyday life, and drive sustainable digital growth" imageName="core-mission.svg"
+                            isActive={true}
+                        />
+                        <CorePrinciple
+                            title="Commitment"
+                            description="We’re fueled by innovation, committed to continuous improvement, creative thinking, and pushing boundaries to build impactful solutions and exceed expectations"
+                            imageName="core-diamond.svg"
+                        />
                     </div>
                 </div>
             </div>
@@ -90,7 +105,7 @@ const About = () => {
             <div className="book-appointment">
                 <div className="content">
                     <p className='text'>Ready to Innovate? Let’s discuss how we can accelerate your digital transformation</p>
-                    <ButtonLink href="./contact-us" text="Book an Appointment" style={{margin:"0 auto"}} />
+                    <ButtonLink href="./contact-us" text="Book an Appointment" style={{ margin: "0 auto" }} />
                 </div>
             </div>
         </div>
