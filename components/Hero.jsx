@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export const Hero = ({ breadCrumb, title, description, button, image, alignImage = "left", ...props }) => {
+const Hero = ({ breadCrumb, title, description, button, image, alignImage = "left", ...props }) => {
   return (
     <div className="hero" >
         {alignImage == "left" &&
@@ -25,3 +25,5 @@ export const Hero = ({ breadCrumb, title, description, button, image, alignImage
     </div>
   )
 }
+
+export default Hero

@@ -1,14 +1,13 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 @use "./cssReset";
-@use "./variables";
-@use "./mixins";
 @use "./fonts";
 @use "./customeClasses";
 @use "./header";
 @use "./home";
 @use "./footer";
 @use "./about";
+@use "./pages";
 
 * {
     transition: 0.35s;
@@ -182,39 +181,38 @@ body {
         height: 100%;
         min-width: 100%;
     }
+}
 
-    .indicators {
-        @include flex-row;
-        gap: 1rem;
+.carousel-indicators {
+    all:unset;
+    @include flex-row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    .indicator {
+        display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+        @include rounded(24px);
+        background-color: transparent;
 
-        .indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            position: relative;
-            height: 24px;
-            width: 24px;
+        &.active {
+            border: 1px solid var(--primary);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 55%;
+            height: 55%;
             border-radius: 50%;
-            background-color: transparent;
-
-            &.active {
-                border: 1px solid var(--primary);
-            }
-
-            &::before {
-                content: "";
-                position: absolute;
-                width: 55%;
-                height: 55%;
-                border-radius: 50%;
-                background-color: var(--primary);
-                display: flex;
-                align-self: center;
-                flex-shrink: 0;
-            }
+            background-color: var(--primary);
+            display: flex;
+            align-self: center;
+            flex-shrink: 0;
         }
     }
 }
@@ -256,4 +254,124 @@ form {
     }
 }
 
-.hero-carousel {}
+.card-type-3 {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+        .button-text {
+            width: 100%;
+            color: var(--primary);
+        }
+
+        img {
+            transform: scale(1.17);
+        }
+    }
+
+    .image-container {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            @include absolute-fill;
+            z-index: 1;
+        }
+    }
+
+    img {
+        min-width: 100%;
+        position: relative;
+    }
+
+    .card-text {
+        padding: 24px;
+    }
+
+    .card-title {
+        color: white;
+        padding: 16px 24px;
+        position: absolute;
+        bottom: 0;
+        font-family: var(--font-heading);
+        font-size: 1.19rem;
+        z-index: 1;
+        font-weight: 700;
+    }
+
+    .action-button {
+        all: unset;
+        @include flex-row;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        padding: 8px;
+        border-bottom: 1px solid var(--border);
+        border-radius: 4;
+        font-size: small;
+    }
+
+    .button-text {
+        display: inline-block;
+        width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: 0.35s ease-in-out;
+    }
+
+    i.fa-arrow-right {
+        color: var(--primary);
+    }
+}
+
+.card-type-4 {
+    padding: 0;
+    border: none;
+    position: relative;
+    min-height: 360px;
+    overflow: hidden;
+    color: var(--text-light);
+    border-radius: 8px;
+
+    &:hover {
+        color: white;
+
+        img {
+            transform: scale(1.125);
+        }
+
+        .card-content {
+            transform: scale(1.05);
+        }
+
+    }
+
+    img {
+        min-width: 100%;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: 0;
+    }
+
+    .card-content {
+        height: 100%;
+        padding: 24px;
+        position: relative;
+        background-color: rgba(29, 41, 67, 0.596);
+        @include flex-column;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .card-title {
+        color: white;
+        font-weight: 700;
+        font-family: var(--font-heading);
+        font-size: 1.19rem;
+    }
+}

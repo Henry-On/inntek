@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Testimonials = () => {
+const Testimonials = ({...props}) => {
   return (
-    <div className='testimonials'>
+    <div className='testimonials' {...props}>
       <div className="content">
         <div className='max-width-text text-center'>
           <h3 className='section-title'>What People think of Us</h3>
@@ -26,7 +26,7 @@ const Testimonials = () => {
           />
         </div>
 
-        <div className="indicators">
+        <div className="carousel-indicators">
           <span className="indicator"></span>
           <span className="indicator active"></span>
           <span className="indicator"></span>

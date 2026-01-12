@@ -1,4 +1,4 @@
-import { Hero } from '@/components/Hero'
+import Hero from '@/components/Hero'
 import Image from 'next/image'
 import { ServiceCardA } from '@/components/cards'
 import React from 'react'
