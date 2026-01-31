@@ -19,53 +19,126 @@
         gap: 1rem;
         align-items: center;
         margin-left: auto;
+
+        @media (min-width:$w-md) {
+            margin-right: autos;
+        }
     }
 
     .nav-link {
-        display: inline-block;
+        display: block;
         padding: 8px 24px;
         border-radius: 8px;
         color: var(--white);
         white-space: nowrap;
         transition: .35s;
-        font-family: var(--font-heading);
 
-        &.header-action {
+        &.mobile-action {
             font-weight: bold;
+            font-size: small;
             background-color: var(--primary);
             background-image: linear-gradient(180deg, transparent, rgb(26 23 3 / 28%));
 
-            @media (max-width: $w-xs) {
+            @media (min-width: $w-xs) {
                 padding: 8px 16px;
-                font-size: small;
+                font-size: inherit;
+                font-weight: normal;
             }
         }
 
         &:hover {
-            background-color: #603b0f81;
-            color: white;
+            color: var(--primary);
         }
 
         @media(min-width:$w-md) {
-            padding: 12px 32px;
+
+            &.desktop-action {
+                background-color: var(--primary);
+                background-image: linear-gradient(180deg, transparent, rgb(26 23 3 / 28%));
+
+                &:hover {
+                    background-color: #ffffff;
+                    color: var(--primary);
+                }
+            }
+        }
+
+        &.referal-referal {
+            background-color: rgba($color: #ffffff, $alpha: 0.1);
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+
+            @media (min-width:$w-md) {
+                background: initial;
+                padding: 8px 24px;
+            }
+
+            .icon {
+                font-size: 10px;
+                @include rounded(16px);
+                background-color: var(--primary);
+                margin-left: 8px;
+            }
+        }
+
+        &.has-children {
+            display: flex;
+            justify-content: space-between;
+
+            @media (min-width:$w-lg) {
+                display: none;
+            }
+
+            &::after {
+                @include fa-pseudo;
+                content: "\f0d7";
+                padding: 4px 8px;
+                font-size: 12px;
+                border-radius: 3px;
+                margin-left: 7px;
+                background-color: rgba(255, 255, 255, 0.221);
+            }
         }
     }
+
+    .children {
+        background-color: rgba(255, 255, 255, 0.221);
+        border-radius: 8px;
+        height: 0;
+        transition: 0.35s;
+        overflow: hidden;
+
+        @media (min-width:$w-md) {
+            position: absolute;
+            width: 100%;
+        }
+
+        @media (min-width:$w-lg) {
+            height: auto !important;
+            position: inherit;
+            background-color: transparent;
+            flex-direction: row;
+        }
+    }
+
 }
 
 .wrapper-nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 75vw;
+    max-width: 456px;
     bottom: 0;
-    background-color: rgb(26 23 1 / 98%);
+    background-color: rgb(12 10 0 / 98%);
     transform: translateX(-9999px);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     transition: .35s;
-    z-index: 3;
+    z-index: 10;
+    padding: 24px;
 
     &.visible {
         transform: none;
@@ -74,11 +147,30 @@
     @media (min-width:$w-md) {
         position: static;
         width: auto;
+        max-width: none;
         background-color: transparent;
         transform: none;
         flex-direction: row;
     }
 
+}
+
+.menu-title {
+    font-size: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.137);
+    text-transform: capitalize;
+
+}
+
+.pages {
+    @include flex-column;
+    flex-grow: 1;
+    justify-content: center;
+
+    @media (min-width:$w-md) {
+        flex-direction: row;
+    }
 }
 
 .menu-hamburger {
@@ -90,7 +182,7 @@
 
     &.clicked {
         z-index: 5;
-        
+
         .line-one {
             transform: rotate(-36deg);
             transform-origin: left;
@@ -98,9 +190,11 @@
             width: 15px;
             margin: 0;
         }
+
         .line-two {
             width: 30px;
         }
+
         .line-three {
             transform: rotate(36deg);
             transform-origin: left;
@@ -111,20 +205,21 @@
     }
 
     .line {
-    position: relative;
-    height: 1px;
-    width: 30px;
-    margin-left: auto;
-    background-color: var(--white);
-    transition: 0.5s;
+        position: relative;
+        height: 1px;
+        width: 30px;
+        margin-left: auto;
+        background-color: var(--white);
+        transition: 0.5s;
     }
 
     .line-two {
-    margin-top: 5px;
-    height: 2px;
-    margin-bottom: 5px;
-    width: 15px;
+        margin-top: 5px;
+        height: 2px;
+        margin-bottom: 5px;
+        width: 15px;
     }
+
     .line-three {
         width: 25px;
     }

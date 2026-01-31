@@ -15,13 +15,16 @@
     background-color: rgba(0,0,0,0.7);
 }
 
-@mixin flex-column {
+@mixin flex-column($gap: 0px) {
     display: flex;
     flex-direction: column;
+    gap:$gap
 }
-@mixin flex-row {
+
+@mixin flex-row($gap: 0px) {
     display: flex;
     flex-direction: row;
+    gap: $gap;
 }
 
 @mixin fa-pseudo {

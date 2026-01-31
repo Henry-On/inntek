@@ -1,0 +1,86 @@
+export const services = {
+    "softwareServices": [
+        {
+            "name": "Website Development",
+            "description": "We design modern, responsive website tailored to your audience, built using the best technologies with performance, security and SEO best practices at the core for maximum visibility and conversion",
+            "image": "/images/portrait-hero.png",
+            "SN":1
+        },
+        {
+            "name": "Mobile Apps Development",
+            "description": "We build high-performing mobile apps with intuitive interfaces, smooth navigation, and scalable architecture—delivering powerful user experiences that drive engagement and meet business goals.",
+            "image": "/images/portrait-hero.png",
+            "SN":2
+        },
+        {
+            "name": "Custom / Tailor Made Applications",
+            "description": "We develop bespoke software applications designed to fit your unique business needs. It does not matter whether it's a new solution or system enhancement, we ensure seamless integration, usability, and long-term flexibility.",
+            "image": "/images/techguy.png",
+            "SN":3
+        },
+        {
+            "name": "UI/UX Designs",
+            "description": "Our user interface and experience designs focus on clarity, usability, and brand consistency. We ensure your digital platforms are not just functional, but visually appealing and intuitive for every user.",
+            "image": "/images/portrait-hero.png",
+            "SN":4
+        }
+    ],
+    "networkServices": [
+        {
+            "name": "Website Development",
+            "description": "We design modern, responsive website tailored to your audience, built using the best technologies with performance, security and SEO best practices at the core for maximum visibility and conversion",
+            "image": "/images/portrait-hero.png",
+            "SN":1
+        },
+        {
+            "name": "Mobile Apps Development",
+            "description": "We build high-performing mobile apps with intuitive interfaces, smooth navigation, and scalable architecture—delivering powerful user experiences that drive engagement and meet business goals.",
+            "image": "/images/portrait-hero.png",
+            "SN":2
+        },
+        {
+            "name": "Custom / Tailor Made Applications",
+            "description": "We develop bespoke software applications designed to fit your unique business needs. It does not matter whether it's a new solution or system enhancement, we ensure seamless integration, usability, and long-term flexibility.",
+            "image": "/images/techguy.png",
+            "SN":3
+        },
+        {
+            "name": "UI/UX Designs",
+            "description": "Our user interface and experience designs focus on clarity, usability, and brand consistency. We ensure your digital platforms are not just functional, but visually appealing and intuitive for every user.",
+            "image": "/images/portrait-hero.png",
+            "SN":4
+        }
+    ],
+    "powerPlusCCTV": [
+        {
+            "name": "Inverter System Setup",
+            "description": "Utilize solar energy, a wasteless and everlasting energy source. Our service range covers the installations of solar panels, cabling and distribution of the power source across  necessary locations, taking into account all necessary specification for longer durability",
+            "SN":1
+        },
+        {
+            "name": "IP Telephony",
+            "description": "We implement IP telephony systems that support cost-effective voice communication over your data networks. We ensures reduced call costs and enhancing audio clarity and connection reliability.",
+            "SN":2
+        },
+        {
+            "name": "Meeting Room / Board Room Setup",
+            "description": "We offer boardrooms set-up and tech-driven solutions including smart screens, conferencing tools, automation controls, cameras and optimized layouts—perfect for professional meetings, presentations, and virtual collaboration.",
+            "SN":3
+        },
+        {
+            "name": "Access Control Installations and Management",
+            "description": "We provide management of access controls in an organized work environment using identity authentication methods such RFID access cards, pin codes, face recognition, finger prints ensuring safety, employee tracking and safer work place",
+            "SN":4
+        },
+        {
+            "name": "Solar Power",
+            "description": "Utilize solar energy, a wasteless and everlasting energy source. Our service range covers the installations of solar panels, cabling and distribution of the power source across  necessary locations, taking into account all necessary specification for longer durability",
+            "SN":5
+        },
+        {
+            "name": "CCTV installations",
+            "description": "Explore our Closed-circuit television (CCTV) cameras that go beyond just video surveillance and provide high-quality cost-effective results. Explore different options with us to secure your family, property and business",
+            "SN":6
+        }
+    ]
+}

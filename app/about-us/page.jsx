@@ -1,12 +1,27 @@
 import Hero from '@/components/Hero'
 import Image from 'next/image'
 import { ServiceCardA } from '@/components/cards'
+import SectionIcon from '@/components/SectionIcon'
 import React from 'react'
 import { ButtonLink } from '@/components/buttons'
 import { SectionTitle } from '../home/page'
 import HeroContainer from '@/components/HeroContainer'
+import FixedBackgroundToColumn from '../home/FixedBackgroundToColumn'
 
 const About = () => {
+
+    const DesktopColumn = () => {
+        return (
+            <>
+                <div className="container-image">
+                    <img className='hero-image' src="/images/people-users.png" alt='hero-man-holding-laptop' />
+                </div>
+                <div className="container-image xl">
+                    <img className='hero-image' src="/images/portrait-hero.png" alt='hero-man-holding-laptop' />
+                </div>
+            </>
+        )
+    }
     return (
         <div className='about'>
             <HeroContainer>
@@ -29,18 +44,19 @@ const About = () => {
             </div>
             <div className="about__cores ">
                 <div className="content text-center">
-                    <div style={{ maxWidth: "568px", margin: "auto" }}>
+                    <div className='d-none flex-column gap-1 align-items-center' style={{ maxWidth: "568px", margin: "auto" }}>
                         <h3 className='section-title'>Operation Principles</h3>
-                        We have clearly defined principles and standards that guide every solution we deliver. This is how we ensure consistency, and quality outcomes every time.
+                        <p>We have clearly defined principles and standards that guide every solution we deliver. This is how we ensure consistency, and quality outcomes every time.</p>
+                        <SectionIcon icon="fa fa-gem" />
                     </div>
                     <div className="core-columns">
                         <CorePrinciple
-                            title="values"
+                            title="Our Values"
                             description="We value core principles of operation, building an agile, tech forward environment that enables organizations to thrive,  eliminating inefficiencies and  redundant procedures"
                             imageName="core-values.svg"
                         />
                         <CorePrinciple
-                            title="Mission"
+                            title="Our Mission"
                             description="To deliver transformative, user-focused tech products and services that are reliable, user-focused, enhance everyday life, and drive sustainable digital growth" imageName="core-mission.svg"
                             isActive={true}
                         />
@@ -54,38 +70,43 @@ const About = () => {
             </div>
             <div className="about__stories">
                 <div className="content">
-                    <Story title="Growth" imageName="about-placeholder-1.png">
-                        From a small team with a bold vision, we've grown into a tech company serving multiple industries with pride. While we’ve made great strides, the journey is just beginning—and we’re just getting started
-                    </Story>
-                    <Story title="The Journey" imageName="about-placeholder-1.png" className="column-2">
-                        What began as a three-person web-design team has evolved into a multidisciplinary tech firm. Step by step, we’ve added mobile apps, networking, IoT, and renewable-energy capabilities—always guided by our commitment to lasting, high-impact solutions
-                    </Story>
-                </div>
-            </div>
-            <div className="about__why-us">
-                <div className="content">
-                    <div className="image-wrapper"></div>
-                    <div className="text-content">
-                        <div className="content">
-                            <div>
-                                <p className='itext-primary small'>Our Team / Services</p>
-                                <SectionTitle title="How We Are Different" className="text-white mb-4" />
-                            </div>
-                            <ul className='qualities-list'>
-                                <li>We are ontinuously improving and exploring new ideas to develop powerful, modern solutions</li>
-                                <li>We are customer-centric: Listening, adapting, and delivering based on your goals and feedback</li>
-                                <li>We operate transparently and with full accountability in every engagement</li>
-                                <li>Collaboration – Our best work happens through teamwork and shared insight</li>
-                                <li>We don’t cut corners; we focus on excellence in everything we build</li>
-                                <li>Agility – Ready to adapt, pivot, and grow with emerging trends and technologies.</li>
-                                <li>We value security & privacy, your data is safe with us. Always.</li>
-                            </ul>
-                            <ButtonLink href="./contact-us" text="Contact Us" icon={<i className='icon fa fa-caret-right'></i>} />
-
-                        </div>
+                    <div className='content-wrapper'>
+                        <Story
+                            title="Growth"
+                            imageName="networking.png"
+                            icon="fas fa-parachute-box"
+                        >
+                            From a small team with a bold vision, we've grown into a tech company serving multiple industries with pride. While we’ve made great strides, the journey is just beginning—and we’re just getting started
+                        </Story>
+                        <Story title="The Journey" imageName="networking-2.png" className="flex-reversed">
+                            What began as a three-person web-design team has evolved into a multidisciplinary tech firm. Step by step, we’ve added mobile apps, networking, IoT, and renewable-energy capabilities—always guided by our commitment to lasting, high-impact solutions
+                        </Story>
                     </div>
                 </div>
             </div>
+            <FixedBackgroundToColumn
+                backgroundImage="/images/hero-background.png"
+                columnImage={<DesktopColumn />}
+                className="about__why-us"
+            >
+                <div className="text-content">
+                    <div className="my-2 mt-lg-0">
+                        <p className='itext-primary small'>Our Team / Services</p>
+                        <SectionTitle title="How We Are Different" Tag='h3' />
+                    </div>
+                    <ul className='qualities-list'>
+                        <li>We are ontinuously improving and exploring new ideas to develop powerful, modern solutions</li>
+                        <li>We are customer-centric: Listening, adapting, and delivering based on your goals and feedback</li>
+                        <li>We operate transparently and with full accountability in every engagement</li>
+                        <li>Collaboration – Our best work happens through teamwork and shared insight</li>
+                        <li>We don’t cut corners; we focus on excellence in everything we build</li>
+                        <li>Agility – Ready to adapt, pivot, and grow with emerging trends and technologies.</li>
+                        <li>We value security & privacy, your data is safe with us. Always.</li>
+                    </ul>
+                    <ButtonLink href="./contact-us" text="Contact Us" icon={<i className='icon fa fa-caret-right'></i>} />
+
+                </div>
+            </FixedBackgroundToColumn>
             <div className="about__our-services">
                 <div className="content">
                     <div className="heading-caption">
@@ -103,9 +124,11 @@ const About = () => {
                 </div>
             </div>
             <div className="book-appointment">
-                <div className="content">
-                    <p className='text'>Ready to Innovate? Let’s discuss how we can accelerate your digital transformation</p>
-                    <ButtonLink href="./contact-us" text="Book an Appointment" style={{ margin: "0 auto" }} />
+                <div className="content pt-0">
+                    <div className='starter-notice'>
+                        <p className='text max-width-text'>Ready to Innovate? Let’s discuss how we can accelerate your digital transformation</p>
+                        <ButtonLink href="./contact-us" text="Book Appointment" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,9 +136,9 @@ const About = () => {
     )
 }
 
-const Story = ({ imageName, title, children, className }) => {
+const Story = ({ imageName, title, children, className, icon }) => {
     return (
-        <div className={`column ${className ? className : " "}`}>
+        <div className={`column ${className ? className : ""}`}>
             <div className="column__image-wrapper">
                 <img src={`/images/${imageName}`} alt="" />
             </div>
@@ -124,6 +147,7 @@ const Story = ({ imageName, title, children, className }) => {
                     <SectionTitle Tag="h3" className='column__title' title={title} />
                     {children}
                 </div>
+                <i className={`icon ${icon ? icon : "fa fa-arrow-right"}`}></i>
             </div>
         </div>
     )
@@ -132,9 +156,11 @@ const Story = ({ imageName, title, children, className }) => {
 const CorePrinciple = ({ title, description, imageName, isActive = false }) => {
     return (
         <div className={`column square-item ${isActive ? "active" : ""}`}>
-            <img className='column__image' src={`/images/icons/${imageName}`} alt="" />
             <h3 className='column__title'>{title}</h3>
             {description}
+            <div className="wrapper-image">
+                <img className='column__image' src={`/images/icons/${imageName}`} alt="" />
+            </div>
         </div>
     )
 }

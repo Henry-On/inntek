@@ -123,11 +123,15 @@ const Services = async () => {
         </div>
       </div>
 
-      <Testimonials style={{ backgroundColor: "white" }} />
+      <Testimonials 
+      heading="Our Customers are Happy" 
+      description="Listen what our customers have to say, don't take our for it, take theirs"
+      style={{ backgroundColor: "white" }} 
+      />
 
       <div className='service-bottom'>
         <div className="content">
-          <p>INN RADII is the preferred  partner for startups and growing companies ready to embrace the power of modern solutions. We've earned the trust of our partners, and we're ready to earn yours. Let’s build something exceptional together</p>
+          <p className='text-black'>INN RADII is the preferred  partner for startups and growing companies ready to embrace the power of modern solutions. We've earned the trust of our partners, and we're ready to earn yours. Let’s build something exceptional together</p>
           <button className='ibtn'>Request Service</button>
         </div>
         <div className="decorations">

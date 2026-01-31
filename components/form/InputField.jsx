@@ -4,6 +4,7 @@ import InputMessage from './InputMessage'
 
 function InputField({
   type = "text",
+  className,
   error,
   label,
   ...props 
@@ -11,7 +12,7 @@ function InputField({
   return (
     <div className='wrapper-input'>
       {label && <span className='input-label'>{label}</span>}
-      <input className='input-field' type={type} {...props} />
+      <input className={`input-field ${className}`} type={type} {...props} />
       <InputMessage message={error} />
     </div>
   )

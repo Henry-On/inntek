@@ -6,6 +6,7 @@ import Card_A from "@/components/cards/Card_A"
 import { ButtonLink } from '@/components/buttons'
 import IndustryList from './IndustryList'
 import bgImg1 from "@/public/images/hero-background-2.png"
+import bgImg2 from "@/public/images/persons-three.png"
 import Testimonials from '@/components/testimonial/Testimonials'
 import InputField from '@/components/form/InputField'
 import TextareaField from '@/components/form/TextareaField'
@@ -13,15 +14,37 @@ import FormElement from '@/components/form/FormElement'
 import SelectField from '@/components/form/SelectField'
 import HeroContainer from '@/components/HeroContainer'
 import HeroCarousel from './HeroCarousel'
+import SectionIcon from '@/components/SectionIcon'
+import { contactFormSubjects } from '@/storage/contactFormSubjects'
+import FixedBackgroundToColumn from './FixedBackgroundToColumn'
 
 const Home = () => {
 
-  const contactFormSubjects = [
-    { value: "Enquiry", name: "Make Enquiries" },
-    { value: "Get Quote", name: "Get quote for a service" },
-    { value: "Complaint", name: "Submit a complain(s) to our support team" },
-    { value: "Others", name: "Others" },
-  ]
+  const ProcedureState = ({ stageNumber, title, description, icon, className, ...props }) => {
+    return (
+      <li className={`procedure-stage ${className}`} data-process={stageNumber} {...props}>
+        <h2 className='title'>{title}</h2>
+        <p className='description'>{description}</p>
+        {icon}
+      </li>
+    )
+  }
+
+  const LeftContainer = () => {
+    return (
+      <div className="container-images">
+        <div className='image-wrapper'>
+          <Image src={bgImg1} alt='' fill style={{ objectFit: "cover" }} />
+        </div>
+        <div className='image-wrapper mini'>
+          <Image src={bgImg2} alt='' fill style={{ objectFit: "cover" }} />
+        </div>
+        <div className='image-wrapper'>
+          <Image src={bgImg2} alt='' fill style={{ objectFit: "cover" }} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -44,55 +67,63 @@ const Home = () => {
             </div>
           </div>
           <div className="wrapper-cards">
-            <ServiceCardB title="Web and Mobile Apps" description="Build secure, responsive web and mobile apps tailored to your brand and boost your business goals" imageName="service-globe.svg" />
-            <ServiceCardB title="Enterprise Applications" description="Designing scalable software systems to optimize business operations and enhance decision-making" imageName="service-pc.svg" />
-            <ServiceCardB title="Network Solutions" description="Delivering secure, high-speed connectivity for seamless communication across your entire organization" imageName="service-network.svg" />
-            <ServiceCardB title="Digitalization" description="Transforming manual workflows into smart, automated processes that boost efficiency and growth" imageName="service-digitalization.svg" />
+            <ServiceCardB
+              title="Software Development"
+              description="We build secure and scalable web and mobile apps, custom-made enterprise applications tailored to your brand and that optimize your business operations"
+              imageName="service-globe.svg"
+            />
+            <ServiceCardB
+              title="Network Solutions"
+              description="Delivering secure, high-speed connectivity for seamless communication across your entire organization"
+              imageName="service-network.svg"
+            />
+            <ServiceCardB
+              title="Digitalization"
+              description="Transforming manual workflows into smart, automated processes that boost efficiency and growth"
+              imageName="service-digitalization.svg"
+            />
           </div>
         </div>
       </div>
 
-      <div className="industries">
-        <div className="content">
-          <div className="image-container">
-            <Image src={bgImg1} alt='' fill style={{ objectFit: "cover" }} />
-          </div>
-          <div className='content-text'>
-            <div className='text-white' >
-              <span className='small bg-pry text-white'>Ideas Meet Innovation</span>
-              <h3 className='section-title item-heading'>We Serve Your Industry</h3>
-              We are fully committed to delivering high-quality, innovative tech solutions that simplify business operations across every industry.
-            </div>
-            <IndustryList
-              icon={<i className="fa fa-user-nurse" style={{ color: "#200659ff" }} ></i>}
-              title="Medical"
-              description="Our goal is to empower teams, streamline processes, and create a more productive environment for both employees and employers to achieve sustainable growth"
-            />
-            <IndustryList
-              icon={<i className="fa fa-hand-holding-usd" style={{ color: "#065917ff" }} ></i>}
-              title="HR and Finance"
-              description="Whether it's optimizing workflows, automating routine tasks, or implementing tailored digital solutions, we ensure our services add measurable value to your organization."
-            />
-            <IndustryList
-              icon={<i className="fa fa-network-wired" style={{ color: "#c6c300ff" }} ></i>}
-              title="IT Solutions"
-              description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-            />
-            <IndustryList
-              icon={<i className="fa fa-hashtag" style={{ color: "#a10013ff" }} ></i>}
-              title="Insfrastural setup / Installations"
-              description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-            />
-            <IndustryList
-              icon={<i className="fa fa-cog" style={{ color: "#000000ff" }} ></i>}
-              title="Manufacturing"
-              description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-            />
-
-            <ButtonLink className="ibtn-primary" text={"All Services"} href="./our-services" style={{ marginTop: "16px" }} />
-          </div>
+      <FixedBackgroundToColumn
+        className="industries"
+        backgroundImage="/images/hero-background.png"
+        columnImage={<LeftContainer />}
+      >
+        <div className='' >
+          <span className='small bg-pry text-white'>Ideas Meet Innovation</span>
+          <h3 className='section-title item-heading'>We Serve Your Industry</h3>
+          We are fully committed to delivering high-quality, innovative tech solutions that simplify business operations across every industry.
         </div>
-      </div>
+        <IndustryList
+          icon={<i className="fa fa-user-nurse" style={{ color: "#200659ff" }} ></i>}
+          title="Medical"
+          description="Our goal is to empower teams, streamline processes, and create a more productive environment for both employees and employers to achieve sustainable growth"
+        />
+        <IndustryList
+          icon={<i className="fa fa-hand-holding-usd" style={{ color: "#065917ff" }} ></i>}
+          title="HR and Finance"
+          description="Whether it's optimizing workflows, automating routine tasks, or implementing tailored digital solutions, we ensure our services add measurable value to your organization."
+        />
+        <IndustryList
+          icon={<i className="fa fa-network-wired" style={{ color: "#c6c300ff" }} ></i>}
+          title="IT Solutions"
+          description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
+        />
+        <IndustryList
+          icon={<i className="fa fa-hashtag" style={{ color: "#a10013ff" }} ></i>}
+          title="Insfrastural setup / Installations"
+          description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
+        />
+        <IndustryList
+          icon={<i className="fa fa-cog" style={{ color: "#000000ff" }} ></i>}
+          title="Manufacturing"
+          description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
+        />
+
+        <ButtonLink className="ibtn-primary" text={"All Services"} href="./our-services" style={{ marginTop: "16px" }} />
+      </FixedBackgroundToColumn>
 
       <div className="start-up">
         <div className="content">
@@ -101,7 +132,7 @@ const Home = () => {
             <h2 className='section-title'>Solutions for Startups</h2>
             From Idea to launch - we build, scale, and support your product every step of the way
           </div>
-          <div style={{padding:"16px", backgroundColor:"#46422478"}}>
+          <div className='container-background'>
             <div className='wrapper-cards'>
               <ServiceCardB title="Idea and Strategy" description="Workshop sessions, business analysis, brand identity designs, wireframes, MVP planning" imageName="st-light.svg"
               />
@@ -110,8 +141,7 @@ const Home = () => {
             </div>
             <div className='get-started' >
               <p>
-                <strong className='fw-bold text-white'>Ready to Launch Your Startup?</strong><br />
-                Whether you're just validating your concept or ready for MVP development, we’ll walk the journey with you.
+                Ready to Launch Your Startup? Whether you're just validating your concept or ready for MVP development, we’ll walk the journey with you.
               </p>
               <ul className='service-list d-none'>
                 <li>Startup websites</li>
@@ -124,7 +154,7 @@ const Home = () => {
                 <li>Analytics and tracking</li>
                 <li>Meeting Room Setup</li>
               </ul>
-              <ButtonLink text="Get Started" href="./contact-us" className="ibtn-primary" style={{ alignSelf: "center"}} />
+              <ButtonLink text="Get Started" href="./contact-us" className="ibtn-primary" style={{ alignSelf: "center" }} />
             </div>
           </div>
         </div>
@@ -134,48 +164,48 @@ const Home = () => {
         <div className="content">
           <div className='container-title text-center'>
             <h3 className='section-title text-white pseudo-underline'>Cutting-edge Solutions</h3>
-            <p>We provide wide range of cutting-edge tech services—whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance. Every solution is designed to fit your goals and scale with your business</p>
+            <p>We provide wide range of cutting-edge technical services designed to fit and scale with your business goals — whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance</p>
           </div>
           <div className="container-service-cards">
             <Card_A
               imageName="service-globe.svg"
               title="Web Design and Development"
-              description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
             />
             <Card_A
               imageName="service-globe.svg"
               title="Enterprise Application Development"
-              description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
             />
             <Card_A
               imageName="service-globe.svg"
               title="Mobile Applications Development"
-              description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
             />
             <Card_A
               imageName="service-globe.svg"
               title="Computer Networking and Engineering"
-              description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
             />
             <Card_A
               imageName="service-globe.svg"
               title="CCTV Solutions"
-              description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
             />
             <Card_A
               imageName="service-globe.svg"
               title="Solar Energy Solutions"
-              description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
             />
           </div>
         </div>
       </div>
 
-      <div className="work-procedures">
+      <div className="work-procedures" id='work-procedures'>
         <div className="content">
           <div className='max-width-text text-center'>
-            <h3 className='section-title mb-3 pseudo-underline'>Our Development Process</h3>
-            <p>As a team, We ensure to follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
+            <h3 className='section-title mb-2'>How We Work</h3>
+            <p>At Inn Radii Technologies, we follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
           </div>
           <ul className="container-toggles hide-x-scrollbar">
             <li className='procedure-toggle active' data-process="1">
@@ -196,60 +226,71 @@ const Home = () => {
             </li>
           </ul>
           <ul className='container-stages hide-x-scrollbar'>
-            <li className="procedure-stage active" data-process='1'>
-              <h2 className='section-title '>Understanding of the problem</h2>
-              Understanding your needs is our first step toward building the right solution
-              We study the existing challenges, evaluate current processes, and identify bottlenecks to define the right digital approach.
-            </li>
-            <li className="procedure-stage" >
-              <h2 className='section-title'>Solution Planning</h2>
-              At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices.
-            </li>
-            <li className="procedure-stage" >
-              <h2 className='section-title'>Solution Implementation</h2>
-              Based on insights, we design a practical, scalable solution aligned with your business goals and user expectations.
-              At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices.
-            </li>
-            <li className="procedure-stage" >
-              <h2 className='section-title'>Project / Product Delivery</h2>
-              We test, refine, and deliver a polished product, followed by ongoing support, feedback integration, and system monitoring.
-            </li>
+            <ProcedureState
+              className="active"
+              stageNumber="1"
+              title="Understanding of the problem"
+              description="Understanding your needs is our first step toward building the right solution
+              We study the existing challenges, evaluate current processes, and identify bottlenecks to define the right digital approach"
+              icon={<i className='icon fas fa-lightbulb' aria-hidden="true" style={{ color: "#ffd000" }}></i>}
+            />
+            <ProcedureState
+              stageNumber="2"
+              title="Solution Planning"
+              description="At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices."
+              icon={<i className='icon fas fa-ruler-combined' aria-hidden="true" style={{ color: "violet" }}></i>}
+            />
+            <ProcedureState
+              stageNumber="3"
+              title="Solution Implementation"
+              description="Based on insights, we design a practical, scalable solution aligned with your business goals and user expectations.
+              At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices."
+              icon={<i className='icon fas fa-tools' aria-hidden="true" style={{ color: "#00a927" }}></i>}
+            />
+            <ProcedureState
+              stageNumber="4"
+              title="Project / Product Delivery"
+              description="We test, refine, and deliver a polished product, followed by ongoing support, feedback integration, and system monitoring."
+              icon={<i className='icon fas fa-hands-helping' aria-hidden="true" style={{ color: "#a90052" }}></i>}
+            />
           </ul>
         </div>
       </div>
 
       <div className="why-us">
         <div className="content pt-0 pb-3">
-          <div className='max-width-text text-center'>
+          <div className='max-width-text text-center d-flex flex-column gap-1 align-items-center'>
+            <SectionIcon
+              icon="fa fa-gem"
+              style={{ color: "#efd600", backgroundColor: "#ffffff" }}
+            />
             <h2 className='section-title'>Why Choose Us</h2>
             Our commitment to you is beyond just technology. See why we are exceptional
           </div>
         </div>
         <div className="background-container">
           <div className="content position-relative">
-            {/* <div className=''> */}
             <img src="/images/portrait-hero.png" alt="smiley" className='png-desktop' />
-            {/* </div> */}
             <div className="container-cards">
               <Card_A
                 imageName="service-globe.svg"
                 title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
               />
               <Card_A
                 imageName="service-globe.svg"
                 title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
               />
               <Card_A
                 imageName="service-globe.svg"
                 title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
               />
               <Card_A
                 imageName="service-globe.svg"
                 title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
               />
             </div>
           </div>
