@@ -150,26 +150,9 @@ body {
         margin: auto;
     }
 
-    .wrapper-testimonies {
-        overflow: unsets;
-        @include flex-row;
-        align-items: center;
-        transition: transform 0.35s ease;
-        will-change: transform;
-
-        @media(min-width:$w-md) {
-            justify-content: center;
-        }
-    }
-
     .item-container {
         padding: 12px;
         flex-shrink: 0;
-        width: 75%;
-
-        @media(min-width:$w-md) {
-            width: 30%;
-        }
     }
 
     .card {
@@ -178,15 +161,35 @@ body {
 
     .user-rating {
         font-size: 16px;
-        color: gray;
+        color: rgb(238, 206, 1);
+        position: relative;
+
+        &::after {
+            // content: "";
+            font-size: small;
+            color: var(--text-accent);
+            @include rounded(18px);
+            background-color: rgba(0, 0, 0, 0.281);
+            position: absolute;
+            left: -5px;
+            bottom: -5px;
+            z-index: 0;
+
+        }
     }
 
     .user-comment {
         color: var(--text-accent);
+        padding-left: 1.25rem;
+        margin-top: -26px;
+
+        @media (min-width:$w-md) {
+            padding-left: 1.7rem;
+        }
     }
 
     .user {
-        @include flex-row();
+        @include flex-row(0.75rem);
         align-items: center;
     }
 
@@ -204,29 +207,32 @@ body {
         display: block;
         height: 100%;
         min-width: 100%;
+        filter: grayscale(1);
+    }
+
+    .swiper-pagination {
+        position: relative !important;
+        margin-top: 1rem;
     }
 }
 
-.carousel-indicators {
+.carousel-indicators, .swiper-pagination {
     all: unset;
-    @include flex-row;
-    gap: 1rem;
+    @include flex-row(0.5rem);
     align-items: center;
     justify-content: center;
 
-    .indicator {
+    .indicator, .swiper-pagination-bullet {
+        all:unset;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
         position: relative;
-        @include rounded(24px);
+        @include rounded(20px);
         background-color: transparent;
         transition: all 0.35s ease;
-
-        &.active {
-            border: 1px solid var(--primary);
-        }
+        border: 1px solid transparent;
 
         &::before {
             content: "";
@@ -239,6 +245,9 @@ body {
             align-self: center;
             flex-shrink: 0;
         }
+    }
+    .swiper-pagination-bullet-active{
+        border: 1px solid var(--primary);
     }
 }
 

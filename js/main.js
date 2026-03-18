@@ -54,99 +54,55 @@ if (document.querySelectorAll('.nav-link.has-children')) {
     })
   })
 }
-if (document.querySelector('.wrapper-testimonies')) {
-  const track = document.querySelector('.wrapper-testimonies');
-  const viewport = document.querySelector('.viewport');
-  const dotsContainer = document.querySelector('.carousel-indicators');
 
-  let realSlides = Array.from(track.children);
-  const realCount = realSlides.length;
+// home page hero carousel
+const carousel = document.querySelector('.hero-carousel')
+if (carousel) {
 
-  // Number of visible context slides needed on each side
-  const BUFFER = 3;
+  const slides = carousel.querySelectorAll('.carousel-item')
+  const slideNames = carousel.querySelectorAll('.slide-name')
 
-  // --- CLONE ---
-  const headClones = realSlides.slice(-BUFFER).map(n => n.cloneNode(true));
-  const tailClones = realSlides.slice(0, BUFFER).map(n => n.cloneNode(true));
+  const slideInterval = 5000; // 5 seconds
 
-  headClones.forEach(n => track.prepend(n));
-  tailClones.forEach(n => track.append(n));
+  // attach click event to slide names  
+  slideNames.forEach((slideName, index) => {
+    slideName.addEventListener('click', () => {
+      goToSlide(index)
+    })
+  })
 
-  let slides = Array.from(track.children);
+  // function to go to a specific slide
+  const goToSlide = (index) => {
+    slides.forEach((slide, i) => {
+      // add active class to the current slide and remove from others
+      slide.classList.toggle('active', i === index)
 
-  // Logical index (real slide index)
-  let index = 0;
-
-  // Physical index (offset by buffer)
-  let physicalIndex = BUFFER;
-
-  // --- DOTS ---
-  for (let i = 0; i < realCount; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'indicator';
-    dot.addEventListener('click', () => {
-      index = i;
-      physicalIndex = i + BUFFER;
-      update();
-    });
-    dotsContainer.appendChild(dot);
+      // add active class to the current slide name and remove from others
+      slideNames[i].classList.toggle('active', i === index)
+    })
   }
 
-  const dots = Array.from(dotsContainer.children);
-
-  // --- HELPERS ---
-  function cardWidth() {
-    return slides[0].getBoundingClientRect().width;
+  // function to go to the next slide
+  const nextSlide = () => {
+    console.log("next cliked")
+    const activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'))
+    const nextIndex = (activeIndex + 1) % slides.length
+    goToSlide(nextIndex)
   }
 
-  function centerOffset() {
-    return viewport.offsetWidth / 2 - cardWidth() / 2;
+  // function to go to the previous slide
+  const prevSlide = () => {
+    console.log("prev cliked")
+    const activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'))
+    const prevIndex = (activeIndex - 1 + slides.length) % slides.length
+    goToSlide(prevIndex)
   }
 
-  // --- UPDATE ---
-  function update(animate = true) {
-    slides.forEach(s => s.classList.remove('active'));
+  // attach click event to control buttons
+  carousel.querySelector('.btn-next-slide').addEventListener('click', nextSlide)
+  carousel.querySelector('.btn-prev-slide').addEventListener('click', prevSlide)
 
-    const activeSlide = slides[physicalIndex];
-    activeSlide.classList.add('active');
-
-    dots.forEach((d, i) =>
-      d.classList.toggle('active', i === index)
-    );
-
-    if (!animate) track.style.transition = 'none';
-    else track.style.transition = 'transform 0.45s ease';
-
-    const offset =
-      physicalIndex * cardWidth() - centerOffset();
-
-    track.style.transform = `translateX(${-offset}px)`;
-  }
-
-  // --- LOOP FIX ---
-  track.addEventListener('transitionend', () => {
-    if (physicalIndex >= realCount + BUFFER) {
-      physicalIndex = BUFFER;
-      update(false);
-    }
-
-    if (physicalIndex < BUFFER) {
-      physicalIndex = realCount + BUFFER - 1;
-      update(false);
-    }
-  });
-
-  // --- AUTOPLAY ---
-  setInterval(() => {
-    index = (index + 1) % realCount;
-    physicalIndex++;
-    update();
-  }, 4000);
-
-  // --- RESIZE ---
-  window.addEventListener('resize', () => update(false));
-
-  // INIT
-  update(false);
+  // automate carousel sliding
+  setInterval(nextSlide, slideInterval)
 
 }

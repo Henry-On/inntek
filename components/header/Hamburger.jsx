@@ -9,14 +9,14 @@ function Hamburger() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
-        setMenuOpen(prev=>!prev)
+        setMenuOpen(prev => !prev)
         document.querySelector(".wrapper-nav").classList.toggle("visible")
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         setMenuOpen(false)
         const menu = document.querySelector(".wrapper-nav")
-    if (menu) menu.classList.remove("visible")
+        if (menu) menu.classList.remove("visible")
     }, [pathname])
 
     return (

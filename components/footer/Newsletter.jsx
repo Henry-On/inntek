@@ -14,7 +14,7 @@ const Newsletter = () => {
 
   return (
     <div className="footer-newsletter">
-      <h3 className="section-title text-white">Get updates on new services, offers, and tech insights</h3>
+      <h3 className="section-title text-accent">Get updates on new services, offers, and tech insights</h3>
       <form name="form" onSubmit={submitForm}>
         <div className="fa-pseudo wrapper-input">
           <input type="text" name="" id="" placeholder="Email address" />

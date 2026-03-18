@@ -1,11 +1,9 @@
-import { Hero } from '@/components/Hero'
 import React from 'react'
 import Image from 'next/image'
 import { ServiceCardB } from '@/components/cards'
 import Card_A from "@/components/cards/Card_A"
 import { ButtonLink } from '@/components/buttons'
 import IndustryList from './IndustryList'
-import bgImg1 from "@/public/images/hero-background-2.png"
 import bgImg2 from "@/public/images/persons-three.png"
 import Testimonials from '@/components/testimonial/Testimonials'
 import InputField from '@/components/form/InputField'
@@ -34,13 +32,15 @@ const Home = () => {
     return (
       <div className="container-images">
         <div className='image-wrapper'>
-          <Image src={bgImg1} alt='' fill style={{ objectFit: "cover" }} />
-        </div>
-        <div className='image-wrapper mini'>
           <Image src={bgImg2} alt='' fill style={{ objectFit: "cover" }} />
         </div>
-        <div className='image-wrapper'>
-          <Image src={bgImg2} alt='' fill style={{ objectFit: "cover" }} />
+        <SectionIcon 
+          icon="fas fa-rocket"
+          className="icon-flight"
+        />
+        <div className='text'>
+          <p className='title'>Get started today</p>
+          <p>Let us help you find the right solution for your business. Whether you're looking to implement a new system, upgrade your infrastructure, or need ongoing support, we have the expertise to guide you every step of the way.</p>
         </div>
       </div>
     )
@@ -49,10 +49,7 @@ const Home = () => {
   return (
     <>
       <HeroContainer>
-        <HeroCarousel
-          title="Robust IT Solutions"
-          text="We deliver solutions that are tested, proven and continually evolving. Our commitment to excellence ensures that every service meets the highest standards - today and in the future"
-        />
+        <HeroCarousel />
       </HeroContainer>
       <div className='solutions'>
         <div className="content">
@@ -85,45 +82,46 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      <FixedBackgroundToColumn
-        className="industries"
-        backgroundImage="/images/hero-background.png"
-        columnImage={<LeftContainer />}
-      >
-        <div className='' >
-          <span className='small bg-pry text-white'>Ideas Meet Innovation</span>
+      <div className='industries' >
+        <div className='top-container content pt-5 pb-3'>
+          <span className='small itext-primary'>Industries</span>
           <h3 className='section-title item-heading'>We Serve Your Industry</h3>
           We are fully committed to delivering high-quality, innovative tech solutions that simplify business operations across every industry.
         </div>
-        <IndustryList
-          icon={<i className="fa fa-user-nurse" style={{ color: "#200659ff" }} ></i>}
-          title="Medical"
-          description="Our goal is to empower teams, streamline processes, and create a more productive environment for both employees and employers to achieve sustainable growth"
-        />
-        <IndustryList
-          icon={<i className="fa fa-hand-holding-usd" style={{ color: "#065917ff" }} ></i>}
-          title="HR and Finance"
-          description="Whether it's optimizing workflows, automating routine tasks, or implementing tailored digital solutions, we ensure our services add measurable value to your organization."
-        />
-        <IndustryList
-          icon={<i className="fa fa-network-wired" style={{ color: "#c6c300ff" }} ></i>}
-          title="IT Solutions"
-          description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-        />
-        <IndustryList
-          icon={<i className="fa fa-hashtag" style={{ color: "#a10013ff" }} ></i>}
-          title="Insfrastural setup / Installations"
-          description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-        />
-        <IndustryList
-          icon={<i className="fa fa-cog" style={{ color: "#000000ff" }} ></i>}
-          title="Manufacturing"
-          description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-        />
 
-        <ButtonLink className="ibtn-primary" text={"All Services"} href="./our-services" style={{ marginTop: "16px" }} />
-      </FixedBackgroundToColumn>
+        <FixedBackgroundToColumn
+          // className="industries"
+          backgroundImage="/images/hero-background.png"
+          columnImage={<LeftContainer />}
+        >
+          <IndustryList
+            icon={<i className="fa fa-user-nurse" style={{ color: "#200659ff" }} ></i>}
+            title="Medical"
+            description="Our goal is to empower teams, streamline processes, and create a more productive environment for both employees and employers to achieve sustainable growth"
+          />
+          <IndustryList
+            icon={<i className="fa fa-hand-holding-usd" style={{ color: "#065917ff" }} ></i>}
+            title="HR and Finance"
+            description="Whether it's optimizing workflows, automating routine tasks, or implementing tailored digital solutions, we ensure our services add measurable value to your organization."
+          />
+          <IndustryList
+            icon={<i className="fa fa-network-wired" style={{ color: "#c6c300ff" }} ></i>}
+            title="IT Solutions"
+            description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
+          />
+          <IndustryList
+            icon={<i className="fa fa-hashtag" style={{ color: "#a10013ff" }} ></i>}
+            title="Insfrastural setup / Installations"
+            description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
+          />
+          <IndustryList
+            icon={<i className="fa fa-cog" style={{ color: "#000000ff" }} ></i>}
+            title="Manufacturing"
+            description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
+          />
+          <ButtonLink className="ibtn-primary" text="Make Enquiries" href="./our-services" style={{ marginTop: "16px" }} />
+        </FixedBackgroundToColumn>
+      </div>
 
       <div className="start-up">
         <div className="content">
@@ -143,7 +141,7 @@ const Home = () => {
               <p>
                 Ready to Launch Your Startup? Whether you're just validating your concept or ready for MVP development, we’ll walk the journey with you.
               </p>
-              <ul className='service-list d-none'>
+              <ul className='service-list dnone'>
                 <li>Startup websites</li>
                 <li>Admin Dashboards</li>
                 <li>MVP Development</li>
@@ -164,7 +162,8 @@ const Home = () => {
         <div className="content">
           <div className='container-title text-center'>
             <h3 className='section-title text-white pseudo-underline'>Cutting-edge Solutions</h3>
-            <p>We provide wide range of cutting-edge technical services designed to fit and scale with your business goals — whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance</p>
+            <p>From starting to finishing, all your tech solutions in one-piece</p>
+            {/* <p>We provide wide range of cutting-edge technical services designed to fit and scale with your business goals — whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance</p> */}
           </div>
           <div className="container-service-cards">
             <Card_A

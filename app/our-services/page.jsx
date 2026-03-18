@@ -9,6 +9,7 @@ import React from 'react'
 
 import fs from "fs/promises";
 import path from "path";
+import AutomationSlider from './AutomationSlider'
 
 
 const Services = async () => {
@@ -58,7 +59,7 @@ const Services = async () => {
       <div className='network-services'>
         <div className="content">
           <div className='text-center max-width-text'>
-            <h2 className='section-title pseudo-underline'>Network Engineering/ ICT SYSTEM INTEGRATION AND SUPPORT</h2>
+            <h2 className='section-title pseudo-underline'>Network Engineering/ ICT System Integration / IT Support</h2>
             We offer wide range of networking services that aim at providing the most efficient and reliable work strategy to improve overall output. Our system integration process focuses on integrating  physical and virtual components of an organisation's systems.
           </div>
           <div className="wrapper-service-cards">
@@ -106,18 +107,7 @@ const Services = async () => {
               <button className='ibtn'>Book Appointment / Enquiries</button>
             </div>
             <div className="column container-carousel">
-              <div className="container-images">
-                <img className='active' src="/images/networking.png" alt="automation-image-1" />
-                <img src="/images/techguy.png" alt="automation-image-2" />
-                <img src="/images/networking.png" alt="automation-image-3" />
-                <img src="/images/networking.png" alt="automation-image-4" />
-                <img src="/images/networking.png" alt="automation-image-5" />
-              </div>
-              <div className="carousel-indicators">
-                <span className="indicator"></span>
-                <span className="indicator active"></span>
-                <span className="indicator"></span>
-              </div>
+              <AutomationSlider />
             </div>
           </div>
         </div>

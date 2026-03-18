@@ -8,6 +8,10 @@ import { SectionTitle } from '../home/page'
 import HeroContainer from '@/components/HeroContainer'
 import FixedBackgroundToColumn from '../home/FixedBackgroundToColumn'
 
+export const metadata = {
+  title: 'InnTek - About Us'
+}
+
 const About = () => {
 
     const DesktopColumn = () => {
