@@ -9,7 +9,7 @@ function FormElement({
   ...props 
 }) {
   return (
-    <form {...props} >
+    <form action="" {...props} >
       {children}
       <button className='ibtn'>{buttonText}</button>
     </form>

@@ -16,7 +16,7 @@ function Footer() {
           </div>
           <div className='column wrapper-columns wrapper-lv-2'>
             <div className='column'>
-              <div>
+              <div className="text-black">
                 Trusted by businesses to deliver reliable, innovative tech solutions with integrity, professionalism, and a focus on results
               </div>
             </div>

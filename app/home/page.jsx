@@ -18,6 +18,20 @@ import FixedBackgroundToColumn from './FixedBackgroundToColumn'
 
 const Home = () => {
 
+  const StartupCard = ({ title, description, imageName, ...props }) => {
+    return (
+      <div className={`card card-B  startup-card`} {...props}>
+        <div className="image-wrapper">
+          <img src={`/images/icons/${imageName}`} alt='' />
+        </div>
+        <div className="contents">
+          <h2 className="title">{title}</h2>
+          {description}
+        </div>
+      </div>
+    )
+  }
+
   const ProcedureState = ({ stageNumber, title, description, icon, className, ...props }) => {
     return (
       <li className={`procedure-stage ${className}`} data-process={stageNumber} {...props}>
@@ -34,7 +48,7 @@ const Home = () => {
         <div className='image-wrapper'>
           <Image src={bgImg2} alt='' fill style={{ objectFit: "cover" }} />
         </div>
-        <SectionIcon 
+        <SectionIcon
           icon="fas fa-rocket"
           className="icon-flight"
         />
@@ -83,7 +97,7 @@ const Home = () => {
         </div>
       </div>
       <div className='industries' >
-        <div className='top-container content pt-5 pb-3'>
+        <div className='top-container content gap-1 pt-5 pb-5'>
           <span className='small itext-primary'>Industries</span>
           <h3 className='section-title item-heading'>We Serve Your Industry</h3>
           We are fully committed to delivering high-quality, innovative tech solutions that simplify business operations across every industry.
@@ -119,40 +133,58 @@ const Home = () => {
             title="Manufacturing"
             description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
           />
-          <ButtonLink className="ibtn-primary" text="Make Enquiries" href="./our-services" style={{ marginTop: "16px" }} />
+          <ButtonLink className="ibtn-primary" text="Request Services" href="./our-services" style={{ marginTop: "16px" }} />
         </FixedBackgroundToColumn>
       </div>
 
       <div className="start-up">
         <div className="content">
-          <div className='text-center'>
+          <div className='text-center text-black'>
             <span className='small itext-primary'>End-to-End</span>
             <h2 className='section-title'>Solutions for Startups</h2>
             From Idea to launch - we build, scale, and support your product every step of the way
           </div>
-          <div className='container-background'>
-            <div className='wrapper-cards'>
-              <ServiceCardB title="Idea and Strategy" description="Workshop sessions, business analysis, brand identity designs, wireframes, MVP planning" imageName="st-light.svg"
-              />
-              <ServiceCardB title="Idea and Development" description="we design intuitive interfaces and build scalable web and mobile apps using the right stack" imageName="st-tools.svg" />
-              <ServiceCardB title="Launch and Scale" description="Deployment, user testing, feedback cycles, support & maintenance, feature upgrades" imageName="st-rocket.svg" />
-            </div>
-            <div className='get-started' >
-              <p>
-                Ready to Launch Your Startup? Whether you're just validating your concept or ready for MVP development, we’ll walk the journey with you.
+          <div className='wrapper-cards'>
+            <StartupCard
+              title="Idea and Strategy"
+              description="Workshop sessions, business analysis, brand identity designs, wireframes, and MVP planning. We work with you to validate your concept and create a clear roadmap that positions you for success."
+              imageName="st-light.svg"
+            />
+            <StartupCard
+              title="Design and Development"
+              description="We develop customized solutions tailored to your specific needs, whether it's software, infrastructure, or service implementation. Our approach focuses on building systems that deliver measurable values"
+              imageName="st-tools.svg"
+            />
+            <StartupCard
+              title="Launch and Scale"
+              description="Deployment, user testing, feedback cycles, support & maintenance, and feature upgrades. We stay involved through launch, monitor performance, gather and integrate user feedback, and help your business to scale sustainably."
+              imageName="st-rocket.svg"
+            />
+          </div>
+          <div className='get-started'>
+            <div className='get-started-main'>
+              <p className='get-started-headline'>
+                Ready to <strong style={{ color: "#e48500" }}>launch</strong> your? startup Whether you're validating <strong style={{ color: "#e48500", textDecoration: "underline" }}>your concept</strong> or preparing MVP development, <strong style={{ color: "#e48500" }}>we’ll guide every step</strong>.
               </p>
-              <ul className='service-list dnone'>
+              <p className='get-started-subtitle'>
+                Launch fast, scale smart, and reduce risk with expert engineering and growth-focused support.
+              </p>
+              <ButtonLink text="Get Started today" href="./contact-us" className="ibtn-primary get-started-button" />
+            </div>
+
+            <div className='get-started-features'>
+              <h4>Startup Toolkit</h4>
+              <ul className='service-list'>
                 <li>Startup websites</li>
-                <li>Admin Dashboards</li>
-                <li>MVP Development</li>
+                <li>Admin dashboards</li>
+                <li>MVP development</li>
                 <li>LAN solutions</li>
-                <li>Payment Integration</li>
-                <li>App Launch Support</li>
-                <li>Landing Pages</li>
-                <li>Analytics and tracking</li>
-                <li>Meeting Room Setup</li>
+                <li>Payment integration</li>
+                <li>App launch support</li>
+                <li>Landing pages</li>
+                <li>Analytics & tracking</li>
+                <li>Meeting room setup</li>
               </ul>
-              <ButtonLink text="Get Started" href="./contact-us" className="ibtn-primary" style={{ alignSelf: "center" }} />
             </div>
           </div>
         </div>
@@ -163,7 +195,6 @@ const Home = () => {
           <div className='container-title text-center'>
             <h3 className='section-title text-white pseudo-underline'>Cutting-edge Solutions</h3>
             <p>From starting to finishing, all your tech solutions in one-piece</p>
-            {/* <p>We provide wide range of cutting-edge technical services designed to fit and scale with your business goals — whether you're implementing something new, upgrading your infrastructure, or in need of ongoing maintenance</p> */}
           </div>
           <div className="container-service-cards">
             <Card_A
@@ -198,6 +229,7 @@ const Home = () => {
             />
           </div>
         </div>
+        <img className='svg-services-pointer' alt=""  src="images/services-pointer.svg" />
       </div>
 
       <div className="work-procedures" id='work-procedures'>
@@ -257,7 +289,7 @@ const Home = () => {
       </div>
 
       <div className="why-us">
-        <div className="content pt-0 pb-3">
+        <div className="content pb-0">
           <div className='max-width-text text-center d-flex flex-column gap-1 align-items-center'>
             <SectionIcon
               icon="fa fa-gem"

@@ -13,7 +13,7 @@
     margin-left: auto;
     margin-right: auto;
     @include flex-column;
-    gap: 24px;
+    gap: 32px;
 
     @media (min-width: $w-xs) {
         padding-left: 24px;
@@ -66,10 +66,13 @@
     align-items: center;
     align-self: flex-start;
     gap: 8px;
-    padding: 12px 16px;
-    border-radius: 21px;
+    padding: 16px 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0px 7px 16px 5px rgb(120 120 120 / 45%);
+    border-radius: 32px;
     font-size: smaller;
     font-weight: bolder;
+    letter-spacing: 1.25px;
     background-color: white;
     color: var(--primary);
     flex-grow: 0;
@@ -85,6 +88,11 @@
         color: white;
     }
 
+    &:focus {
+        transform: scale(0.955);
+        letter-spacing: normal;
+    }
+
     &.ibtn-primary {
         background-color: var(--primary);
         color: white;
@@ -93,11 +101,11 @@
 
 .ibtn-primary {
     background-color: var(--primary);
-    color: white
+    color: white;
 }
 
 .itext-primary {
-    color: var(--primary)
+    color: var(--primary);
 }
 
 .section-title {
@@ -114,7 +122,7 @@
 
 
 .card {
-    padding: 24px;
+    padding: 32px;
     @include flex-column;
     gap: 8px;
     border: 1px solid var(--border);
@@ -164,8 +172,12 @@
     }
 
     &.card-style-A {
-        @include flex-row;
-        gap: .5rem;
+        @include flex-column(0.5rem);
+
+        .container-top {
+            @include flex-row(8px);
+            align-items: center;
+        }
 
         .image-wrapper {
             height: 24px;
@@ -176,11 +188,13 @@
         img {
             width: 100%;
             min-height: 100%;
+            display: block;
         }
 
         .card-title {
             font-weight: 700;
             color: black;
+            margin: 0;
         }
     }
 }

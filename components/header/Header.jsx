@@ -23,7 +23,7 @@ const Header = () => {
             </li>
             <li><Link className="nav-link desktop-action" href="#">Our Products</Link></li>
           </ul>
-          <Link className="nav-link referal-referal" href="/contact-us">Join referral program <i className="icon fa fa-arrow-right"></i></Link>
+          <Link className="nav-link referal-referal" href="/contact-us">Referral Program <i className="icon fa fa-arrow-right"></i></Link>
         </div>
         <Link className="nav-link mobile-action d-lg-none" href="/">Products</Link>
         <Hamburger />

@@ -61,6 +61,11 @@ if (carousel) {
 
   const slides = carousel.querySelectorAll('.carousel-item')
   const slideNames = carousel.querySelectorAll('.slide-name')
+  const heroContainer = carousel.closest(".hero-container")
+
+  const slidesBackground = document.createElement("DIV")
+  slidesBackground.className="carousel-slides-background"
+  heroContainer.prepend(slidesBackground)
 
   const slideInterval = 5000; // 5 seconds
 
@@ -79,12 +84,18 @@ if (carousel) {
 
       // add active class to the current slide name and remove from others
       slideNames[i].classList.toggle('active', i === index)
+
     })
+
+    // change to background gradients of the current slide
+    const slideGradientColors = slides[index].getAttribute('data-background-gradients')
+    const heroBackgroundImage = slides[index].getAttribute('data-background-image')
+    slidesBackground.style.backgroundImage=`linear-gradient(${slideGradientColors})`
+    heroContainer.style.backgroundImage=`url(${heroBackgroundImage})`
   }
 
   // function to go to the next slide
   const nextSlide = () => {
-    console.log("next cliked")
     const activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'))
     const nextIndex = (activeIndex + 1) % slides.length
     goToSlide(nextIndex)
@@ -92,7 +103,6 @@ if (carousel) {
 
   // function to go to the previous slide
   const prevSlide = () => {
-    console.log("prev cliked")
     const activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'))
     const prevIndex = (activeIndex - 1 + slides.length) % slides.length
     goToSlide(prevIndex)
