@@ -46,7 +46,7 @@ const Home = () => {
     return (
       <div className="container-images">
         <div className='image-wrapper'>
-          <Image src={bgImg2} alt='' fill style={{ objectFit: "cover" }} />
+          <Image src={bgImg2} alt='' fill />
         </div>
         <SectionIcon
           icon="fas fa-rocket"

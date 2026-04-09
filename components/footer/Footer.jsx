@@ -48,21 +48,21 @@ function Footer() {
               <span className="caption">Contact Info</span>
               <ul className=''>
                 <li className='contact-item'>
-                  <i className="fab fa-whatsapp"></i>
+                  <i className="fab fa-whatsapp" aria-hidden="true"></i>
                   <ul>
                     <li className='field-name'>WhatsApp</li>
                     <li className='text-black'>+ (234)0 9029198353</li>
                   </ul>
                 </li>
                 <li className='contact-item'>
-                  <i className="fa fa-phone-alt"></i>
+                  <i className="fa fa-phone-alt" aria-hidden="true"></i>
                   <ul>
                     <li className='field-name'>Phone</li>
                     <li className='text-black'>+ (234)0 8144447196</li>
                   </ul>
                 </li>
                 <li className='contact-item'>
-                  <i className="fa fa-envelope-open"></i>
+                  <i className="fa fa-envelope-open" aria-hidden="true"></i>
                   <ul>
                     <li className='field-name'>Email Address</li>
                     <li className='text-black'>services@inntek.ng</li>

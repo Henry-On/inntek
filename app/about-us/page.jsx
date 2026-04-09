@@ -7,6 +7,7 @@ import { ButtonLink } from '@/components/buttons'
 import { SectionTitle } from '../home/page'
 import HeroContainer from '@/components/HeroContainer'
 import FixedBackgroundToColumn from '../home/FixedBackgroundToColumn'
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'InnTek - About Us'
@@ -131,7 +132,7 @@ const About = () => {
                 <div className="content pt-0">
                     <div className='starter-notice'>
                         <p className='text max-width-text'>Ready to Innovate? Let’s discuss how we can accelerate your digital transformation</p>
-                        <ButtonLink href="./contact-us" text="Book Appointment" />
+                        <ButtonLink href="./contact-us" text="Book Appointment" icon={<i class='fas fa-rocket'></i>} />
                     </div>
                 </div>
             </div>
@@ -140,9 +141,9 @@ const About = () => {
     )
 }
 
-const Story = ({ imageName, title, children, className, icon }) => {
+const Story = ({ imageName, title, children, className, icon, ...props }) => {
     return (
-        <div className={`column ${className ? className : ""}`}>
+        <div className={`column ${className ? className : ""}`} {...props}>
             <div className="column__image-wrapper">
                 <img src={`/images/${imageName}`} alt="" />
             </div>
@@ -151,7 +152,7 @@ const Story = ({ imageName, title, children, className, icon }) => {
                     <SectionTitle Tag="h3" className='column__title' title={title} />
                     {children}
                 </div>
-                <i className={`icon ${icon ? icon : "fa fa-arrow-right"}`}></i>
+                <i className={`icon ${icon ? icon : "fa fa-arrow-right"}`} aria-hidden="true"></i>
             </div>
         </div>
     )

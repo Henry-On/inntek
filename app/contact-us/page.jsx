@@ -11,7 +11,7 @@ import { contactFormSubjects } from '@/storage/contactFormSubjects'
 const Contact = () => {
     return (
         <div className='contact-page'>
-            <HeroContainer>
+            <HeroContainer backgroundOverlayColor="#030f2fc9">
                 <Hero
                     image={<Image className='hero-image' src="/images/portrait-hero.png" alt='hero-man-holding-laptop' width={300} height={500} style={{ width: "auto", height: "100%" }} />}
                     breadCrumb="/ contact-us"

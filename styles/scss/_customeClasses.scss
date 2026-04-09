@@ -126,7 +126,7 @@
     @include flex-column;
     gap: 8px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 16px;
 
     .title {
         font-weight: 700;
@@ -195,6 +195,7 @@
             font-weight: 700;
             color: black;
             margin: 0;
+            transition: color 0.5s ease-in-out;
         }
     }
 }

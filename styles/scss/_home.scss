@@ -46,6 +46,11 @@
     .card {
       box-shadow: $shadow-md;
       padding: 32px;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        box-shadow: $shadow-hover;
+      }
     }
 
     .image-wrapper {
@@ -218,7 +223,8 @@
 
     img {
       transition: 0.35s;
-      filter: grayscale(0.5);
+      filter: brightness(0.75) grayscale(0.5);
+      object-fit: cover;
     }
   }
 }
@@ -253,6 +259,18 @@
       padding-top: 40px;
       padding-bottom: 40px;
       gap: 0;
+
+      &:hover {
+
+        .contents {
+          background-color: white;
+          box-shadow:$shadow-hover
+        }
+
+        img {
+          transform: scale(1.5);
+        }
+      }
 
       &:nth-child(2) {
         border-bottom: none;
@@ -290,25 +308,27 @@
           }
         }
       }
-
-      .image-wrapper {
-        position: relative;
-        z-index: 2;
-        margin-bottom: -25px;
-        border: 1px solid var(--border);
-        background-color: white;
-      }
-
-      .contents {
-        background-color: var(--bg);
-        padding: 32px;
-        border: 1px solid var(--border);
-      }
     }
 
     .image-wrapper {
-      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      margin: auto auto -25px auto;
+      border: 1px solid var(--border);
+      background-color: white;
+    }
+
+
+    img {
+      display: block;
+      transition: 0.5s ease-in-out;
+    }
+
+    .contents {
       background-color: var(--bg);
+      padding: 32px;
+      border: 1px solid var(--border);
+      transition: all 0.5s ease-in-out;
     }
   }
 
@@ -448,7 +468,22 @@
 
   .card {
     opacity: .95;
-    border-radius: 8px;
+    border-radius: 16px;
+    transition: background 0.5s ease-in-out;
+
+    .wrapper-text {
+      transition: color 0.5s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: $shadow-hover;
+      background-color: rgb(48 48 48);
+      color: var(--text-light);
+
+      .card-title {
+        color: white;
+      }
+    }
 
     @media (min-width: $w-sm) {
       width: calc(50% - 16px);
@@ -609,6 +644,23 @@
   .card {
     opacity: .95;
     box-shadow: $shadow-md;
+    transition: all 0.5s ease-in-out;
+
+    .wrapper-text {
+      transition: color 0.5s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: $shadow-hover;
+      background-color: rgb(48 48 48);
+      color: var(--text-light);
+      transform-origin: center bottom;
+      transform: scale(1.05);
+
+      .card-title {
+        color: white;
+      }
+    }
 
     @media (min-width: $w-sm) {
       width: calc(50% - 1rem);

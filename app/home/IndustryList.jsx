@@ -1,11 +1,12 @@
 import React from 'react'
 
 function IndustryList({title, description, icon}) {
+  const iconWithAria = React.isValidElement(icon) ? React.cloneElement(icon, { 'aria-hidden': 'true' }) : icon;
   return (
     <div className='industry-item'>
         <div className='no-text'>
             <span className="wrapper-icon">
-              {icon}
+              {iconWithAria}
             </span>
             <div className="decoration-line"></div>
         </div>

@@ -269,11 +269,9 @@ body {
         position: relative;
     }
 
-    &::before {
+    .background-overlay {
         @include absolute-fill;
-        content: "";
-        background-color: #021417bf;
-        background-color: #021417d8;
+        transition: background 0.35s ease-in-out;
     }
 }
 
@@ -551,7 +549,7 @@ form {
 
         &::before {
             content: "";
-            @include absolute-fill;
+            @include absolute-fill(rgba(0,0,0,0.25));
             z-index: 1;
         }
     }
@@ -563,6 +561,7 @@ form {
         width: 100%;
         object-fit: cover;
         transition: 0.35s ease-in-out;
+        filter: brightness(0.75);
     }
 
     .card-text {
@@ -612,7 +611,6 @@ form {
     min-height: 360px;
     overflow: hidden;
     color: var(--text-light);
-    border-radius: 8px;
     transition: 0.35s ease-in-out;
 
     &:hover {
@@ -639,6 +637,7 @@ form {
         height: 100%;
         object-fit: cover;
         transition: inherit;
+        filter: brightness(0.65) grayscale(0.1);
     }
 
     .card-content {
@@ -649,6 +648,8 @@ form {
         @include flex-column;
         flex-grow: 1;
         justify-content: flex-end;
+        transition: all 0.35s ease;
+        color: white;
     }
 
     .card-title {

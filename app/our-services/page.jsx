@@ -11,7 +11,6 @@ import fs from "fs/promises";
 import path from "path";
 import AutomationSlider from './AutomationSlider'
 
-
 const Services = async () => {
 
   const filePath = path.join(process.cwd(), "/app/our-services/data.json");
@@ -27,7 +26,7 @@ const Services = async () => {
   }
   return (
     <>
-      <HeroContainer>
+      <HeroContainer backgroundOverlayColor="#182f03c9">
         <Hero
           image={<Image className='hero-image' src="/images/portrait-hero.png" alt='hero-man-holding-laptop' width={300} height={500} style={{ width: "auto", height: "100%" }} />}
           breadCrumb="/ what-we-do"
