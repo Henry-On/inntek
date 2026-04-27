@@ -97,7 +97,7 @@ body {
 
             .icon {
                 font-size: 10px;
-                @include rounded(16px);
+                @include rounded(24px);
                 background-color: var(--primary);
                 margin-left: 8px;
             }

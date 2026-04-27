@@ -1684,6 +1684,7 @@ form .input-label {
   white-space: nowrap;
   transition: background 0.35s ease-in-out;
   color: black;
+  flex-shrink: 0;
 }
 .procedure-toggle.active {
   background-color: white;

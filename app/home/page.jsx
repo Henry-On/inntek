@@ -15,20 +15,23 @@ import HeroCarousel from './HeroCarousel'
 import SectionIcon from '@/components/SectionIcon'
 import { contactFormSubjects } from '@/storage/contactFormSubjects'
 import FixedBackgroundToColumn from './FixedBackgroundToColumn'
+import FontAwesomeIcon from '@/components/FontAwesomeIcon'
+import IndustryListGrid from './IndustryListGrid'
 
 const Home = () => {
 
   const StartupCard = ({ title, description, imageName, ...props }) => {
     return (
-      <div className={`card card-B  startup-card`} {...props}>
+      <div className={`card card-B  startup-card ${props.className || ''}`} data-gsap-animate="zoomin" {...props}>
         <div className="image-wrapper">
           <img src={`/images/icons/${imageName}`} alt='' />
         </div>
-        <div className="contents">
-          <h2 className="title">{title}</h2>
-          {description}
-        </div>
+        {/* <div className="contents" > */}
+        <h2 className="title">{title}</h2>
+        {description}
+        {/* </div> */}
       </div>
+
     )
   }
 
@@ -39,24 +42,6 @@ const Home = () => {
         <p className='description'>{description}</p>
         {icon}
       </li>
-    )
-  }
-
-  const LeftContainer = () => {
-    return (
-      <div className="container-images">
-        <div className='image-wrapper'>
-          <Image src={bgImg2} alt='' fill />
-        </div>
-        <SectionIcon
-          icon="fas fa-rocket"
-          className="icon-flight"
-        />
-        <div className='text'>
-          <p className='title'>Get started today</p>
-          <p>Let us help you find the right solution for your business. Whether you're looking to implement a new system, upgrade your infrastructure, or need ongoing support, we have the expertise to guide you every step of the way.</p>
-        </div>
-      </div>
     )
   }
 
@@ -72,9 +57,9 @@ const Home = () => {
               <img src="/images/hero-background.png" alt="" />
             </div>
             <div className="text-content">
-              <span className='small itext-primary'>Smarter Tech, Simpler Work</span>
-              <h2 className='section-title'>Solutions for Real Business Challenges</h2>
-              At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service
+              <span className='small itext-primary' data-gsap-animate="fade-down">Smarter Tech, Simpler Work</span>
+              <h2 className='section-title' data-gsap-animate="fade-up">Solutions for Real Business Challenges</h2>
+              <p data-gsap-animate="fade-up">At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service</p>
             </div>
           </div>
           <div className="wrapper-cards">
@@ -97,50 +82,40 @@ const Home = () => {
         </div>
       </div>
       <div className='industries' >
-        <div className='top-container content gap-1 pt-5 pb-5'>
-          <span className='small itext-primary'>Industries</span>
-          <h3 className='section-title item-heading'>We Serve Your Industry</h3>
-          We are fully committed to delivering high-quality, innovative tech solutions that simplify business operations across every industry.
-        </div>
+        <div className="content">
+          <div className="wrapper-columns">
+            <div className="top-container">
+              <span className='section-info' data-gsap-animate="fade-down"> Industries</span>
+              <div data-gsap-animate="fade-up">
+                <h3 className='section-title item-heading'>We Serve Your Industry</h3>
+                Whether you're looking to implement a new system, upgrade your infrastructure, or need ongoing support. We will help you find the right solution for your business.
+              </div>
+              <ul className="list-items">
+                <li className="item">For Reliability</li>
+                <li className="item">Industry Standards</li>
+                <li className="item">Scalability</li>
+                <li className="item">Growth and Efficiency</li>
+              </ul>
 
-        <FixedBackgroundToColumn
-          // className="industries"
-          backgroundImage="/images/hero-background.png"
-          columnImage={<LeftContainer />}
-        >
-          <IndustryList
-            icon={<i className="fa fa-user-nurse" style={{ color: "#200659ff" }} ></i>}
-            title="Medical"
-            description="Our goal is to empower teams, streamline processes, and create a more productive environment for both employees and employers to achieve sustainable growth"
-          />
-          <IndustryList
-            icon={<i className="fa fa-hand-holding-usd" style={{ color: "#065917ff" }} ></i>}
-            title="HR and Finance"
-            description="Whether it's optimizing workflows, automating routine tasks, or implementing tailored digital solutions, we ensure our services add measurable value to your organization."
-          />
-          <IndustryList
-            icon={<i className="fa fa-network-wired" style={{ color: "#c6c300ff" }} ></i>}
-            title="IT Solutions"
-            description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-          />
-          <IndustryList
-            icon={<i className="fa fa-hashtag" style={{ color: "#a10013ff" }} ></i>}
-            title="Insfrastural setup / Installations"
-            description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-          />
-          <IndustryList
-            icon={<i className="fa fa-cog" style={{ color: "#000000ff" }} ></i>}
-            title="Manufacturing"
-            description="Our products and services span across different industries, with years of experiences in crafting long lasting solutions"
-          />
-          <ButtonLink className="ibtn-primary" text="Request Services" href="./our-services" style={{ marginTop: "16px" }} />
-        </FixedBackgroundToColumn>
+            </div>
+            <div className='bottom-container'>
+              <IndustryListGrid />
+              <ButtonLink
+                className="ibtn-primary"
+                text="Request Services"
+                href="./our-services"
+                icon={<FontAwesomeIcon icon="far fa-play-circle" />}
+                iconPosition="left"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="start-up">
         <div className="content">
-          <div className='text-center text-black'>
-            <span className='small itext-primary'>End-to-End</span>
+          <div className='text-left text-black pb-lg-3'>
+            <span className='mini-heading' data-gsap-animate="fade-down">End-to-End</span>
             <h2 className='section-title'>Solutions for Startups</h2>
             From Idea to launch - we build, scale, and support your product every step of the way
           </div>
@@ -164,26 +139,32 @@ const Home = () => {
           <div className='get-started'>
             <div className='get-started-main'>
               <p className='get-started-headline'>
-                Ready to <strong style={{ color: "#e48500" }}>launch</strong> your? startup Whether you're validating <strong style={{ color: "#e48500", textDecoration: "underline" }}>your concept</strong> or preparing MVP development, <strong style={{ color: "#e48500" }}>we’ll guide every step</strong>.
+                Ready to <strong style={{ color: "#e48500" }}>launch</strong> your startup? <br /> Whether you're validating <strong style={{ color: "#e48500" }}>your concept</strong> or preparing MVP development, <strong style={{ color: "#e48500" }}>we’ll guide every step</strong>.
               </p>
               <p className='get-started-subtitle'>
                 Launch fast, scale smart, and reduce risk with expert engineering and growth-focused support.
               </p>
-              <ButtonLink text="Get Started today" href="./contact-us" className="ibtn-primary get-started-button" />
+              {/* <ButtonLink
+                text="Get Started today"
+                href="./contact-us"
+                className="ibtn-primary get-started-button"
+                icon={<FontAwesomeIcon icon="far fa-play-circle" />}
+                iconPosition="left"
+              /> */}
             </div>
 
             <div className='get-started-features'>
-              <h4>Startup Toolkit</h4>
-              <ul className='service-list'>
+              <h4 className='features-caption'>Startup Toolkit</h4>
+              <ul className='features-list'>
                 <li>Startup websites</li>
-                <li>Admin dashboards</li>
-                <li>MVP development</li>
-                <li>LAN solutions</li>
-                <li>Payment integration</li>
-                <li>App launch support</li>
-                <li>Landing pages</li>
-                <li>Analytics & tracking</li>
-                <li>Meeting room setup</li>
+                <li>Dashboards</li>
+                <li>MVP Development</li>
+                <li>LAN Solutions</li>
+                <li>Payment Gateway Integration</li>
+                <li>App Launch and Support</li>
+                <li>Landing Pages</li>
+                <li>Analytics & Tracking System</li>
+                <li>Meeting Room Setup</li>
               </ul>
             </div>
           </div>
@@ -229,40 +210,40 @@ const Home = () => {
             />
           </div>
         </div>
-        <img className='svg-services-pointer' alt=""  src="images/services-pointer.svg" />
+        <img className='svg-services-pointer' alt="" src="images/services-pointer.svg" />
       </div>
 
       <div className="work-procedures" id='work-procedures'>
         <div className="content">
-          <div className='max-width-text text-center'>
+          <div className='top-container'>
             <h3 className='section-title mb-2'>How We Work</h3>
             <p>At Inn Radii Technologies, we follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
+            <ul className="container-toggles hide-x-scrollbar">
+              <li className='procedure-toggle active' data-process="1">
+                <span className='stage-count'>1</span>
+                Discovery and Definition
+              </li>
+              <li className='procedure-toggle' data-process="2">
+                <span className='stage-count'>2</span>
+                Planning
+              </li>
+              <li className='procedure-toggle' data-process="3">
+                <span className='stage-count'>3</span>
+                Building
+              </li>
+              <li className='procedure-toggle' data-process="4">
+                <span className='stage-count'>4</span>
+                Deployment
+              </li>
+            </ul>
           </div>
-          <ul className="container-toggles hide-x-scrollbar">
-            <li className='procedure-toggle active' data-process="1">
-              <span className='stage-count'>1</span>
-              Discovery and Definition
-            </li>
-            <li className='procedure-toggle' data-process="2">
-              <span className='stage-count'>2</span>
-              Planning
-            </li>
-            <li className='procedure-toggle' data-process="3">
-              <span className='stage-count'>3</span>
-              Building
-            </li>
-            <li className='procedure-toggle' data-process="4">
-              <span className='stage-count'>4</span>
-              Deployment
-            </li>
-          </ul>
           <ul className='container-stages hide-x-scrollbar'>
             <ProcedureState
               className="active"
               stageNumber="1"
               title="Understanding of the problem"
               description="Understanding your needs is our first step toward building the right solution
-              We study the existing challenges, evaluate current processes, and identify bottlenecks to define the right digital approach"
+                We study the existing challenges, evaluate current processes, and identify bottlenecks to define the right digital approach"
               icon={<i className='icon fas fa-lightbulb' aria-hidden="true" style={{ color: "#ffd000" }}></i>}
             />
             <ProcedureState
@@ -275,7 +256,7 @@ const Home = () => {
               stageNumber="3"
               title="Solution Implementation"
               description="Based on insights, we design a practical, scalable solution aligned with your business goals and user expectations.
-              At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices."
+                At this stage, our team jumps on the project and deploys the solution with precision—using the best technologies and proven practices."
               icon={<i className='icon fas fa-tools' aria-hidden="true" style={{ color: "#00a927" }}></i>}
             />
             <ProcedureState

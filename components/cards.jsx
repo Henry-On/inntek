@@ -7,9 +7,9 @@ export const ServiceCardA = ({ title, description, ...props }) => {
     )
 }
 
-export const ServiceCardB = ({ title, description, imageName }) => {
+export const ServiceCardB = ({ title, description, imageName, ...props }) => {
     return (
-        <div className="card card-B">
+        <div className={`card card-B ${props.className || ""}`} {...props}>
             <div className="image-wrapper">
                 <img src={`/images/icons/${imageName}`} alt='' />
             </div>

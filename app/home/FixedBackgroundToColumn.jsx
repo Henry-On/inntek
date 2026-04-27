@@ -1,8 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
-import bgImg1 from "@/public/images/hero-background-2.png"
-import bgImg2 from "@/public/images/persons-three.png"
-
 
 const FixedBackgroundToColumn = ({ backgroundImage, columnImage, children, style, className }) => {
 

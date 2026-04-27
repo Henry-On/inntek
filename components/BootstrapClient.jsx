@@ -13,13 +13,17 @@ const BootstrapClient = () => {
         await import('@/public/bootstrap/js/bootstrap.bundle.min.js')
         await import('@/public/gsap/minified/gsap.min.js')
         await import('@/public/gsap/plugins/scrollTrigger.min.js')
-        await import('@/js/main.js')
+        
+        // Now import and run the main script
+        const { default: initApp } = await import('@/js/main.js')
+        initApp()
       } catch (error) {
         console.error('Error loading scripts:', error)
       }
     }
 
     loadScripts()
+    
   }, [pathname])
 
   return null

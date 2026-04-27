@@ -8,6 +8,10 @@ import BootstrapClient from '@/components/BootstrapClient'
 export const metadata = {
   title: 'InnTek',
   description: 'Technology Driven - Solution Center',
+  authors: [{ name: 'InnTek Team' }],
+  icons: {
+    icon: '/images/icons/favicon.svg',
+  },
 }
 
 const RootLayout = ({ children }) => {

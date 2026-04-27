@@ -8,7 +8,7 @@ function IndustryList({title, description, icon}) {
             <span className="wrapper-icon">
               {iconWithAria}
             </span>
-            <div className="decoration-line"></div>
+            <div className="decoration-line" aria-hidden="true"></div>
         </div>
         <div className="wrapper-text">
             <h3 className='item-heading'>{title}</h3>

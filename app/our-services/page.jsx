@@ -10,6 +10,8 @@ import React from 'react'
 import fs from "fs/promises";
 import path from "path";
 import AutomationSlider from './AutomationSlider'
+import { ButtonLink } from '@/components/buttons'
+import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 
 const Services = async () => {
 
@@ -103,7 +105,12 @@ const Services = async () => {
               <span className='text-decoration-underline itext-primary small'>We do it better</span>
               <h2 className='section-title'>Simplify Life with Smart Automation</h2>
               <p>Lets transform your home into a smart, efficient, and secure space. From lighting and climate control to security and entertainment, our automation solutions put convenience at your fingertips—so you can focus on what matters most</p>
-              <button className='ibtn'>Book Appointment / Enquiries</button>
+              <ButtonLink
+                className='ibtn'
+                text="Book Appointment / Enquiries"
+                icon={<FontAwesomeIcon icon="fa fa-book" />}
+                iconPosition='left'
+              />
             </div>
             <div className="column container-carousel">
               <AutomationSlider />
@@ -121,14 +128,18 @@ const Services = async () => {
       <div className='service-bottom'>
         <div className="content">
           <p className='text-black'>INN RADII is the preferred  partner for startups and growing companies ready to embrace the power of modern solutions. We've earned the trust of our partners, and we're ready to earn yours. Let’s build something exceptional together</p>
-          <button className='ibtn'>Request Service</button>
+          <ButtonLink
+            className='ibtn request-service-button'
+            text="Request Service"
+            icon={<FontAwesomeIcon icon="fa fa-handshake" />}
+          />
         </div>
         <div className="decorations">
           <div className="icon-wrapper">
-            <i className="icon fas fa-city"></i>
+            <i className="decoration-icon fas fa-city"></i>
           </div>
           <div className="icon-wrapper">
-            <i className="icon fas fa-broadcast-tower"></i>
+            <i className="decoration-icon fas fa-broadcast-tower"></i>
           </div>
         </div>
       </div>

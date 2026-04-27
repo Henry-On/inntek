@@ -1,63 +1,78 @@
+import { gsap } from "@/public/gsap/esm";
+import ScrollTrigger from "@/public/gsap/esm/ScrollTrigger";
 
-const workProcedures = document.getElementById("work-procedures")
+// Export the main initialization function
+export function initApp() {
 
-if (workProcedures) {
+  console.log("DOM fully loaded and parsed");
 
-  const containerButtons = workProcedures.querySelector(".container-toggles")
-  const buttons = containerButtons.querySelectorAll(".procedure-toggle")
-  const containerProcedures = workProcedures.querySelector(".container-stages")
-  const procedures = containerProcedures.querySelectorAll(".procedure-stage")
+  const workProcedures = document.getElementById("work-procedures")
 
-  buttons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      centerActiveItem(index)
-    })
+  if (workProcedures) {
 
-    procedures[index].addEventListener('click', () => {
-      centerActiveItem(index)
-    })
-  });
+    const containerButtons = workProcedures.querySelector(".container-toggles")
+    const buttons = containerButtons.querySelectorAll(".procedure-toggle")
+    const containerProcedures = workProcedures.querySelector(".container-stages")
+    const procedures = containerProcedures.querySelectorAll(".procedure-stage")
 
-  function centerActiveItem(index) {
+    buttons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        centerActiveItem(index)
+      })
 
-    if (!containerButtons || !containerProcedures) return;
+      procedures[index].addEventListener('click', () => {
+        centerActiveItem(index)
+      })
+    });
 
-    // remove active class from the initial item
-    containerButtons.querySelector('.active')?.classList.remove('active');
-    containerProcedures.querySelector('.active')?.classList.remove('active');
+    function centerActiveItem(index) {
 
-    const activeToggleItem = buttons[index]
-    activeToggleItem.classList.add('active')
+      if (!containerButtons || !containerProcedures) return;
 
-    const activeProcedureItem = procedures[index]
-    activeProcedureItem.classList.add('active')
+      // remove active class from the initial item
+      containerButtons.querySelector('.active')?.classList.remove('active');
+      containerProcedures.querySelector('.active')?.classList.remove('active');
 
-    // calculate offset for toggles
-    const offsetContainerButtons = activeToggleItem.offsetLeft - (containerButtons.clientWidth / 2) + (activeToggleItem.clientWidth / 2);
+      const activeToggleItem = buttons[index]
+      activeToggleItem.classList.add('active')
 
-    // calculate offset for procedures
-    const offsetContainerProcedures = activeProcedureItem.offsetLeft - (containerButtons.clientWidth / 2) + (activeProcedureItem.clientWidth / 2);
+      const activeProcedureItem = procedures[index]
+      activeProcedureItem.classList.add('active')
 
-    // scroll to center
-    containerButtons.scrollTo({ left: offsetContainerButtons, behavior: 'smooth' });
-    containerProcedures.scrollTo({ left: offsetContainerProcedures, behavior: 'smooth' });
+      // calculate offset for toggles
+      const offsetContainerButtons = activeToggleItem.offsetLeft - (containerButtons.clientWidth / 2) + (activeToggleItem.clientWidth / 2);
+
+      // calculate offset for procedures
+      const offsetContainerProcedures = activeProcedureItem.offsetLeft - (containerButtons.clientWidth / 2) + (activeProcedureItem.clientWidth / 2);
+
+      // scroll to center
+      containerButtons.scrollTo({ left: offsetContainerButtons, behavior: 'smooth' });
+      containerProcedures.scrollTo({ left: offsetContainerProcedures, behavior: 'smooth' });
+    }
   }
-}
 
-// header menu with childen children
-if (document.querySelectorAll('.nav-link.has-children')) {
-  const collapedHeight = "0px"
-  Array.from(document.querySelectorAll('.nav-link.has-children')).forEach((e) => {
-    e.addEventListener("click", () => {
-      const children = e.closest(".nav-item").querySelector(".children")
-      children.style.height = children.style.height != collapedHeight ? collapedHeight : children.scrollHeight + 'px'
+  // header menu with childen children
+  if (document.querySelectorAll('.nav-link.has-children')) {
+    const collapedHeight = "0px"
+    Array.from(document.querySelectorAll('.nav-link.has-children')).forEach((e) => {
+      e.addEventListener("click", () => {
+        const children = e.closest(".nav-item").querySelector(".children")
+        children.style.height = children.style.height != collapedHeight ? collapedHeight : children.scrollHeight + 'px'
+      })
     })
-  })
+  }
+
+  heroCarousel()
+
+  // begin gsap animations
+  gsapAnimate()
 }
 
-// home page hero carousel
-const carousel = document.querySelector('.hero-carousel')
-if (carousel) {
+function heroCarousel() {
+
+  // home page hero carousel
+  const carousel = document.querySelector('.hero-carousel')
+  if (!carousel) return
 
   const slides = carousel.querySelectorAll('.carousel-item')
   const slideNames = carousel.querySelectorAll('.slide-name')
@@ -114,77 +129,62 @@ if (carousel) {
 
 }
 
-// Register ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+function gsapAnimate() {
 
-const hTL = gsap.timeline();
-hTL.from("#hero-section .wrapper-texts", { y: -50, opacity: 0, scale: 0.9, duration: 1 })
-  .call(() => document.querySelector("body").classList.add('show-header'));
+  // toggle actions value options: play, pause, resume, reset, restart, complete, reverse, none
+  // toggleActions: "play none none none" means:
+  // onEnter: play
+  // onLeave: none
+  // onEnterBack: none
+  // onLeaveBack: none
 
-gsap.utils.toArray(".fade-in").forEach(element => {
-  gsap.from(element, {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3",
-    scrollTrigger: {
-      trigger: element,
-      start: "top 80%",
-      toggleActions: "play none none reset",
-    }
+  // set default for ScrollTrigger
+  ScrollTrigger.defaults({
+    toggleActions: "play none none reset",
+    start: "top bottom"
+  })
+
+  gsap.defaults ({
+    ease: "power2.inOut",
+    duration: 0.75
+  })
+
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  // const heroTimeline = gsap.timeline();
+  // heroTimeline.from("#hero-section .wrapper-texts", { y: -50, opacity: 0, scale: 0.9, duration: 1 })
+  //   .call(() => document.querySelector("body").classList.add('show-header'));
+
+  gsap.utils.toArray("[data-gsap-animate='fade-up']").forEach(element => {
+    gsap.from(element, {
+      y: 150,
+      opacity: 0.25,
+      scrollTrigger: {
+        trigger: element
+      }
+    });
   });
-});
 
-gsap.utils.toArray(".slide-in").forEach(element => {
-  gsap.from(element, {
-    y: 50,
-    duration: 1,
-    ease: "power3",
-    scrollTrigger: {
-      trigger: element,
-      start: "top 80%",
-      toggleActions: "play none none reset",
-    }
+  gsap.utils.toArray("[data-gsap-animate='fade-down']").forEach(element => {
+    gsap.from(element, {
+      y: -150,
+      opacity: 0.25,
+      scrollTrigger: {
+        trigger: element
+      }
+    });
   });
-});
 
-gsap.from(".tech-skill", {
-  duration: .5,
-  scale: 0.8,
-  opacity: 0,
-  stagger: 0.1,
-  ease: "power3.inOut",
-  scrollTrigger: {
-    trigger: ".tech-skill",
-    start: "top 90%",   // trigger when element is 50% into viewport
-    toggleActions: "play none none reset",
-  }
+  gsap.utils.toArray("[data-gsap-animate='zoom-in']").forEach(element => {
+    gsap.from(element, {
+      scale: 0.8,
+      scrollTrigger: {
+        trigger: element
+      }
+    });
+  });
 
-});
+}
 
-gsap.from(".project-card", {
-  duration: .75,
-  scale: 0.8,
-  opacity: 0,
-  stagger: 0.1,
-  ease: "power3.inOut",
-  scrollTrigger: {
-    trigger: ".project-card",
-    start: "top 70%",
-    toggleActions: "play none none reset",
-  }
-
-});
-
-gsap.from(".form-field", {
-  y: 50,
-  duration: 0.5,
-  stagger: 0.07,
-  ease: "power3.inOut",
-  scrollTrigger: {
-    trigger: ".form-field",
-    start: "top 90%",
-    toggleActions: "play none none reset",
-  }
-
-});
+export default initApp

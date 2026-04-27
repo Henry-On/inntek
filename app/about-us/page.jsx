@@ -27,6 +27,8 @@ const About = () => {
             </>
         )
     }
+
+
     return (
         <div className='about'>
             <HeroContainer>
@@ -41,9 +43,9 @@ const About = () => {
             </HeroContainer>
             <div className='about__introduction'>
                 <div className='content introduction_content'>
-                    <h3 className='itext-primary fw-lighter small'>Indigeneous I.T Company</h3>
-                    <h1 className='font-heading fw-bold title'>Innovation Radii</h1>
-                    <p>INN RADII is a home-grown IT leader committed to empowering organizations in today’s digital age. Well known for delivering end-to-end solutions that drive efficiency, innovation, and sustainable growth across multiple industries.</p>
+                    <h3 className='itext-primary fw-lighter small' data-gsap-animation="fade-down">Indigeneous I.T Company</h3>
+                    <h1 className='font-heading fw-bold title' data-gsap-animation="fade-down">Innovation Radii</h1>
+                    <p data-gsap-animation="fade-down">INN RADII is a home-grown IT leader committed to empowering organizations in today’s digital age. Well known for delivering end-to-end solutions that drive efficiency, innovation, and sustainable growth across multiple industries.</p>
                     <img src="/images/illustration-building.png" alt="" width={100} />
                 </div>
             </div>
@@ -59,16 +61,19 @@ const About = () => {
                             title="Our Values"
                             description="We value core principles of operation, building an agile, tech forward environment that enables organizations to thrive,  eliminating inefficiencies and  redundant procedures"
                             imageName="core-values.svg"
+                            data-gsap-animation="fade-up"
                         />
                         <CorePrinciple
                             title="Our Mission"
                             description="To deliver transformative, user-focused tech products and services that are reliable, user-focused, enhance everyday life, and drive sustainable digital growth" imageName="core-mission.svg"
-                            isActive={true}
+                            className={"active"}
+                            data-gsap-animation="fade-up"
                         />
                         <CorePrinciple
                             title="Commitment"
                             description="We’re fueled by innovation, committed to continuous improvement, creative thinking, and pushing boundaries to build impactful solutions and exceed expectations"
                             imageName="core-diamond.svg"
+                            data-gsap-animation="fade-up"
                         />
                     </div>
                 </div>
@@ -158,9 +163,9 @@ const Story = ({ imageName, title, children, className, icon, ...props }) => {
     )
 }
 
-const CorePrinciple = ({ title, description, imageName, isActive = false }) => {
+const CorePrinciple = ({ title, description, imageName, className, ...props }) => {
     return (
-        <div className={`column square-item ${isActive ? "active" : ""}`}>
+        <div className={`column square-item ${className ? className : ''}`} {...props}>
             <h3 className='column__title'>{title}</h3>
             {description}
             <div className="wrapper-image">
