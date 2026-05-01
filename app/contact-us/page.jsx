@@ -50,17 +50,17 @@ const Contact = () => {
                         Our team will take the time to understand your operations, identify challenges, and recommend the right technology to boost your efficiency, and improve growth. Let us handle the technical side while you focus on what matters most
                     </div>
                     <div className="wrapper-cards">
-                        <InfoCard
+                        <ContactInfoItem
                             icon="fas fa-envelope"
                             label="Email address"
                             value="support@innradii.com"
                         />
-                        <InfoCard
+                        <ContactInfoItem
                             icon="fas fa-phone-volume"
                             label="Call No"
                             value="08144447196"
                         />
-                        <InfoCard
+                        <ContactInfoItem
                             icon="fab fa-whatsapp"
                             label="WhatsApp Line"
                             value="09029198353"
@@ -72,9 +72,9 @@ const Contact = () => {
     )
 }
 
-const InfoCard = ({icon, label, value}) => {
+export const ContactInfoItem = ({icon, label, value}) => {
     return (
-        <div className="card info-card">
+        <div className="card contact-info-card">
             <i className={`icon ${icon}`} />
             <div className="right">
                 <span className="label">{label}</span>

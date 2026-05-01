@@ -247,12 +247,9 @@
       }
     }
 
-    .info-card {
+    .contact-info-card {
       border-radius: 8px;
-      background-color: var(--bg);
-      @include flex-row;
-      gap: 1rem;
-      border: none;
+      box-shadow: 0px 5px 5px 0px rgba(162, 162, 162, 0.263);
 
       @media (min-width: $w-md) {
         width: calc(33% - 32px);
@@ -260,10 +257,7 @@
       }
 
       .icon {
-        @include rounded(48px);
         background-color: #b5610022;
-        color: var(--primary);
-        font-size: 14px;
       }
     }
   }

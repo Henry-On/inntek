@@ -1,6 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { ContactInfoItem } from '@/app/contact-us/page';
 import FacebookPageClient from '@/components/footer/FacebookPageClient';
 import Newsletter from './Newsletter'
 
@@ -44,31 +43,25 @@ function Footer() {
         <div className="footer-center wrapper-columns">
           <Newsletter />
           <div className='wrapper-columns wrapper-lv-2'>
-            <div className='column contact-info'>
+            <div className='column footer-contact-info'>
               <span className="caption">Contact Info</span>
-              <ul className=''>
-                <li className='contact-item'>
-                  <i className="fab fa-whatsapp" aria-hidden="true"></i>
-                  <ul>
-                    <li className='field-name'>WhatsApp</li>
-                    <li className='text-black'>+ (234)0 9029198353</li>
-                  </ul>
-                </li>
-                <li className='contact-item'>
-                  <i className="fa fa-phone-alt" aria-hidden="true"></i>
-                  <ul>
-                    <li className='field-name'>Phone</li>
-                    <li className='text-black'>+ (234)0 8144447196</li>
-                  </ul>
-                </li>
-                <li className='contact-item'>
-                  <i className="fa fa-envelope-open" aria-hidden="true"></i>
-                  <ul>
-                    <li className='field-name'>Email Address</li>
-                    <li className='text-black'>services@inntek.ng</li>
-                  </ul>
-                </li>
-              </ul>
+              <div className="wrapper-cards">
+                <ContactInfoItem
+                  icon="fas fa-envelope"
+                  label="Email address"
+                  value="support@innradii.com"
+                />
+                <ContactInfoItem
+                  icon="fas fa-phone-volume"
+                  label="Call No"
+                  value="08144447196"
+                />
+                <ContactInfoItem
+                  icon="fab fa-whatsapp"
+                  label="WhatsApp Line"
+                  value="09029198353"
+                />                
+              </div>
             </div>
             <div className="column">
               <FacebookPageClient />

@@ -1,9 +1,7 @@
 import Hero from '@/components/Hero'
 import HeroContainer from '@/components/HeroContainer'
 import Testimonials from '@/components/testimonial/Testimonials'
-import Card_B from '@/components/cards/Card_B'
-import Card_C from '@/components/cards/Card_C'
-import Card_D from '@/components/cards/Card_D'
+import {Card_B, Card_D, Card_E} from '@/components/cards'
 import Image from "next/image"
 import React from 'react'
 
@@ -44,7 +42,7 @@ const Services = async () => {
           <div className="wrapper-service-cards">
             {
               softwareServices.map((e) => (
-                <Card_C
+                <Card_E
                   key={e.SN}
                   title={e.name}
                   description={e.description}

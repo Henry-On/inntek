@@ -1,13 +1,12 @@
 import Hero from '@/components/Hero'
 import Image from 'next/image'
-import { ServiceCardA } from '@/components/cards'
+import { Card_B } from '@/components/cards'
 import SectionIcon from '@/components/SectionIcon'
 import React from 'react'
 import { ButtonLink } from '@/components/buttons'
 import { SectionTitle } from '../home/page'
 import HeroContainer from '@/components/HeroContainer'
 import FixedBackgroundToColumn from '../home/FixedBackgroundToColumn'
-import styles from './page.module.css'
 
 export const metadata = {
   title: 'InnTek - About Us'
@@ -124,12 +123,12 @@ const About = () => {
                         <a href="./our-services" style={{ fontWeight: "lighter" }}>All <i className='fa fa-caret-right'></i></a>
                     </div>
                     <div className='service-cards'>
-                        <ServiceCardA title="Web Development" description="We build visually appealing, high-performing websites using modern technologies, optimized for speed, usability, and SEO to help your brand stand out online." />
-                        <ServiceCardA title="Mobile Development" description="From iOS to Android, our native and cross-platform apps deliver intuitive UX, seamless performance, and reliable scalability to support your users and business growth." />
-                        <ServiceCardA title="Computer Networking" description="We provide comprehensive networking solutions, including installation and maintenance of secure LAN/WAN infrastructures, ensuring secure, reliable connections for smooth business operations." />
-                        <ServiceCardA title="Managed I.T Workplace" description="We equip workplaces with fast, secure IT infrastructure. We ensure enabling seamless communication, file sharing, and collaboration in a cost-effective environment. You are also secured with RFID, PINs, facial recognition, or fingerprints access controls" />
-                        <ServiceCardA title="Solar Power Installation" description="Harness renewable energy, a wasteless and everlasting energy source.  We handle panel installation to smart energy distribution, tailored to meet your power needs reliably taking into account all necessary industry specification" />
-                        <ServiceCardA title="CCTV Installations" description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results. We tailor the technology to client’s preference - continuously or only as required to monitor a particular event." />
+                        <Card_B title="Web Development" description="We build visually appealing, high-performing websites using modern technologies, optimized for speed, usability, and SEO to help your brand stand out online." />
+                        <Card_B title="Mobile Development" description="From iOS to Android, our native and cross-platform apps deliver intuitive UX, seamless performance, and reliable scalability to support your users and business growth." />
+                        <Card_B title="Computer Networking" description="We provide comprehensive networking solutions, including installation and maintenance of secure LAN/WAN infrastructures, ensuring secure, reliable connections for smooth business operations." />
+                        <Card_B title="Managed I.T Workplace" description="We equip workplaces with fast, secure IT infrastructure. We ensure enabling seamless communication, file sharing, and collaboration in a cost-effective environment. You are also secured with RFID, PINs, facial recognition, or fingerprints access controls" />
+                        <Card_B title="Solar Power Installation" description="Harness renewable energy, a wasteless and everlasting energy source.  We handle panel installation to smart energy distribution, tailored to meet your power needs reliably taking into account all necessary industry specification" />
+                        <Card_B title="CCTV Installations" description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results. We tailor the technology to client’s preference - continuously or only as required to monitor a particular event." />
                     </div>
                 </div>
             </div>

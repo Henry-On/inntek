@@ -1,10 +1,6 @@
 import React from 'react'
-import Image from 'next/image'
-import { ServiceCardB } from '@/components/cards'
-import Card_A from "@/components/cards/Card_A"
+import { Card_C, Card_A } from '@/components/cards'
 import { ButtonLink } from '@/components/buttons'
-import IndustryList from './IndustryList'
-import bgImg2 from "@/public/images/persons-three.png"
 import Testimonials from '@/components/testimonial/Testimonials'
 import InputField from '@/components/form/InputField'
 import TextareaField from '@/components/form/TextareaField'
@@ -14,7 +10,6 @@ import HeroContainer from '@/components/HeroContainer'
 import HeroCarousel from './HeroCarousel'
 import SectionIcon from '@/components/SectionIcon'
 import { contactFormSubjects } from '@/storage/contactFormSubjects'
-import FixedBackgroundToColumn from './FixedBackgroundToColumn'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 import IndustryListGrid from './IndustryListGrid'
 
@@ -63,17 +58,17 @@ const Home = () => {
             </div>
           </div>
           <div className="wrapper-cards">
-            <ServiceCardB
+            <Card_C
               title="Software Development"
               description="We build secure and scalable web and mobile apps, custom-made enterprise applications tailored to your brand and that optimize your business operations"
               imageName="service-globe.svg"
             />
-            <ServiceCardB
+            <Card_C
               title="Network Solutions"
               description="Delivering secure, high-speed connectivity for seamless communication across your entire organization"
               imageName="service-network.svg"
             />
-            <ServiceCardB
+            <Card_C
               title="Digitalization"
               description="Transforming manual workflows into smart, automated processes that boost efficiency and growth"
               imageName="service-digitalization.svg"
@@ -120,20 +115,23 @@ const Home = () => {
             From Idea to launch - we build, scale, and support your product every step of the way
           </div>
           <div className='wrapper-cards'>
-            <StartupCard
+            <Card_C
               title="Idea and Strategy"
               description="Workshop sessions, business analysis, brand identity designs, wireframes, and MVP planning. We work with you to validate your concept and create a clear roadmap that positions you for success."
               imageName="st-light.svg"
+              className="startup-card"
             />
-            <StartupCard
+            <Card_C
               title="Design and Development"
               description="We develop customized solutions tailored to your specific needs, whether it's software, infrastructure, or service implementation. Our approach focuses on building systems that deliver measurable values"
               imageName="st-tools.svg"
+              className="startup-card"
             />
-            <StartupCard
+            <Card_C
               title="Launch and Scale"
               description="Deployment, user testing, feedback cycles, support & maintenance, and feature upgrades. We stay involved through launch, monitor performance, gather and integrate user feedback, and help your business to scale sustainably."
               imageName="st-rocket.svg"
+              className="startup-card"
             />
           </div>
           <div className='get-started'>
@@ -218,24 +216,26 @@ const Home = () => {
           <div className='top-container'>
             <h3 className='section-title mb-2'>How We Work</h3>
             <p>At Inn Radii Technologies, we follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
-            <ul className="container-toggles hide-x-scrollbar">
-              <li className='procedure-toggle active' data-process="1">
-                <span className='stage-count'>1</span>
-                Discovery and Definition
-              </li>
-              <li className='procedure-toggle' data-process="2">
-                <span className='stage-count'>2</span>
-                Planning
-              </li>
-              <li className='procedure-toggle' data-process="3">
-                <span className='stage-count'>3</span>
-                Building
-              </li>
-              <li className='procedure-toggle' data-process="4">
-                <span className='stage-count'>4</span>
-                Deployment
-              </li>
-            </ul>
+            {/* <div> */}
+              <ul className="container-toggles hide-x-scrollbar">
+                <li className='procedure-toggle active' data-process="1">
+                  <span className='stage-count'>1</span>
+                  Discovery and Definition
+                </li>
+                <li className='procedure-toggle' data-process="2">
+                  <span className='stage-count'>2</span>
+                  Planning
+                </li>
+                <li className='procedure-toggle' data-process="3">
+                  <span className='stage-count'>3</span>
+                  Building
+                </li>
+                <li className='procedure-toggle' data-process="4">
+                  <span className='stage-count'>4</span>
+                  Deployment
+                </li>
+              </ul>
+            {/* </div> */}
           </div>
           <ul className='container-stages hide-x-scrollbar'>
             <ProcedureState
