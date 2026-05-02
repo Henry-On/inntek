@@ -217,24 +217,24 @@ const Home = () => {
             <h3 className='section-title mb-2'>How We Work</h3>
             <p>At Inn Radii Technologies, we follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
             {/* <div> */}
-              <ul className="container-toggles hide-x-scrollbar">
-                <li className='procedure-toggle active' data-process="1">
-                  <span className='stage-count'>1</span>
-                  Discovery and Definition
-                </li>
-                <li className='procedure-toggle' data-process="2">
-                  <span className='stage-count'>2</span>
-                  Planning
-                </li>
-                <li className='procedure-toggle' data-process="3">
-                  <span className='stage-count'>3</span>
-                  Building
-                </li>
-                <li className='procedure-toggle' data-process="4">
-                  <span className='stage-count'>4</span>
-                  Deployment
-                </li>
-              </ul>
+            <ul className="container-toggles hide-x-scrollbar">
+              <li className='procedure-toggle active' data-process="1">
+                <span className='stage-count'>1</span>
+                Discovery and Definition
+              </li>
+              <li className='procedure-toggle' data-process="2">
+                <span className='stage-count'>2</span>
+                Planning
+              </li>
+              <li className='procedure-toggle' data-process="3">
+                <span className='stage-count'>3</span>
+                Building
+              </li>
+              <li className='procedure-toggle' data-process="4">
+                <span className='stage-count'>4</span>
+                Deployment
+              </li>
+            </ul>
             {/* </div> */}
           </div>
           <ul className='container-stages hide-x-scrollbar'>
@@ -314,34 +314,40 @@ const Home = () => {
       <div className="home-contact">
         <div className="content pt-0">
           <div className="image-background">
-            <div className='content-top max-width-text pseudo-underline'>
+            <div className='column content-top max-width-text pseudo-underline'>
               <span className='arrow-pointer'>Next Step</span>
               <h3 className='section-title'>Get in Touch</h3>
               Have a question or ideas? Don’t overthink it.
               We are passionate about playing a part of your success story. With us, you're in capable hands - Let’s talk about your project. Complete the form and hit the send button to send us a quick message
             </div>
-            <FormElement className="home-form" action="">
-              <div className='columns'>
-                <div className='column'>
-                  <InputField
-                    placeholder="Jane Doe"
-                    label="Name"
-                  />
+            <form className="column home-form" action="">
+              <div className="form-inputs">
+                <div className='columns'>
+                  <div className='column'>
+                    <InputField
+                      placeholder="Jane Doe"
+                      label="Name"
+                    />
+                  </div>
+                  <div className='column'>
+                    <InputField
+                      type="email"
+                      placeholder="example@domain.com"
+                      label="Your Email"
+                    />
+                  </div>
                 </div>
-                <div className='column'>
-                  <InputField
-                    type="email"
-                    placeholder="example@domain.com"
-                    label="Your Email"
-                  />
-                </div>
+                <SelectField
+                  label="Email subject"
+                  data={contactFormSubjects}
+                />
+                <TextareaField placeholder="Hi, my name is ..." label="Your Message" />
               </div>
-              <SelectField
-                label="Email subject"
-                data={contactFormSubjects}
-              />
-              <TextareaField placeholder="Your message..." label="Your Message" />
-            </FormElement>
+
+              <div className="button-wrapper">
+                <button className='ibtn'>Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
 

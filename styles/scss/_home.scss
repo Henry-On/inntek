@@ -373,7 +373,7 @@
 
   .features-caption {
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1.1rem;
     font-weight: 600;
     position: relative;
@@ -548,10 +548,12 @@
     @media (min-width: $w-xs) {
       padding: 48px 64px;
     }
+
     @media (min-width: $w-sm) {
       width: 70%;
       padding: 64px;
     }
+
     @media (min-width: $w-md) {
       width: 50%;
     }
@@ -704,10 +706,32 @@
 .home-contact {
   .home-form {
     flex-grow: 1;
+    position: relative;
+    gap: 0;
+  }
+
+  .form-inputs {
+    padding: 24px;
+    @include flex-column(1rem);
+
+    @media (min-width: $w-sm) {
+      padding: 48px;
+    }
+
+    @media (min-width: $w-md) {
+      // padding: 48px 64px;
+      background-color: rgb(255, 255, 255);
+    }
   }
 
   .content-top {
     text-align: center;
+    position: relative;
+    padding: 24px;
+
+    @media (min-width: $w-sm) {
+      padding: 48px;
+    }
 
     @media (min-width: $w-md) {
       text-align: left;
@@ -716,12 +740,24 @@
       margin-left: 0;
       flex-shrink: 0;
       flex-grow: 0;
+      flex-shrink: 0;
+      border-right: 2px solid var(--border);
 
       &.pseudo-underline::after {
-        left: 0;
+        left: 48px;
+        bottom: 28px;
         transform: none;
         width: 30%;
         height: 7px;
+      }
+    }
+
+    @media (min-width: $w-lg) {
+      padding: 48px 64px;
+      width: 45%;
+
+      &.pseudo-underline::after {
+        left: 64px;
       }
     }
   }
@@ -752,9 +788,9 @@
   }
 
   .image-background {
-    @include flex-column(1rem);
+    @include flex-column(0px);
     border-radius: 16px;
-    padding: 24px;
+    // padding: 24px;
     background-image: url("/images/techguy.png");
     background-size: cover;
     background-position: center;
@@ -763,47 +799,33 @@
     border: 1px solid var(--border);
     overflow: hidden;
 
-    &>* {
-      position: relative;
-    }
-
     &::before {
       content: "";
       @include absolute-fill;
       background-color: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(2px);
-    }
-
-    @media (min-width: $w-sm) {
-      padding: 48px;
+      backdrop-filter: blur(1px);
     }
 
     @media (min-width: $w-md) {
       flex-direction: row;
-      gap: 32px;
-      padding: 64px;
     }
+  }
 
-    @media (min-width: $w-lg) {
-      padding: 0;
-      gap: 0;
+  .button-wrapper {
+    background-color: white;
+    background-image: linear-gradient(17deg, #a75b00, #282828d9);
+    padding: 24px;
+    border-top: 1px solid var(--border);
 
-      .content-top {
-        padding: 48px 64px;
-        flex-shrink: 0;
-        width: 50%;
-
-        &.pseudo-underline::after {
-          left: 64px;
-          bottom: 28px;
-        }
-      }
-
-      .home-form {
-        padding: 48px 64px;
-        background-color: rgb(255, 255, 255);
-      }
+    @media (min-width: $w-sm) {
+      padding-left: 48px;
+      padding-right: 48px;
     }
+  }
+
+  .ibtn {
+    border-radius: 8px;
+    color: #000;
   }
 }
 

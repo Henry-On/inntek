@@ -502,15 +502,6 @@ form {
         flex-grow: 1;
     }
 
-    button.ibtn {
-        display: inline-flex;
-        align-self: flex-start;
-        border-radius: 8px;
-        background-color: var(--primary);
-        border: 1px solid var(--border);
-        color: white;
-    }
-
     .form-message {
         font-size: small;
         color: var(--warning);
@@ -518,7 +509,7 @@ form {
 
     .input-field {
         display: block;
-        padding: 12px;
+        padding: 16px;
         width: 100%;
         border-radius: 8px;
         border: 1px solid var(--border);
