@@ -179,32 +179,32 @@ const Home = () => {
             <Card_A
               imageName="service-globe.svg"
               title="Web Design and Development"
-              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="We build visually appealing, high-performing websites using modern technologies, optimized for speed, usability, and SEO to help your brand stand out online"
             />
             <Card_A
               imageName="service-globe.svg"
               title="Enterprise Application Development"
-              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Design and development of aesthetically beautiful and functional website. Our sites are responsive and SEO super friendly"
             />
             <Card_A
               imageName="service-globe.svg"
               title="Mobile Applications Development"
-              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="From iOS to Android, our native and cross-platform apps deliver intuitive UX, seamless performance, and reliable scalability to support your users and business growth"
             />
             <Card_A
               imageName="service-globe.svg"
               title="Computer Networking and Engineering"
-              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="We provide comprehensive networking solutions, including installation and maintenance of secure LAN/WAN infrastructures, ensuring secure, reliable connections for smooth business operations"
             />
             <Card_A
               imageName="service-globe.svg"
               title="CCTV Solutions"
-              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results. We tailor our solution to client’s preference or as required to deliver optimum coverage."
             />
             <Card_A
               imageName="service-globe.svg"
               title="Solar Energy Solutions"
-              description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+              description="Harness renewable energy, a wasteless and everlasting energy source. We handle panel installation to smart energy distribution, tailored to meet your power needs reliably taking into account all necessary industry specification"
             />
           </div>
         </div>
@@ -276,35 +276,35 @@ const Home = () => {
               icon="fa fa-gem"
               style={{ color: "#efd600", backgroundColor: "#ffffff" }}
             />
-            <h2 className='section-title'>Why Choose Us</h2>
+            <h2 className='section-title pseudo-underline'>Why Choose Us</h2>
             Our commitment to you is beyond just technology. See why we are exceptional
           </div>
-        </div>
-        <div className="background-container">
-          <div className="content position-relative">
-            <img src="/images/portrait-hero.png" alt="smiley" className='png-desktop' />
+
+          <div className="background-container">
+            {/* <div className="content pt-0 position-relative"> */}
             <div className="container-cards">
               <Card_A
                 imageName="service-globe.svg"
-                title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                title="Strategy and Process"
+                description="We follow a clearly defined process for every project which ensures each solution is thoughtful, scalable, and aligned with your business needs"
               />
               <Card_A
                 imageName="service-globe.svg"
-                title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                title="Diversification"
+                description="We serve businesses across various sectors, from healthcare and retail to finance and logistics with deep knowledge and customized solutions for each industry"
               />
               <Card_A
                 imageName="service-globe.svg"
-                title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                title="Quality Driven"
+                description="We prioritize excellence in delivery—not just to complete projects, but to exceed expectations with lasting impact."
               />
               <Card_A
                 imageName="service-globe.svg"
-                title="Web Design and Development"
-                description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results."
+                title="Customer-Centric Approach"
+                description="We put our clients at the center of everything we do; listening closely, adapting quickly, and delivering solutions that are tailored to real needs"
               />
             </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

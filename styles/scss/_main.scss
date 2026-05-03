@@ -35,7 +35,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 5;
 
     .menu-group {
         display: flex;
@@ -131,6 +131,7 @@ body {
         height: 0;
         transition: 0.35s;
         overflow: hidden;
+        @include flex-column;
 
         @media (min-width:$w-md) {
             position: absolute;
@@ -447,7 +448,7 @@ body {
 
     .swiper-pagination {
         position: relative !important;
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
 }
 
