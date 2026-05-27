@@ -11,7 +11,14 @@ const ButtonSubmit = ({ text, link, className, ...props }) => {
     )
 }
 
-export const ButtonLink = ({ text, href="#", className="", icon, iconPosition="right", ...props }) => {
+export const ButtonLink = ({ 
+    text, 
+    href="#", 
+    className="", 
+    icon, 
+    iconPosition="right", 
+    ...props
+}) => {
     const iconWithAria = React.isValidElement(icon) ? React.cloneElement(icon, { 'aria-hidden': 'true' }) : icon;
     return (
         <a

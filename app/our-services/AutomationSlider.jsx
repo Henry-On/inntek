@@ -22,11 +22,11 @@ export default function AutomationSlider() {
             //     },
             // }}
         >
-            <SwiperSlide><img src="/images/networking.png" alt="automation-image-1" /></SwiperSlide>
-            <SwiperSlide><img src="/images/techguy.png" alt="automation-image-2" /></SwiperSlide>
-            <SwiperSlide><img src="/images/networking-2.png" alt="automation-image-3" /></SwiperSlide>
-            <SwiperSlide><img src="/images/networking-3.png" alt="automation-image-4" /></SwiperSlide>
-            <SwiperSlide><img src="/images/cctv cam.jpeg" alt="automation-image-5" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-1.png" alt="automation-image-1" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-2.png" alt="automation-image-2" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-3.png" alt="automation-image-3" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-4.png" alt="automation-image-4" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-5.png" alt="automation-image-5" /></SwiperSlide>
         </Swiper>
     );
 }

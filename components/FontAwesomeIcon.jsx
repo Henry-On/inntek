@@ -1,9 +1,9 @@
 import React from 'react'
 
-const FontAwesomeIcon = ({className="", icon, ...props}) => {
+const FontAwesomeIcon = ({className="", ...props}) => {
   return (
     <i
-     className={`icon ${icon} ${className}`}
+     className={`icon ${className}`}
      aria-hidden="true"
      {...props}
     ></i>

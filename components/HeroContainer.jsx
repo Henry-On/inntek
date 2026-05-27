@@ -2,7 +2,7 @@ import React from 'react'
 
 const HeroContainer = ({
   backgroundImage = "/images/hero-background.png",
-  backgroundOverlayColor,
+  backgroundOverlayColor="#000000c9",
   className,
   style,
   children,
@@ -17,7 +17,7 @@ const HeroContainer = ({
       <div
         className="background-overlay"
         aria-hidden="true"
-        style={{ backgroundColor: `${backgroundOverlayColor}` }}
+        style={{ backgroundColor: `${backgroundOverlayColor}`, transition: "background 1s ease-in-out" }}
       ></div>
 
       <div className={`content hero-container__content`}>

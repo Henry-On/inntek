@@ -78,7 +78,8 @@
     color: var(--primary);
     flex-grow: 0;
     white-space: nowrap;
-    transition: 0.35s ease-in-out;
+    transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, 
+                letter-spacing 0.35s ease-in-out;
 
     .icon {
         opacity: .5;
@@ -139,21 +140,21 @@
     &.card-a {
         @include flex-column(0.5rem);
 
-        .container-top {
+        .icon-area {
+            @include rounded(24px);
+            line-height: 24px;
+            flex-shrink: 0;
+        }
+        .wrapper-title {
             @include flex-row(8px);
             align-items: center;
         }
 
-        .image-wrapper {
-            height: 24px;
-            width: 24px;
+        .icon {
+            color: var(--primary);
+            font-size: 18px;
+            flex-grow: 0;
             flex-shrink: 0;
-        }
-
-        img {
-            width: 100%;
-            min-height: 100%;
-            display: block;
         }
 
         .title {
@@ -206,17 +207,14 @@
         min-height: 360px;
         overflow: hidden;
         color: var(--text-light);
-        transition: 0.35s ease-in-out;
+        transition: color 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
 
         &:hover {
             color: white;
+            box-shadow: $shadow-hover;
 
             img {
                 transform: scale(1.125);
-            }
-
-            .card-content {
-                transform: scale(1.05);
             }
 
         }
@@ -231,7 +229,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: inherit;
+            transition: transform 0.35s ease-in-out, filter 0.35s ease-in-out;
             filter: brightness(0.65) grayscale(0.1);
         }
 
@@ -243,7 +241,6 @@
             @include flex-column;
             flex-grow: 1;
             justify-content: flex-end;
-            transition: all 0.35s ease;
             color: white;
         }
 
@@ -271,7 +268,7 @@
 
         .image-container {
             position: relative;
-            height: 200px;
+            min-height: 150px;
             overflow: hidden;
 
             &::before {
@@ -287,7 +284,7 @@
             height: 100%;
             width: 100%;
             object-fit: cover;
-            transition: 0.35s ease-in-out;
+            transition: transform 0.35s ease-in-out, filter 0.35s ease-in-out;
             filter: brightness(0.75);
         }
 

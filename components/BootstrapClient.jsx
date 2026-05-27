@@ -7,22 +7,30 @@ const BootstrapClient = () => {
   const pathname = usePathname()
 
   useEffect(() => {
+    let cleanupApp
+    let isMounted = true
+
     // Load scripts sequentially to ensure dependencies
     const loadScripts = async () => {
       try {
         await import('@/public/bootstrap/js/bootstrap.bundle.min.js')
-        await import('@/public/gsap/minified/gsap.min.js')
-        await import('@/public/gsap/plugins/scrollTrigger.min.js')
         
         // Now import and run the main script
         const { default: initApp } = await import('@/js/main.js')
-        initApp()
+        if (isMounted) {
+          cleanupApp = initApp()
+        }
       } catch (error) {
         console.error('Error loading scripts:', error)
       }
     }
 
     loadScripts()
+
+    return () => {
+      isMounted = false
+      cleanupApp?.()
+    }
     
   }, [pathname])
 

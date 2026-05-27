@@ -23,6 +23,10 @@
     margin-left: auto;
     margin-right: auto;
 
+    &:hover {
+      box-shadow: $shadow-hover;
+    }
+
     @media (min-width: $w-sm) {
       width: calc(50% - 16px);
       flex-shrink: 0;
@@ -151,7 +155,7 @@
   }
 
   .container-carousel {
-    border-radius: 8px;
+
     overflow: hidden;
     position: relative;
     min-height: 250px;
@@ -164,6 +168,15 @@
       width: 50%;
       flex-shrink: 0;
     }
+  }
+
+  .swiper {
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  img {
+    object-fit: cover;
   }
 
   .carousel-indicators {
@@ -270,8 +283,7 @@
 
 
   .wrapper-row-input {
-    gap: 1rem;
-    @include flex-column;
+    @include flex-column(1rem);
 
     @media(min-width: $w-sm) {
       flex-direction: row;
@@ -297,7 +309,7 @@
   }
 
   .introduction_content {
-    @include flex-column;
+    @include flex-column(12px);
     text-align: center;
     max-width: 750px;
     padding-bottom: 0;
@@ -329,22 +341,25 @@
     }
 
     .core-columns {
-      @include flex-column(.5rem);
+      @include flex-column(1rem);
 
       @media(min-width: 996px) {
         flex-direction: row;
         align-items: stretch;
+        gap: 2rem;
       }
     }
 
     .column {
-      @include flex-column(4px);
+      @include flex-column(12px);
       align-items: center;
       justify-content: center;
       padding: 32px;
-      transition: .35s;
+      transition: background-color .35s ease-in, color .35s ease-in-out,
+                  color 0.35s ease-in-out;
       max-width: 400px;
       margin: 0 auto;
+      border-radius: 16px;
 
       @media(min-width: $w-md) {
         height: 100%;
@@ -361,6 +376,7 @@
         @include rounded(64px);
         margin: 32px auto auto;
         background-color: #ffcc915c;
+        transition: background-color 0.35s ease-in-out;
       }
 
       &__image {
@@ -369,21 +385,12 @@
       }
 
       &.active {
-        background-color: var(--secondary);
-        border-radius: 8px;
-        color: var(--text-light);
-
-        .column__title {
-          color: white;
-
-        }
+        background-color: var(--bg);
 
         &:hover {
 
-
           .column__title {
             color: var(--text-accent);
-
           }
         }
 
@@ -393,6 +400,10 @@
       &:hover {
         background-color: var(--bg);
         color: var(--text-accent);
+
+        .wrapper-image {
+          background-color: var(--secondary);
+        }
       }
     }
 
@@ -401,108 +412,71 @@
   &__stories {
 
     .content-wrapper {
-      @include flex-column(16px);
+      @include flex-column(32px);
     }
 
-    .column {
+    .section {
       position: relative;
       overflow: hidden;
+      background-image: linear-gradient(33deg, #7e7048e0, #d2e7e5d1);
+      padding: 48px;
+      color: black;
 
-      @media(min-width: $w-sm) {
-        @include flex-row(16px);
+      &.history {
+        background-image: linear-gradient(33deg, rgba(210, 231, 229, 0.8196078431), rgb(72 126 126 / 88%));
 
-        &.flex-reversed {
-          flex-direction: row-reverse;
-
-          .column__content-inner {
-            margin-left: 70px;
-            margin-right: -320px;
-          }
-
-          .icon {
-            left: 24px;
-            bottom: 24px;
-            right: 0;
-            top: auto;
-            color: #ffffff;
-          }
+        .icon {
+          left: 24px;
+          bottom: 24px;
+          right: 0;
+          top: auto;
+          color: #ffffff;
         }
+      }
 
+      .row-stack {
+        @include flex-column(32px);
+
+        @media(min-width: $w-md) {
+          flex-direction: row;
+          gap: 48px;
+        }
       }
 
       img {
-        position: absolute;
         object-fit: cover;
         display: block;
         height: 100%;
-        width: 100%;
-      }
-
-      &__content {
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-        @media(min-width: $w-sm) {
-          padding: 32px;
-          background-image: linear-gradient(33deg, #7e7048e0, #d2e7e5d1);
-        }
-      }
-
-      &__content-inner {
-        margin-top: 70px;
-        padding: 16px;
-        background-color: rgba(255, 255, 255, 0.95);
-        position: relative;
-        z-index: 1;
-        box-shadow: $shadow-md;
-        border-bottom-right-radius: 16px;
-        border-top-left-radius: 16px;
-
-        @media(min-width: $w-xs) {
-          padding: 48px;
-
-        }
-
-        @media(min-width: $w-sm) {
-          transform: none;
-          margin-top: 0;
-          margin-left: -320px;
-          margin-right: 70px;
-          padding: 32px 64px;
-          border-bottom-right-radius: 48px;
-          border-top-left-radius: 48px;
-        }
-
-        @media(min-width: $w-md) {
-          // margin-right: 64px;
-          padding: 64px;
-        }
-
-        &::after {
-          display: block;
-          content: "";
-          width: 30%;
-          height: 2px;
-          background-color: var(--primary);
-          margin-top: 10px;
-        }
       }
 
       &__title {
         @include section-title;
+        margin-bottom: 16px;
       }
     }
 
-    .column__image-wrapper {
-      @include absolute-fill;
-      background-color: transparent;
+    .principles-list {
+      @include flex-row(8px);
+      flex-wrap: wrap;
+      margin-top: 16px;
+
+      .li {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 32px;
+        background-color: white;
+      }
+    }
+
+    .image-wrapper {
       overflow: hidden;
-      border-radius: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: $shadow-hover;
+
 
       @media(min-width: $w-sm) {
-        width: 55%;
+        width: 50%;
         flex-shrink: 0;
         position: relative;
       }
@@ -525,11 +499,68 @@
   }
 
   &__why-us {
-    // color:white;
+    background-image: url("/images/hero-background.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: rgb(222, 222, 222);
+    padding: var(--padding-content-y) var(--padding-content-x);
 
     &::before {
-      background-color: transparent;
-      background-image: linear-gradient(250deg, #46421eed, #051c0ad4);
+      @include absolute-fill;
+      content: "";
+      background-color: rgba(12, 63, 54, 0.82);
+      // backdrop-filter: blur(1px);
+    }
+
+    @media(min-width:$w-md) {
+      background-image: none !important;
+      background-color: white;
+      color: var(--text);
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .section-info {
+      color: var(--primary);
+      padding: 8px 12px;
+      font-size: small;
+      background-color: rgb(255, 255, 255);
+      border-radius: 24px;
+      margin: 0 auto 12px auto;
+      display: inline-block;
+      font-weight: lighter;
+    }
+
+    .wrapper-columns {
+      position: relative;
+      @include flex-column(16px);
+      max-width: 1200px;
+      margin: auto;
+
+      @media(min-width:$w-md) {
+        flex-direction: row;
+        gap: 64px;
+      }
+    }
+
+    .content-text {
+      @include flex-column(24px);
+      justify-content: center;
+    }
+
+    .column-left {
+      display: none;
+
+      @media(min-width:$w-md) {
+        display: block;
+        width: 35%;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
     }
 
     .section-title {
@@ -540,34 +571,46 @@
       }
     }
 
-    .qualities-list {
-      @include flex-column;
-      gap: 4px;
-      margin-bottom: 1rem;
+    .quality-item-list {
+      @include flex-column(1rem);
+    }
 
-      li {
-        display: flex;
-        align-items: flex-start;
+    .quality-item {
+      @include flex-column(4px);
 
-        &::before {
-          @include fa-pseudo;
-          @include rounded(30px);
-          content: "\f00c";
-          margin: 0px 16px 0 0;
-          font-size: small;
-          color: #ffffff;
-          background-image: linear-gradient(#c59000, #929292a3);
-          flex-shrink: 0;
+      .wrapper-title {
+        @include flex-row(12px);
+        align-items: center;
+      }
+
+      .icon {
+        @include rounded(36px);
+        // background-color: #ffffff78;
+        background-color: var(--primary);
+        // border: 1px solid var(--border);
+        color: white;
+        font-size: 14px;
+      }
+
+      .title {
+        color: white;
+        font-size: 1.15rem;
+        font-family: var(--font-heading);
+        font-weight: bold;
+
+        @media(min-width: $w-md) {
+          color: black;
         }
-
       }
     }
 
     .column-left {
-      @include flex-row(16px);
+      display: none;
 
       @media(min-width: $w-xl) {
+        @include flex-row(16px);
         width: 40%;
+        max-height: 500px;
       }
     }
 
@@ -586,7 +629,7 @@
         img {
           filter: brightness(1);
         }
-        
+
         &.xl {
           width: 70%;
           flex-shrink: 0;
@@ -634,7 +677,7 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
-      transition: all .5s;
+      transition: transform .5s ease-in-out, filter .5s ease-in-out;
       filter: brightness(0.85)
     }
   }
@@ -658,10 +701,19 @@
     }
 
     .service-cards {
-      @include flex-column(8px);
+      @include flex-column(16px);
 
       .card {
         box-shadow: $shadow-md;
+        transition: box-shadow 0.35s ease-in-out,
+                    color 0.5s ease-in-out,
+                    border-color 0.5s ease-in-out;
+
+        &:hover {
+          box-shadow: $shadow-hover;
+          color:black;
+          border-color: var(--primary);
+        }
       }
 
       @media (min-width: $w-sm) {
@@ -683,43 +735,18 @@
 
 }
 
-.book-appointment {
-
-  .ibtn {
+  .ibtn.book-appointment {
     background-color: var(--primary);
     color: white;
     z-index: 1;
-    margin: auto;
-  }
+    margin: 16px auto auto auto;
 
-  .starter-notice {
-    width: 100%;
-    padding: 32px;
-    background: url("/images/networking-2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    @include flex-column;
-    align-items: center;
-    gap: 16px;
-    text-align: center;
-    margin: auto;
-    position: relative;
-
-    &::after {
-      content: "";
-      @include absolute-fill;
-      background-color: rgba(33, 59, 93, 0.552);
-      background-image: linear-gradient(45deg, #21494d9e, rgb(21 86 53 / 89%));
+    .icon {
+      background-color: white;
+      opacity: 1;
+      @include rounded(32px);
+      color:var(--text-accent)
     }
   }
-
-  .text {
-    @include section-title;
-    color: white;
-    position: relative;
-    z-index: 1;
-  }
-}
 
 /* <! -- ENDS ABOUT PAGE STYLES --> */

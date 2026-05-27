@@ -14,16 +14,12 @@ import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 const Services = async () => {
 
   const filePath = path.join(process.cwd(), "/app/our-services/data.json");
-  console.log(filePath)
   const data = JSON.parse(await fs.readFile(filePath, "utf8"));
 
   const softwareServices = data.softwareServices
   const networkServices = data.networkServices
   const powerPlusCCTVServices = data.powerPlusCCTV
 
-  const openServiceRequestModal = (service_title) => {
-    console.log(service_title)
-  }
   return (
     <>
       <HeroContainer backgroundOverlayColor="#182f03c9">
@@ -39,7 +35,7 @@ const Services = async () => {
       <div className='software-dev'>
         <div className="content">
           <h2 className='section-title pseudo-underline'>Software Development</h2>
-          <div className="wrapper-service-cards">
+          <div className="wrapper-service-cards" data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.16">
             {
               softwareServices.map((e) => (
                 <Card_E
@@ -57,11 +53,11 @@ const Services = async () => {
       </div>
       <div className='network-services'>
         <div className="content">
-          <div className='text-center max-width-text'>
+          <div className='text-center max-width-text' data-gsap-animate="stagger-fade-up" >
             <h2 className='section-title pseudo-underline'>Network Engineering/ ICT System Integration / IT Support</h2>
-            We offer wide range of networking services that aim at providing the most efficient and reliable work strategy to improve overall output. Our system integration process focuses on integrating  physical and virtual components of an organisation's systems.
+            <span>We offer wide range of networking services that aim at providing the most efficient and reliable work strategy to improve overall output. Our system integration process focuses on integrating  physical and virtual components of an organisation's systems.</span>
           </div>
-          <div className="wrapper-service-cards">
+          <div className="wrapper-service-cards" data-gsap-animate="stagger-fade-up">
             {
               networkServices.map((e) => (
                 <Card_D
@@ -82,7 +78,7 @@ const Services = async () => {
         </div>
         <div className="background-container">
           <div className="content">
-            <div className="wrapper-cards">
+            <div className="wrapper-cards" data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.16">
               {
                 powerPlusCCTVServices.map((e) => (
                   <Card_B
@@ -99,7 +95,7 @@ const Services = async () => {
       <div className="automation-services">
         <div className="content">
           <div className="wrapper-columns">
-            <div className="column container-text max-width-text">
+            <div className="column container-text max-width-text" data-gsap-animate="stagger-fade-up">
               <span className='text-decoration-underline itext-primary small'>We do it better</span>
               <h2 className='section-title'>Simplify Life with Smart Automation</h2>
               <p>Lets transform your home into a smart, efficient, and secure space. From lighting and climate control to security and entertainment, our automation solutions put convenience at your fingertips—so you can focus on what matters most</p>

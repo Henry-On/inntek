@@ -8,12 +8,12 @@ function Footer() {
     <div className="footer" >
       <div className="content">
         <div className='footer-top wrapper-columns wrapper-lv-1'>
-          <div className='column'>
+          <div className='column' >
             <div className="brand-logo">
               <img src="/images/logo-footer.png" alt="brand-logo" />
             </div>
           </div>
-          <div className='column wrapper-columns wrapper-lv-2'>
+          <div className='column wrapper-columns wrapper-lv-2' >
             <div className='column'>
               <div className="text-black">
                 Trusted by businesses to deliver reliable, innovative tech solutions with integrity, professionalism, and a focus on results
@@ -23,10 +23,11 @@ function Footer() {
               <div className='column'>
                 <span className='caption'>Quick Links</span>
                 <ul className='links'>
-                  <li>Read Our Blog</li>
-                  <li>Frequently Asked Questions</li>
-                  <li>Partner with Us</li>
-                  <li>Careers</li>
+                  <li><a href="/contact-us" >Contact Us</a></li>
+                  <li><a href="#" >Read Our Blog</a></li>
+                  <li><a href="#" >Frequently Asked Questions</a></li>
+                  <li><a href="#" >Partner with Us</a></li>
+                  <li><a href="#" >Careers</a></li>
                 </ul>
               </div>
               <div className='column'>
@@ -40,11 +41,11 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer-center wrapper-columns">
+        <div className="footer-center wrapper-columns" >
           <Newsletter />
           <div className='wrapper-columns wrapper-lv-2'>
             <div className='column footer-contact-info'>
-              <span className="caption">Contact Info</span>
+              {/* <span className="caption">Contact Info</span> */}
               <div className="wrapper-cards">
                 <ContactInfoItem
                   icon="fas fa-envelope"
@@ -54,7 +55,7 @@ function Footer() {
                 <ContactInfoItem
                   icon="fas fa-phone-volume"
                   label="Call No"
-                  value="08144447196"
+                  value="08144447196, 09029198353"
                 />
                 <ContactInfoItem
                   icon="fab fa-whatsapp"

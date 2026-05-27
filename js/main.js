@@ -1,10 +1,6 @@
-import { gsap } from "@/public/gsap/esm";
-import ScrollTrigger from "@/public/gsap/esm/ScrollTrigger";
-
 // Export the main initialization function
 export function initApp() {
-
-  console.log("DOM fully loaded and parsed");
+  const cleanups = []
 
   const workProcedures = document.getElementById("work-procedures")
 
@@ -16,12 +12,15 @@ export function initApp() {
     const procedures = containerProcedures.querySelectorAll(".procedure-stage")
 
     buttons.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        centerActiveItem(index)
-      })
+      const handleToggleClick = () => centerActiveItem(index)
+      const handleProcedureClick = () => centerActiveItem(index)
 
-      procedures[index].addEventListener('click', () => {
-        centerActiveItem(index)
+      btn.addEventListener('click', handleToggleClick)
+      procedures[index].addEventListener('click', handleProcedureClick)
+
+      cleanups.push(() => {
+        btn.removeEventListener('click', handleToggleClick)
+        procedures[index].removeEventListener('click', handleProcedureClick)
       })
     });
 
@@ -51,21 +50,14 @@ export function initApp() {
     }
   }
 
-  // header menu with childen children
-  if (document.querySelectorAll('.nav-link.has-children')) {
-    const collapedHeight = "0px"
-    Array.from(document.querySelectorAll('.nav-link.has-children')).forEach((e) => {
-      e.addEventListener("click", () => {
-        const children = e.closest(".nav-item").querySelector(".children")
-        children.style.height = children.style.height != collapedHeight ? collapedHeight : children.scrollHeight + 'px'
-      })
-    })
+  const cleanupHeroCarousel = heroCarousel()
+  if (cleanupHeroCarousel) {
+    cleanups.push(cleanupHeroCarousel)
   }
 
-  heroCarousel()
-
-  // begin gsap animations
-  gsapAnimate()
+  return () => {
+    cleanups.forEach(cleanup => cleanup())
+  }
 }
 
 function heroCarousel() {
@@ -78,14 +70,17 @@ function heroCarousel() {
   const slideNames = carousel.querySelectorAll('.slide-name')
   const heroContainer = carousel.closest(".hero-container")
   const slidesBackground = heroContainer.querySelector(".background-overlay")
+  const nextButton = carousel.querySelector('.btn-next-slide')
+  const prevButton = carousel.querySelector('.btn-prev-slide')
 
-  const slideInterval = 5000; // 5 seconds
+  const slideInterval = 7000; // 7 seconds
+  const slideNameHandlers = []
 
   // attach click event to slide names  
   slideNames.forEach((slideName, index) => {
-    slideName.addEventListener('click', () => {
-      goToSlide(index)
-    })
+    const handleSlideNameClick = () => goToSlide(index)
+    slideName.addEventListener('click', handleSlideNameClick)
+    slideNameHandlers.push([slideName, handleSlideNameClick])
   })
 
   // function to go to a specific slide
@@ -121,69 +116,21 @@ function heroCarousel() {
   }
 
   // attach click event to control buttons
-  carousel.querySelector('.btn-next-slide').addEventListener('click', nextSlide)
-  carousel.querySelector('.btn-prev-slide').addEventListener('click', prevSlide)
+  nextButton.addEventListener('click', nextSlide)
+  prevButton.addEventListener('click', prevSlide)
 
   // automate carousel sliding
-  setInterval(nextSlide, slideInterval)
+  const intervalId = setInterval(nextSlide, slideInterval)
 
-}
+  return () => {
+    slideNameHandlers.forEach(([slideName, handleSlideNameClick]) => {
+      slideName.removeEventListener('click', handleSlideNameClick)
+    })
 
-function gsapAnimate() {
-
-  // toggle actions value options: play, pause, resume, reset, restart, complete, reverse, none
-  // toggleActions: "play none none none" means:
-  // onEnter: play
-  // onLeave: none
-  // onEnterBack: none
-  // onLeaveBack: none
-
-  // set default for ScrollTrigger
-  ScrollTrigger.defaults({
-    toggleActions: "play none none reset",
-    start: "top bottom"
-  })
-
-  gsap.defaults ({
-    ease: "power2.inOut",
-    duration: 0.75
-  })
-
-  // Register ScrollTrigger plugin
-  gsap.registerPlugin(ScrollTrigger);
-
-  // const heroTimeline = gsap.timeline();
-  // heroTimeline.from("#hero-section .wrapper-texts", { y: -50, opacity: 0, scale: 0.9, duration: 1 })
-  //   .call(() => document.querySelector("body").classList.add('show-header'));
-
-  gsap.utils.toArray("[data-gsap-animate='fade-up']").forEach(element => {
-    gsap.from(element, {
-      y: 150,
-      opacity: 0.25,
-      scrollTrigger: {
-        trigger: element
-      }
-    });
-  });
-
-  gsap.utils.toArray("[data-gsap-animate='fade-down']").forEach(element => {
-    gsap.from(element, {
-      y: -150,
-      opacity: 0.25,
-      scrollTrigger: {
-        trigger: element
-      }
-    });
-  });
-
-  gsap.utils.toArray("[data-gsap-animate='zoom-in']").forEach(element => {
-    gsap.from(element, {
-      scale: 0.8,
-      scrollTrigger: {
-        trigger: element
-      }
-    });
-  });
+    nextButton.removeEventListener('click', nextSlide)
+    prevButton.removeEventListener('click', prevSlide)
+    clearInterval(intervalId)
+  }
 
 }
 

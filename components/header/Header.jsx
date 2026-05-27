@@ -11,21 +11,16 @@ const Header = () => {
       <div className='menu-group'>
         <div className="wrapper-nav" >
           <span className='menu-title d-lg-none'>MENU</span>
-          <ul className='pages'>
+          <ul className='pages' data-gsap-animate="stagger-zoom-in" data-gsap-stagger="0.5">
             <li><Link className="nav-link" href="/">Home</Link></li>
-            <li className="nav-item position-relative">
-              <span className='nav-link has-children'>Innovation Radii</span>
-              <ul className='children'>
-                <li><Link className="nav-link" href="/about-us">About Us</Link></li>
-                <li><Link className="nav-link" href="/our-services">Our Services</Link></li>
-                <li><Link className="nav-link" href="/contact-us">Contact Us</Link></li>
-              </ul>
-            </li>
-            <li><Link className="nav-link desktop-action" href="#">Our Products</Link></li>
+            <li><Link className="nav-link" href="/about-us">About Us</Link></li>
+            <li><Link className="nav-link" href="/contact-us">Contact Us</Link></li>
+            <li><Link className="nav-link desktop-action" href="/our-services">Our Services</Link></li>
+            {/* <li><Link className="nav-link desktop-action" href="#">Our Products</Link></li> */}
           </ul>
           <Link className="nav-link referal-referal" href="/contact-us">Referral Program <i className="icon fa fa-arrow-right" aria-hidden="true"></i></Link>
         </div>
-        <Link className="nav-link mobile-action d-lg-none" href="/">Products</Link>
+        <Link className="nav-link mobile-action d-lg-none" href="/">Our Services</Link>
         <Hamburger />
       </div>
     </div>

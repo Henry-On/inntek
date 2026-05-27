@@ -45,11 +45,15 @@
 
     .card {
       box-shadow: $shadow-md;
-      padding: 32px;
-      transition: all 0.35s ease-in-out;
+      transition: box-shadow 0.35s ease-in-out;
 
       &:hover {
         box-shadow: $shadow-hover;
+      }
+
+      @media (min-width: $w-xl) {
+        padding-left: 48px;
+        padding-right: 48px;
       }
     }
 
@@ -80,6 +84,8 @@
       background-color: transparent;
       background-image: linear-gradient(359deg, #f8fafc, transparent);
       text-align: left;
+      padding-left:74px;
+      padding-right:74px;
     }
   }
 
@@ -118,7 +124,6 @@
       text-align: left;
       width: 45%;
       flex-shrink: 0;
-      text-align: left;
     }
   }
 
@@ -138,7 +143,7 @@
   }
 
   .industry-list-grid {
-    @include flex-column(16px);
+    @include flex-column(0);
 
     @media (min-width: $w-sm) {
       flex-direction: row;
@@ -191,8 +196,11 @@
     @include flex-row;
     gap: 1rem;
     position: relative;
-    background: white;
-    padding: 32px;
+    padding: 32px 32px 32px 12px;
+    transition: box-shadow 0.35s ease-in-out, 
+                background-color 0.35s ease-in-out,
+                border-radius 0.25s ease-in-out;
+    color: rgba(255, 255, 255, 0.801);
 
     @media (min-width: $w-sm) {
       width: 300px;
@@ -204,10 +212,17 @@
       width: auto;
     }
 
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.371);
+      box-shadow: $shadow-hover;
+      border-radius: 16px;
+    }
+
     .item-heading {
-      color: black;
+      color: white;
       font-size: 1.15rem;
       font-weight: 700;
+      font-family: var(--font-heading);
     }
 
     .wrapper-icon {
@@ -216,7 +231,6 @@
       align-items: center;
       justify-content: center;
       @include rounded(45px);
-      background-color: var(--bg);
       border: 1px solid var(--border);
 
       @media(min-width:$w-xl) {
@@ -228,6 +242,11 @@
 
     .icon {
       font-size: 18px;
+    }
+
+    .no-text {
+      @include flex-column(0px);
+      justify-content: center;
     }
 
     .decoration-line {
@@ -282,40 +301,60 @@
   .startup-card {
     text-align: center;
     border: none;
-    box-shadow: $shadow-hover;
     position: relative;
     text-align: left;
-    transition: all 0.35s ease-in-out;
     padding: 48px;
+    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--primary);
+    box-shadow: $shadow-md;
+    transition: box-shadow 0.35s ease-in-out;
+
+    @media(min-width:$w-md) {
+      width: 50%;
+      flex-shrink: 1;
+
+      &:not(:last-of-type) {
+        border-right: 1px solid var(--primary);
+        border-bottom: 1px solid var(--border);
+
+        &::after {
+          left: 100%;
+          bottom: 50%;
+          transform: rotate(270deg) translateX(13px);
+        }
+
+      }
+    }
+
+    .image-wrapper {
+      width: 35px;
+      height: 35px;
+      background-color: #64646417;
+      transition: all 0.35s ease-in-out;
+    }
+
+    img {
+      width: 100%;
+    }
 
     &:hover {
-      transform: translateY(15px);
+      box-shadow: $shadow-hover;
+
+      .image-wrapper {
+        background-color: var(--secondary);
+      }
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
-      background-color: white;
-      border-left: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      bottom: 0;
+      bottom: -30px;
       left: 50%;
-      height: 20px;
-      width: 20px;
-      z-index: 2;
-      transform: rotate(-45deg) translateX(-13px);
-      transform-origin: center;
-      bottom: -1.5px;
-
-      @media(min-width:$w-md) {
-        left: 100%;
-        bottom: 50%;
-        transform: rotate(225deg) translateX(13px);
-
-        &:last-of-type::after {
-          display: none;
-        }
-      }
+      transform: translateX(-50%);
+      border-left: 15px solid transparent;
+      border-top: 15px solid var(--primary);
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid transparent;
     }
   }
 
@@ -361,6 +400,17 @@
         font-size: 1.2rem;
         font-weight: 700;
         font-family: var(--font-heading);
+      }
+
+      [data-gsap-animate='split-text'] {
+        background-color: white;
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        letter-spacing: 1px;
+        padding: 5px 12px;
+        color: var(--primary);
+        // font-size: 16px;
+        white-space: nowrap;
       }
     }
 
@@ -459,7 +509,7 @@
   .card {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 16px;
-    transition: all 0.35s ease-in-out;
+    transition: box-shadow 0.35s ease-in-out, background-color 0.35s ease-in-out;
 
     &:hover {
       box-shadow: $shadow-hover;
@@ -532,6 +582,7 @@
     gap: 1rem;
     overflow-x: auto;
     padding: 32px;
+    position: relative;
   }
 
   .procedure-stage {
@@ -634,6 +685,7 @@
   @include flex-column(32px);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  background-color: white;
 
   .background-container {
     overflow: hidden;
@@ -652,9 +704,10 @@
 
     @media (min-width: $w-lg) {
       border-radius: 0;
-      background-attachment:scroll;
+      background-attachment: scroll;
       padding-bottom: 120px;
       background-size: auto 90%;
+      overflow: visible;
     }
   }
 
@@ -662,8 +715,11 @@
     @include flex-column(1.2rem);
     padding: 48px 32px;
     background-color: #45557133;
+    background-image: linear-gradient(
+199deg, #69c4c354, rgba(202, 231, 171, 0.4117647059));
     backdrop-filter: blur(2px);
     border: 1px solid var(--border);
+    box-shadow: $shadow-hover;
 
     @media (min-width: $w-sm) {
       flex-direction: row;
@@ -680,7 +736,6 @@
 
   .card {
     background-color: transparent;
-    transition: all 0.35s ease-in-out;
     border-radius: 0;
     border: 0;
     padding: 0;
@@ -693,6 +748,19 @@
 
     .wrapper-text {
       margin-left: 2rem;
+    }
+
+    .icon-area {
+      position: relative;
+
+      &::before {
+        content: "";
+        @include rounded(7px);
+        background-color: white;
+        position: absolute;
+        bottom: -15px;
+        right: 8px;
+      }
     }
 
   }
@@ -843,7 +911,6 @@
     opacity: 0;
     z-index: 0;
     position: absolute;
-    // transition: all 2s ease-in-out;
 
     &.active {
       opacity: 1;
@@ -862,17 +929,31 @@
     .title {
       @include section-title;
       @include animation-transition(1s);
+      display: flex;
+      align-items: center;
+      transform: translateY(-37px);
+      opacity: 0;
+      font-size: 24px;
+      position: relative;
+      padding-left: 16px;
+      text-shadow: 0px 0px 14px 6px rgb(192 192 192 / 34%);
 
-      & {
-        transform: translateY(-37px);
-        opacity: 0;
+      &::before {
+        position: absolute;
+        left: 0;
+        content: "";
+        display: block;
+        width: 5px;
+        height: 100%;
+        background-color: var(--primary);
+        border-radius: 2px;
+        flex-shrink: 0;
       }
-    }
 
-    .text {
-      @include animation-transition(.75s);
-      transform: scale(1.15);
-      color: white;
+      @media (min-width: $w-sm) {
+        font-size: 32px;
+        padding-left: 24px;
+      }
     }
 
     .call-button {
@@ -883,23 +964,30 @@
 
     .hero-portrait {
       @include animation-transition(1.25s);
-      // transform: translateY(37px);
       opacity: 0;
     }
   }
 
   .menu-group {
-    @include flex-column(.25rem);
-    background-color: rgb(0 0 0 / 18%);
-    backdrop-filter: blur(1px);
-    padding: 32px;
-    border-radius: 16px;
-    border-left: 5px solid rgba(255, 255, 255, 0.538);
+    @include flex-column(1rem);
+    position: relative;
+    z-index: 2;
 
     @media (min-width: $w-md) {
       margin-left: 200px;
-      padding: 64px 48px;
+      margin-top: 64px;
     }
+  }
+
+  .text {
+    @include animation-transition(.75s);
+    transform: scale(1.15);
+    opacity: 0.5;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.219);
+    backdrop-filter: blur(1px);
+    padding: 24px;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.538);
   }
 
   .carousel-controls {

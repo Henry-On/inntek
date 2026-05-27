@@ -4,6 +4,7 @@ import "@/styles/scss/stylesheet.scss"
 import Header from "@/components/header/Header"
 import Footer from "@/components/footer/Footer"
 import BootstrapClient from '@/components/BootstrapClient'
+import GSAPController from '@/components/GSAPController'
 
 export const metadata = {
   title: 'InnTek',
@@ -22,6 +23,7 @@ const RootLayout = ({ children }) => {
         {children}
         <Footer />
         <BootstrapClient />
+        <GSAPController />
       </body>
     </html>
   )

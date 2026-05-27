@@ -8,7 +8,7 @@ const Testimonials = ({ heading, description, ...props }) => {
   return (
     <div className='testimonials' {...props}>
       <div className="content">
-        <div className='container-top'>
+        <div className='container-top' data-gsap-animate="stagger-fade-up" >
           <SectionIcon
             icon="far fa-smile"
             // backgroundColor="#2c790035"
@@ -17,7 +17,7 @@ const Testimonials = ({ heading, description, ...props }) => {
           <h3 className='section-title'>{heading || "What People think of Us"}</h3>
           <p>{subText}</p>
         </div>
-        <div className="hide-x-scrollbar">
+        <div className="hide-x-scrollbar" data-gsap-animate="zoom-in">
           <TestimonialCarousel />
         </div>
         <div className="carousel-indicators"></div>

@@ -15,21 +15,6 @@ import IndustryListGrid from './IndustryListGrid'
 
 const Home = () => {
 
-  const StartupCard = ({ title, description, imageName, ...props }) => {
-    return (
-      <div className={`card card-B  startup-card ${props.className || ''}`} data-gsap-animate="zoomin" {...props}>
-        <div className="image-wrapper">
-          <img src={`/images/icons/${imageName}`} alt='' />
-        </div>
-        {/* <div className="contents" > */}
-        <h2 className="title">{title}</h2>
-        {description}
-        {/* </div> */}
-      </div>
-
-    )
-  }
-
   const ProcedureState = ({ stageNumber, title, description, icon, className, ...props }) => {
     return (
       <li className={`procedure-stage ${className}`} data-process={stageNumber} {...props}>
@@ -52,12 +37,12 @@ const Home = () => {
               <img src="/images/hero-background.png" alt="" />
             </div>
             <div className="text-content">
-              <span className='small itext-primary' data-gsap-animate="fade-down">Smarter Tech, Simpler Work</span>
-              <h2 className='section-title' data-gsap-animate="fade-up">Solutions for Real Business Challenges</h2>
-              <p data-gsap-animate="fade-up">At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service</p>
+              <span className='small itext-primary' data-gsap-animate="fade-down" data-gsap-distance="sm">Smarter Tech, Simpler Work</span>
+              <h2 className='section-title' data-gsap-animate="fade-up" data-gsap-distance="lg">Solutions for Real Business Challenges</h2>
+              <p data-gsap-animate="fade-up" data-gsap-distance="md">At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service</p>
             </div>
           </div>
-          <div className="wrapper-cards">
+          <div className="wrapper-cards" data-gsap-animate="stagger-zoom-in" data-gsap-stagger="0.35">
             <Card_C
               title="Software Development"
               description="We build secure and scalable web and mobile apps, custom-made enterprise applications tailored to your brand and that optimize your business operations"
@@ -79,19 +64,18 @@ const Home = () => {
       <div className='industries' >
         <div className="content">
           <div className="wrapper-columns">
-            <div className="top-container">
-              <span className='section-info' data-gsap-animate="fade-down"> Industries</span>
-              <div data-gsap-animate="fade-up">
+            <div className="top-container" >
+              <div data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.12">
+                <span className='section-info' > Industries</span>
                 <h3 className='section-title item-heading'>We Serve Your Industry</h3>
-                Whether you're looking to implement a new system, upgrade your infrastructure, or need ongoing support. We will help you find the right solution for your business.
+                <span className="d-block">Whether you're looking to implement a new system, upgrade your infrastructure, or need ongoing support. We will help you find the right solution for your business.</span>
+                <ul className="list-items" >
+                  <li className="item">For Reliability</li>
+                  <li className="item">Industry Standards</li>
+                  <li className="item">Scalability</li>
+                  <li className="item">Growth and Efficiency</li>
+                </ul>
               </div>
-              <ul className="list-items">
-                <li className="item">For Reliability</li>
-                <li className="item">Industry Standards</li>
-                <li className="item">Scalability</li>
-                <li className="item">Growth and Efficiency</li>
-              </ul>
-
             </div>
             <div className='bottom-container'>
               <IndustryListGrid />
@@ -99,8 +83,9 @@ const Home = () => {
                 className="ibtn-primary"
                 text="Request Services"
                 href="./our-services"
-                icon={<FontAwesomeIcon icon="far fa-play-circle" />}
-                iconPosition="left"
+                icon={<FontAwesomeIcon className="fas fa-long-arrow-alt-right" style={{fontSize:"24px"}}/>}
+                data-gsap-animate="fade-up"
+                data-gsap-distance="sm"
               />
             </div>
           </div>
@@ -110,11 +95,11 @@ const Home = () => {
       <div className="start-up">
         <div className="content">
           <div className='text-left text-black pb-lg-3'>
-            <span className='mini-heading' data-gsap-animate="fade-down">End-to-End</span>
+            <span className='mini-heading' data-gsap-animate="fade-down" data-gsap-distance="sm">End-to-End</span>
             <h2 className='section-title'>Solutions for Startups</h2>
             From Idea to launch - we build, scale, and support your product every step of the way
           </div>
-          <div className='wrapper-cards'>
+          <div className='wrapper-cards' data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.18">
             <Card_C
               title="Idea and Strategy"
               description="Workshop sessions, business analysis, brand identity designs, wireframes, and MVP planning. We work with you to validate your concept and create a clear roadmap that positions you for success."
@@ -137,23 +122,16 @@ const Home = () => {
           <div className='get-started'>
             <div className='get-started-main'>
               <p className='get-started-headline'>
-                Ready to <strong style={{ color: "#e48500" }}>launch</strong> your startup? <br /> Whether you're validating <strong style={{ color: "#e48500" }}>your concept</strong> or preparing MVP development, <strong style={{ color: "#e48500" }}>we’ll guide every step</strong>.
+                Ready to <strong data-gsap-animate='split-text' >launch</strong> your startup? <br /> Whether you're validating <strong data-gsap-animate='split-text' className='split-text'>your</strong> <strong data-gsap-animate='split-text'>concept</strong> or preparing MVP development, we’ll guide every step.
               </p>
-              <p className='get-started-subtitle'>
+              <p className='get-started-subtitle' data-gsap-animate='fade-up' data-gsap-distance="sm">
                 Launch fast, scale smart, and reduce risk with expert engineering and growth-focused support.
               </p>
-              {/* <ButtonLink
-                text="Get Started today"
-                href="./contact-us"
-                className="ibtn-primary get-started-button"
-                icon={<FontAwesomeIcon icon="far fa-play-circle" />}
-                iconPosition="left"
-              /> */}
             </div>
 
             <div className='get-started-features'>
-              <h4 className='features-caption'>Startup Toolkit</h4>
-              <ul className='features-list'>
+              <h4 className='features-caption' data-gsap-animate='fade-up' data-gsap-distance="sm">Startup Toolkit</h4>
+              <ul className='features-list' data-gsap-animate='stagger-zoom-in' data-gsap-stagger="0.45">
                 <li>Startup websites</li>
                 <li>Dashboards</li>
                 <li>MVP Development</li>
@@ -175,34 +153,36 @@ const Home = () => {
             <h3 className='section-title text-white pseudo-underline'>Cutting-edge Solutions</h3>
             <p>From starting to finishing, all your tech solutions in one-piece</p>
           </div>
-          <div className="container-service-cards">
+          <div className="container-service-cards" data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.18">
             <Card_A
-              imageName="service-globe.svg"
+              icon={<FontAwesomeIcon className='fas fa-code' style={{ color: "#0071eb" }} />}
               title="Web Design and Development"
               description="We build visually appealing, high-performing websites using modern technologies, optimized for speed, usability, and SEO to help your brand stand out online"
             />
             <Card_A
-              imageName="service-globe.svg"
+              icon={<FontAwesomeIcon className='fas fa-laptop' style={{ color: "green" }} />}
               title="Enterprise Application Development"
               description="Design and development of aesthetically beautiful and functional website. Our sites are responsive and SEO super friendly"
             />
+
             <Card_A
-              imageName="service-globe.svg"
+              icon={<FontAwesomeIcon className='fas fa-tablet-alt' style={{ color: "blue" }} />}
               title="Mobile Applications Development"
               description="From iOS to Android, our native and cross-platform apps deliver intuitive UX, seamless performance, and reliable scalability to support your users and business growth"
             />
+
             <Card_A
-              imageName="service-globe.svg"
+              icon={<FontAwesomeIcon className='fas fa-network-wired' />}
               title="Computer Networking and Engineering"
               description="We provide comprehensive networking solutions, including installation and maintenance of secure LAN/WAN infrastructures, ensuring secure, reliable connections for smooth business operations"
             />
             <Card_A
-              imageName="service-globe.svg"
+              icon={<FontAwesomeIcon className='fas fa-video' style={{ color: "orange" }} />}
               title="CCTV Solutions"
               description="Explore our Closed-circuit television (CCTV) cameras that go beyond video surveillance and provide high-quality cost-effective results. We tailor our solution to client’s preference or as required to deliver optimum coverage."
             />
             <Card_A
-              imageName="service-globe.svg"
+              icon={<FontAwesomeIcon className='fas fa-solar-panel' style={{ color: "#b79f00" }} />}
               title="Solar Energy Solutions"
               description="Harness renewable energy, a wasteless and everlasting energy source. We handle panel installation to smart energy distribution, tailored to meet your power needs reliably taking into account all necessary industry specification"
             />
@@ -213,7 +193,7 @@ const Home = () => {
 
       <div className="work-procedures" id='work-procedures'>
         <div className="content">
-          <div className='top-container'>
+          <div className='top-container' data-gsap-animate="stagger-fade-up">
             <h3 className='section-title mb-2'>How We Work</h3>
             <p>At Inn Radii Technologies, we follow robust and industry standard  procedures. This is how we are to deliver satisfactory services and sustainable products to our clients and business associates.</p>
             {/* <div> */}
@@ -237,7 +217,7 @@ const Home = () => {
             </ul>
             {/* </div> */}
           </div>
-          <ul className='container-stages hide-x-scrollbar'>
+          <ul className='container-stages hide-x-scrollbar' data-gsap-animate="zoom-in">
             <ProcedureState
               className="active"
               stageNumber="1"
@@ -270,36 +250,36 @@ const Home = () => {
       </div>
 
       <div className="why-us">
-        <div className="content pb-0">
-          <div className='max-width-text text-center d-flex flex-column gap-1 align-items-center'>
+        <div className="content pb-xl-0">
+          <div className='max-width-text text-center d-flex flex-column gap-1 pb-4 align-items-center' data-gsap-animate="stagger-fade-up">
             <SectionIcon
               icon="fa fa-gem"
               style={{ color: "#efd600", backgroundColor: "#ffffff" }}
             />
             <h2 className='section-title pseudo-underline'>Why Choose Us</h2>
-            Our commitment to you is beyond just technology. See why we are exceptional
+            <span className='d-block'>Our commitment to you is beyond just technology. See why we are exceptional</span>
           </div>
 
           <div className="background-container">
             {/* <div className="content pt-0 position-relative"> */}
-            <div className="container-cards">
+            <div className="container-cards" data-gsap-animate="zoom-in" data-gsap-stagger="0.4">
               <Card_A
-                imageName="service-globe.svg"
+                icon={"fas fa-sync-alt"}
                 title="Strategy and Process"
                 description="We follow a clearly defined process for every project which ensures each solution is thoughtful, scalable, and aligned with your business needs"
               />
               <Card_A
-                imageName="service-globe.svg"
+                icon={"fas fa-globe"}
                 title="Diversification"
                 description="We serve businesses across various sectors, from healthcare and retail to finance and logistics with deep knowledge and customized solutions for each industry"
               />
               <Card_A
-                imageName="service-globe.svg"
+                icon={"fas fa-gem"}
                 title="Quality Driven"
                 description="We prioritize excellence in delivery—not just to complete projects, but to exceed expectations with lasting impact."
               />
               <Card_A
-                imageName="service-globe.svg"
+                icon={"fas fa-hands-helping"}
                 title="Customer-Centric Approach"
                 description="We put our clients at the center of everything we do; listening closely, adapting quickly, and delivering solutions that are tailored to real needs"
               />
@@ -314,14 +294,16 @@ const Home = () => {
       <div className="home-contact">
         <div className="content pt-0">
           <div className="image-background">
-            <div className='column content-top max-width-text pseudo-underline'>
+            <div className='column content-top max-width-text pseudo-underline' data-gsap-animate="stagger-fade-up">
               <span className='arrow-pointer'>Next Step</span>
               <h3 className='section-title'>Get in Touch</h3>
-              Have a question or ideas? Don’t overthink it.
-              We are passionate about playing a part of your success story. With us, you're in capable hands - Let’s talk about your project. Complete the form and hit the send button to send us a quick message
+              <span className='d-block'>
+                Have a question or ideas? Don’t overthink it.
+                We are passionate about playing a part of your success story. With us, you're in capable hands - Let’s talk about your project. Complete the form and hit the send button to send us a quick message
+              </span>
             </div>
             <form className="column home-form" action="">
-              <div className="form-inputs">
+              <div className="form-inputs" data-gsap-animate="stagger-fade-up">
                 <div className='columns'>
                   <div className='column'>
                     <InputField
