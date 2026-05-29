@@ -1,8 +1,6 @@
 import '@/public/bootstrap/css/bootstrap.min.css';
 import '@/public/fontawesome5/css/fontawesome.min.css';
 import "@/styles/scss/stylesheet.scss"
-import Header from "@/components/header/Header"
-import Footer from "@/components/footer/Footer"
 import BootstrapClient from '@/components/BootstrapClient'
 import GSAPController from '@/components/GSAPController'
 
@@ -19,9 +17,7 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <Header />
         {children}
-        <Footer />
         <BootstrapClient />
         <GSAPController />
       </body>

@@ -1,0 +1,248 @@
+.referralPage {
+  min-height: 100vh;
+  color: #102033;
+  background: #f5f8fb;
+}
+
+.hero {
+  min-height: 78vh;
+  background-image: url("/images/bg-open-office.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.heroOverlay {
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  padding: 96px 16px 72px;
+  background:
+    linear-gradient(90deg, rgba(7, 25, 44, 0.88) 0%, rgba(7, 25, 44, 0.68) 48%, rgba(7, 25, 44, 0.28) 100%),
+    linear-gradient(180deg, rgba(7, 25, 44, 0.1) 0%, rgba(7, 25, 44, 0.82) 100%);
+}
+
+.heroContent {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.kicker,
+.sectionLabel,
+.formLabel {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.kicker {
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  color: #0f4e80;
+  background: #dff3ff;
+}
+
+.heroContent h1 {
+  max-width: 780px;
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.02;
+}
+
+.heroContent p {
+  max-width: 680px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.homeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 22px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--primary);
+  font-weight: 700;
+  box-shadow: none;
+  border: none;
+}
+
+.homeButton:hover {
+  /* color: #ffffff;
+  background: #005fc7;
+  transform: translateY(-2px); */
+}
+
+.detailsSection {
+  padding: 72px 16px 88px;
+}
+
+.detailsGrid {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.writeup,
+.notifyCard {
+  border: 1px solid rgba(16, 32, 51, 0.09);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 20px 55px rgba(16, 32, 51, 0.08);
+}
+
+.writeup {
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.sectionLabel {
+  margin-bottom: 16px;
+  padding: 7px 12px;
+  color: #0071eb;
+  background: #eaf4ff;
+}
+
+.writeup h2,
+.notifyCard h2 {
+  margin-bottom: 16px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.writeup p,
+.notifyCard p {
+  color: #5c6b7c;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.writeup p + p {
+  margin-top: 18px;
+}
+
+.notifyCard {
+  padding: clamp(24px, 4vw, 36px);
+}
+
+.formLabel {
+  margin-bottom: 14px;
+  padding: 7px 12px;
+  color: #166534;
+  background: #e8f8ee;
+}
+
+.notifyForm {
+  margin-top: 24px;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: #102033;
+  font-weight: 700;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.formRow input {
+  min-width: 0;
+  min-height: 50px;
+  border: 1px solid rgba(16, 32, 51, 0.18);
+  border-radius: 8px;
+  padding: 0 14px;
+  color: #102033;
+  background: #ffffff;
+}
+
+.formRow input:focus {
+  border-color: #0071eb;
+  outline: 3px solid rgba(0, 113, 235, 0.14);
+}
+
+.formRow button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  color: #ffffff;
+  background: #102033;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.formRow button:hover {
+  background: #0071eb;
+}
+
+.formNote {
+  margin-top: 16px;
+  font-size: 0.92rem;
+}
+
+.successMessage {
+  margin-top: 12px;
+  color: #166534;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: 72vh;
+  }
+
+  .heroOverlay {
+    padding-top: 72px;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    min-height: 68vh;
+  }
+
+  .heroOverlay {
+    align-items: flex-end;
+    padding-bottom: 48px;
+    background:
+      linear-gradient(180deg, rgba(7, 25, 44, 0.35) 0%, rgba(7, 25, 44, 0.9) 100%),
+      linear-gradient(90deg, rgba(7, 25, 44, 0.72) 0%, rgba(7, 25, 44, 0.42) 100%);
+  }
+
+  .heroContent h1 {
+    font-size: 2.35rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow button {
+    width: 100%;
+  }
+}

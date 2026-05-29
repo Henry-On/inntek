@@ -1,9 +1,11 @@
 import React from 'react'
-import { ContactInfoItem } from '@/app/contact-us/page';
+import ContactInfoItem from '@/components/ContactInfoItem';
 import FacebookPageClient from '@/components/footer/FacebookPageClient';
 import Newsletter from './Newsletter'
+import FooterAttribution from './FooterAttribution';
 
 function Footer() {
+
   return (
     <div className="footer" >
       <div className="content">
@@ -23,7 +25,7 @@ function Footer() {
               <div className='column'>
                 <span className='caption'>Quick Links</span>
                 <ul className='links'>
-                  <li><a href="/contact-us" >Contact Us</a></li>
+                  <li><a href="./contact-us" >Contact Us</a></li>
                   <li><a href="#" >Read Our Blog</a></li>
                   <li><a href="#" >Frequently Asked Questions</a></li>
                   <li><a href="#" >Partner with Us</a></li>
@@ -61,7 +63,7 @@ function Footer() {
                   icon="fab fa-whatsapp"
                   label="WhatsApp Line"
                   value="09029198353"
-                />                
+                />
               </div>
             </div>
             <div className="column">
@@ -70,12 +72,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className='footer-attribution'>
-        <div className="content">
-          <span className='year'>&copy; Twenty Twenty Six</span>
-          <span>Let's build the future, together</span>
-        </div>
-      </div>
+      <FooterAttribution />
     </div>
   )
 }

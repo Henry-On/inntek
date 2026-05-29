@@ -9,6 +9,7 @@ import TextareaField from '@/components/form/TextareaField'
 import { contactFormSubjects } from '@/storage/contactFormSubjects'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 import { ButtonLink } from '@/components/buttons'
+import ContactInfoItem from '@/components/ContactInfoItem'
 
 const Contact = () => {
     return (
@@ -72,18 +73,6 @@ const Contact = () => {
                         />
                     </div>
                 </div>
-            </div>
-        </div>
-    )
-}
-
-export const ContactInfoItem = ({ icon, label, value }) => {
-    return (
-        <div className="card contact-info-card">
-            <i className={`icon ${icon}`} />
-            <div className="right">
-                <span className="label">{label}</span>
-                <p style={{ color: "#000" }}>{value}</p>
             </div>
         </div>
     )

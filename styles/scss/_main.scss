@@ -747,8 +747,8 @@ form {
     @include flex-column;
     text-align: center;
     font-weight: lighter;
-    background-color: var(--bg);
-    border-top: 2px solid var(--border);
+    background-color: white;
+    border-top: 1px solid var(--border);
     position: relative;
 
     .content {

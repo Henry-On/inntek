@@ -1,8 +1,10 @@
+
 import React from 'react'
 import Link from "next/link"
 import Hamburger from './Hamburger'
 
 const Header = () => {
+
   return (
     <div className="header content">
       <div className="brand-logo">
@@ -16,11 +18,10 @@ const Header = () => {
             <li><Link className="nav-link" href="/about-us">About Us</Link></li>
             <li><Link className="nav-link" href="/contact-us">Contact Us</Link></li>
             <li><Link className="nav-link desktop-action" href="/our-services">Our Services</Link></li>
-            {/* <li><Link className="nav-link desktop-action" href="#">Our Products</Link></li> */}
           </ul>
-          <Link className="nav-link referal-referal" href="/contact-us">Referral Program <i className="icon fa fa-arrow-right" aria-hidden="true"></i></Link>
+          <Link className="nav-link referal-referal" href="/referral-program">Referral Program <i className="icon fa fa-arrow-right" aria-hidden="true"></i></Link>
         </div>
-        <Link className="nav-link mobile-action d-lg-none" href="/">Our Services</Link>
+        <Link className="nav-link mobile-action d-lg-none" href="/our-services">Our Services</Link>
         <Hamburger />
       </div>
     </div>
