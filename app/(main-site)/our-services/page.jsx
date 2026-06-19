@@ -13,7 +13,7 @@ import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 
 const Services = async () => {
 
-  const filePath = path.join(process.cwd(), "/app/our-services/data.json");
+  const filePath = path.join(process.cwd(), "app", "(main-site)", "our-services", "data.json");
   const data = JSON.parse(await fs.readFile(filePath, "utf8"));
 
   const softwareServices = data.softwareServices

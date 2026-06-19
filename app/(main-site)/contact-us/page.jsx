@@ -37,13 +37,13 @@ const Contact = () => {
                         <span>Short on time? No worries.</span><br />
                         <span>Fill out the form below, and we’ll get back to you promptly.</span>
                     </div>
-                    <FormElement className="form-contact-page" buttonText='Send Message' data-gsap-animate="stagger-fade-up" data-gsap-stagger="0.3">
+                    <FormElement formType="contact" className="form-contact-page" buttonText='Send Message' data-gsap-animate="stagger-fade-up" data-gsap-stagger="0.3">
                         <div className='wrapper-row-input'>
-                            <InputField type='text' placeholder="Your name..." label="Names" />
-                            <InputField type='email' placeholder="Contact email address" label="Contact Email" />
+                            <InputField name="name" type='text' placeholder="Your name..." label="Names" required />
+                            <InputField name="email" type='email' placeholder="Contact email address" label="Contact Email" required />
                         </div>
-                        <SelectField label="Select a subject" data={contactFormSubjects} />
-                        <TextareaField placeholder="Type your message here..." label="Message" />
+                        <SelectField name="subject" label="Select a subject" data={contactFormSubjects} required />
+                        <TextareaField name="message" placeholder="Type your message here..." label="Message" required />
                     </FormElement>
                 </div>
             </div>

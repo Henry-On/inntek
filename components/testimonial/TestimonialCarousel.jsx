@@ -5,6 +5,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { SITE_NAME } from "@/lib/constants";
+import FontAwesomeIcon from "../FontAwesomeIcon";
 
 
 export default function TestimonialCarousel() {
@@ -26,35 +27,31 @@ export default function TestimonialCarousel() {
             <UserTestimony
                name="Christina Rose"
                comment={`Working with ${SITE_NAME} has been transformative for our business. Their innovative solutions and dedicated support have exceeded our expectations.`}
-               image="/images/techguy.png"
             />
          </SwiperSlide>
          <SwiperSlide>
             <UserTestimony
                name="User 2"
                comment={`${SITE_NAME}'s expertise and professionalism are unmatched. They delivered cutting-edge technology solutions that streamlined our operations significantly.`}
-               image="/images/shape-bi-square.png"
             />
          </SwiperSlide>
          <SwiperSlide>
             <UserTestimony
-               name="User 3"
-               comment={`The team at ${SITE_NAME} consistently delivers exceptional results. Their attention to detail and commitment to quality make them our trusted partner.`}
+               name="Henry | Software Engineer"
+               comment={`The team at ${SITE_NAME} consistently delivers exceptional results. Working at this Organisation has strengthen my career, the attention to detail and commitment to quality product delivery.`}
                image="/images/techguy.png"
             />
          </SwiperSlide>
          <SwiperSlide>
             <UserTestimony
                name="Udoh Hunpegan"
-               comment="Inntek transformed our digital presence with their innovative approach. Their responsive team and technical excellence have been invaluable to our growth."
-               image="/images/techguy.png"
+               comment={`${SITE_NAME} transformed our digital presence with their innovative approach. Their responsive team and technical excellence have been invaluable to our growth.`}
             />
          </SwiperSlide>
          <SwiperSlide>
             <UserTestimony
-               name="Obi A. Ugochukwu"
+               name="Josephine O. | CEO Kingslingua"
                comment="Outstanding service from start to finish. The solutions are reliable, scalable, and perfectly aligned with our business objectives and vision."
-               image="/images/techguy.png"
             />
          </SwiperSlide>
       </Swiper>
@@ -62,6 +59,10 @@ export default function TestimonialCarousel() {
 }
 
 export const UserTestimony = ({ name, comment, image, ...props }) => {
+
+   const userImage = image ? <img src={image} alt={`${name}'s profile`} /> : <FontAwesomeIcon className="user-icon fa-solid fa-user" />;
+
+
    return (
       <div className='item-container' {...props} >
          <div className='card'>
@@ -72,9 +73,9 @@ export const UserTestimony = ({ name, comment, image, ...props }) => {
             </div>
             <div className='user'>
                <div className="image-wrapper">
-                  <img src={image} />
+                  <img src={image ? image : "images/profile-avatar.png"} alt={`${name}'s profile`} />
                </div>
-               <span style={{ opacity: 0.65 }}>{name}</span>
+               <span style={{ opacity: 0.75 }}>{name}</span>
             </div>
 
          </div>

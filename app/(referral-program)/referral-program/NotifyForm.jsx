@@ -1,14 +1,33 @@
 "use client"
 
 import { useState } from 'react'
+import { submitSiteForm } from '@/lib/submitSiteForm'
 
 const NotifyForm = ({ styles }) => {
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState({ type: "", message: "" })
+  const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    setSubmitted(true)
-    event.currentTarget.reset()
+    setSubmitting(true)
+    setStatus({ type: "", message: "" })
+
+    const formData = new FormData(event.currentTarget)
+
+    try {
+      const data = await submitSiteForm({
+        formType: "referralNotify",
+        email: formData.get("email"),
+        subject: "Referral program notification request",
+      })
+
+      setStatus({ type: "success", message: data.message })
+      event.currentTarget.reset()
+    } catch (error) {
+      setStatus({ type: "warning", message: error.message })
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -24,11 +43,13 @@ const NotifyForm = ({ styles }) => {
           placeholder="you@example.com"
           required
         />
-        <button type="submit">Notify Me</button>
+        <button type="submit" disabled={submitting}>
+          {submitting ? "Sending..." : "Notify Me"}
+        </button>
       </div>
-      {submitted && (
+      {status.message && (
         <p className={styles.successMessage} role="status">
-          Thanks. We will let you know when the referral program is ready.
+          {status.message}
         </p>
       )}
     </form>

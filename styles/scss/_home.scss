@@ -2,25 +2,66 @@
 @use "./mixins" as *;
 
 .solutions {
+  .content {
+    @include flex-column(24px);
+    // position: relative;
+    // z-index: 1;
+    // max-width: $max-width-text;
+    // margin: auto;
+
+    @media (min-width: $w-md) {
+      // flex-direction: row;
+      gap: 64px;
+    }
+  }
 
   .top-container {
-    @include flex-column;
-    margin-bottom: 16px;
+    @include flex-column(24px);
 
     @media (min-width: $w-md) {
       flex-direction: row-reverse;
+      gap: 64px;
 
       .image-wrapper {
-        width: 50%;
+        width: 45%;
         flex-shrink: 0;
-        box-shadow: 0 10px 16px -5px rgba(132, 132, 132, 0.4196078431);
-        border-bottom: 3px solid var(--primary);
+        display: flex;
+        align-items: center;
       }
     }
 
+    @media (min-width: $w-md) {}
+
     img {
       display: block;
-      min-height: 100%;
+      // min-height: 100%;
+    }
+  }
+
+  .business-strategies {
+    @include flex-row(.5rem);
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: $w-md) {
+      justify-content: flex-start;
+    }
+  }
+
+  .business-strategy-item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 32px;
+    color: var(--primary);
+
+    .icon {
+      opacity: 0.35;
+      margin-right: 8px;
+      font-size: 12px;
     }
   }
 
@@ -46,6 +87,7 @@
     .card {
       box-shadow: $shadow-md;
       transition: box-shadow 0.35s ease-in-out;
+      border: none;
 
       &:hover {
         box-shadow: $shadow-hover;
@@ -65,27 +107,11 @@
   .text-content {
     @include flex-column(4px);
     text-align: center;
-    padding: 32px;
-    background-color: white;
     background-image: linear-gradient(transparent, var(--bg));
-    width: 90%;
-    margin: -70px auto 0 auto;
     position: relative;
-    box-shadow: 0px -10px 16px -5px #8484846b;
-
-    @media(min-width: $w-sm) {
-      padding: 48px;
-      margin-top: -200px;
-    }
 
     @media(min-width: $w-md) {
-      margin-top: 0;
-      width: auto;
-      background-color: transparent;
-      background-image: linear-gradient(359deg, #f8fafc, transparent);
       text-align: left;
-      padding-left:74px;
-      padding-right:74px;
     }
   }
 
@@ -97,6 +123,9 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  border-top-right-radius: 24px;
+  border-top-left-radius: 24px;
+  overflow: hidden;
 
   &::before {
     @include absolute-fill;
@@ -143,7 +172,7 @@
   }
 
   .industry-list-grid {
-    @include flex-column(0);
+    @include flex-column(16px);
 
     @media (min-width: $w-sm) {
       flex-direction: row;
@@ -197,10 +226,12 @@
     gap: 1rem;
     position: relative;
     padding: 32px 32px 32px 12px;
-    transition: box-shadow 0.35s ease-in-out, 
-                background-color 0.35s ease-in-out,
-                border-radius 0.25s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.371);
+    transition: box-shadow 0.35s ease-in-out,
+      background-color 0.35s ease-in-out,
+      border-radius 0.25s ease-in-out;
     color: rgba(255, 255, 255, 0.801);
+    border-radius: 16px;
 
     @media (min-width: $w-sm) {
       width: 300px;
@@ -213,9 +244,8 @@
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.371);
+      background-color: rgba(0, 0, 0, 0.581);
       box-shadow: $shadow-hover;
-      border-radius: 16px;
     }
 
     .item-heading {
@@ -304,18 +334,18 @@
     position: relative;
     text-align: left;
     padding: 48px;
-    border: 1px solid var(--border);
-    border-bottom: 1px solid var(--primary);
     box-shadow: $shadow-md;
-    transition: box-shadow 0.35s ease-in-out;
+    transition: box-shadow 0.35s ease-in-out,
+      background-color 0.35s ease-in-out,
+      border-radius 0.25s ease-in-out;
+    background: none;
 
     @media(min-width:$w-md) {
       width: 50%;
       flex-shrink: 1;
 
       &:not(:last-of-type) {
-        border-right: 1px solid var(--primary);
-        border-bottom: 1px solid var(--border);
+        border-right: 1px solid var(--bg);
 
         &::after {
           left: 100%;
@@ -339,6 +369,11 @@
 
     &:hover {
       box-shadow: $shadow-hover;
+      background-color: white;
+
+      &::after {
+        border-top: 15px solid white;
+      }
 
       .image-wrapper {
         background-color: var(--secondary);
@@ -348,11 +383,13 @@
     &::after {
       content: '';
       position: absolute;
-      bottom: -30px;
+      z-index: 1;
+      transition: border 0.35s ease-in-out;
+      bottom: -29px;
       left: 50%;
       transform: translateX(-50%);
       border-left: 15px solid transparent;
-      border-top: 15px solid var(--primary);
+      border-top: 15px solid var(--bg);
       border-bottom: 15px solid transparent;
       border-right: 15px solid transparent;
     }
@@ -402,14 +439,13 @@
         font-family: var(--font-heading);
       }
 
-      [data-gsap-animate='split-text'] {
-        background-color: white;
-        border: 1px solid var(--border);
-        border-radius: 3px;
+      .punchline-core {
+        background-color: var(--secondary);
+        border-radius: 4px;
         letter-spacing: 1px;
         padding: 5px 12px;
         color: var(--primary);
-        // font-size: 16px;
+        font-size: 16px;
         white-space: nowrap;
       }
     }
@@ -714,12 +750,8 @@
   .container-cards {
     @include flex-column(1.2rem);
     padding: 48px 32px;
-    background-color: #45557133;
-    background-image: linear-gradient(
-199deg, #69c4c354, rgba(202, 231, 171, 0.4117647059));
+    background-image: linear-gradient(199deg, #69c4c354, rgba(202, 231, 171, 0.4117647059));
     backdrop-filter: blur(2px);
-    border: 1px solid var(--border);
-    box-shadow: $shadow-hover;
 
     @media (min-width: $w-sm) {
       flex-direction: row;
@@ -731,6 +763,8 @@
     @media (min-width: $w-lg) {
       border-radius: 24px;
       margin-left: 200px;
+      border: 1px solid var(--border);
+      box-shadow: $shadow-hover;
     }
   }
 
@@ -928,7 +962,7 @@
 
     .title {
       @include section-title;
-      @include animation-transition(1s);
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
       display: flex;
       align-items: center;
       transform: translateY(-37px);
@@ -954,16 +988,25 @@
         font-size: 32px;
         padding-left: 24px;
       }
+
+      @media (min-width: $w-md) {
+        font-size: 40px;
+        padding-left: 32px;
+      }
+
+      @media (min-width: $w-xl) {
+        font-size: 44px;
+      }
     }
 
     .call-button {
-      @include animation-transition(1s);
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
       transform: translateY(37px);
       opacity: 0;
     }
 
     .hero-portrait {
-      @include animation-transition(1.25s);
+      transition: transform 1.25s ease-in-out, opacity 1.25s ease-in-out;
       opacity: 0;
     }
   }
@@ -980,7 +1023,7 @@
   }
 
   .text {
-    @include animation-transition(.75s);
+    transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
     transform: scale(1.15);
     opacity: 0.5;
     color: white;

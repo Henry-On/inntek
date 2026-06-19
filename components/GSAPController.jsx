@@ -34,6 +34,7 @@ export default function GSAPController() {
     let initFrame;
     let initTimer;
     let resizeTimer;
+    let handleResize;
 
     const distances = {
       sm: 40,
@@ -69,12 +70,12 @@ export default function GSAPController() {
       ScrollTrigger.defaults({
         toggleActions: "play none none reset",
         start: "top bottom"
-      })
+      });
 
       gsap.defaults({
         ease: "power2.inOut",
         duration: 0.75
-      })
+      });
 
       const headerTL = gsap.timeline();
       headerTL.from("#hero-section .wrapper-texts", { y: -50, opacity: 0, scale: 0.9, duration: 1 })
@@ -135,19 +136,43 @@ export default function GSAPController() {
       });
 
       gsap.utils.toArray("[data-gsap-animate='split-text']").forEach(element => {
-        const splitText = new SplitText(element, { type: "chars" });
-        splitTexts.push(splitText);
-        gsap.from(splitText.chars, {
-          opacity: 0,
-          yPercent: "random([-100, 100])",
-          stagger: {
-            amount: 0.5,
-            from: "random",
-          },
-          scrollTrigger: {
-            trigger: element
-          }
-        });
+
+        const allowedSplitTypes = ["chars", "lines"];
+
+        // get the splitby data-attribute
+        const splitType = element.dataset.gsapSplitby;
+        if (!allowedSplitTypes.includes(splitType)) return console.warn(`Invalid splitby value: ${splitType}`);
+
+        if (splitType === "chars") {
+          const splitText = new SplitText(element, { type: "chars" });
+          splitTexts.push(splitText);
+          gsap.from(splitText.chars, {
+            opacity: 0,
+            yPercent: "random([-100, 100])",
+            stagger: {
+              amount: 0.5,
+              from: "random",
+            },
+            scrollTrigger: {
+              trigger: element
+            }
+          });
+        }
+
+        if (splitType === "lines") {
+          const splitText = new SplitText(element, { type: "lines" });
+          splitTexts.push(splitText);
+          gsap.from(splitText.lines, {
+            opacity: 0,
+            yPercent: "100",
+            stagger: {
+              amount: 0.5,
+            },
+            scrollTrigger: {
+              trigger: element
+            }
+          });
+        }
       });
 
       mm = ScrollTrigger.matchMedia({
@@ -166,40 +191,44 @@ export default function GSAPController() {
         "(max-width: 1199px)": function () {
 
         }
-      })
-    };
+      });
 
-    // Delay to ensure DOM + layout is stable
-    initFrame = requestAnimationFrame(() => {
-      initTimer = setTimeout(init, 100);
-    });
+      // Delay to ensure DOM + layout is stable
+      initFrame = requestAnimationFrame(() => {
+        initTimer = setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      });
 
-    // Refresh after full load (images/fonts)
-    window.addEventListener("load", ScrollTrigger.refresh);
+      // Refresh after full load (images/fonts)
+      window.addEventListener("load", ScrollTrigger.refresh);
 
-    // Handle resize / orientation change properly
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 150);
-    };
+      // Handle resize / orientation change properly
+      handleResize = () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 150);
+      };
 
-    window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize);
 
-    return () => {
-      cancelAnimationFrame(initFrame);
-      clearTimeout(initTimer);
-      clearTimeout(resizeTimer);
-      if (mm) {
-        mm.revert();
-      }
+      return () => {
+        cancelAnimationFrame(initFrame);
+        clearTimeout(initTimer);
+        clearTimeout(resizeTimer);
+        if (mm) {
+          mm.revert();
+        }
 
-      splitTexts.forEach(splitText => splitText.revert());
-      ScrollTrigger.getAll().forEach(t => t.kill());
-      window.removeEventListener("load", ScrollTrigger.refresh);
-      window.removeEventListener("resize", handleResize);
-    };
+        splitTexts.forEach(splitText => splitText.revert());
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        window.removeEventListener("load", ScrollTrigger.refresh);
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+
+    return init();
   }, [currentPath]); // Re-run effect on route change
 
   return null;

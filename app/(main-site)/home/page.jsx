@@ -5,6 +5,7 @@ import Testimonials from '@/components/testimonial/Testimonials'
 import InputField from '@/components/form/InputField'
 import TextareaField from '@/components/form/TextareaField'
 import SelectField from '@/components/form/SelectField'
+import FormElement from '@/components/form/FormElement'
 import HeroContainer from '@/components/HeroContainer'
 import HeroCarousel from './HeroCarousel'
 import SectionIcon from '@/components/SectionIcon'
@@ -24,6 +25,26 @@ const Home = () => {
     )
   }
 
+  const BusinessStrategyItem = ({ title, iconClassName, backgroundColor }) => {
+    return (
+      <li className='business-strategy-item'>
+        <FontAwesomeIcon className={iconClassName} />
+        {title}
+      </li>
+    )
+  }
+
+  const BusinessStrategies = ({ ...props }) => {
+    return (
+      <ul {...props}>
+        <BusinessStrategyItem title="Data-driven Decision" iconClassName="fas fa-database" />
+        <BusinessStrategyItem title="Smarter Technology" iconClassName="far fa-clock" />
+        <BusinessStrategyItem title="Growth-ready systems" iconClassName="fas fa-seedling" />
+      </ul>
+    )
+  }
+
+
   return (
     <>
       <HeroContainer>
@@ -33,12 +54,12 @@ const Home = () => {
         <div className="content">
           <div className='top-container'>
             <div className="image-wrapper">
-              <img src="/images/hero-background.png" alt="" />
+              <img src="/images/people-users-3.png" alt="" />
             </div>
-            <div className="text-content">
-              <span className='small itext-primary' data-gsap-animate="fade-down" data-gsap-distance="sm">Smarter Tech, Simpler Work</span>
-              <h2 className='section-title' data-gsap-animate="fade-up" data-gsap-distance="lg">Solutions for Real Business Challenges</h2>
-              <p data-gsap-animate="fade-up" data-gsap-distance="md">At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service</p>
+            <div className="text-content" data-gsap-animate="stagger-fade-up" data-gsap-distance="md">
+              <h2 className='section-title'>Solutions for Real Business Challenges</h2>
+              <BusinessStrategies className="business-strategies"/>
+              <p>At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service</p>
             </div>
           </div>
           <div className="wrapper-cards" data-gsap-animate="stagger-zoom-in" data-gsap-stagger="0.35">
@@ -82,7 +103,7 @@ const Home = () => {
                 className="ibtn-primary"
                 text="Request Services"
                 href="./our-services"
-                icon={<FontAwesomeIcon className="fas fa-long-arrow-alt-right" style={{fontSize:"24px"}}/>}
+                icon={<FontAwesomeIcon className="fas fa-long-arrow-alt-right" style={{ fontSize: "24px" }} />}
                 data-gsap-animate="fade-up"
                 data-gsap-distance="sm"
               />
@@ -120,8 +141,8 @@ const Home = () => {
           </div>
           <div className='get-started'>
             <div className='get-started-main'>
-              <p className='get-started-headline'>
-                Ready to <strong data-gsap-animate='split-text' >launch</strong> your startup? <br /> Whether you're validating <strong data-gsap-animate='split-text' className='split-text'>your</strong> <strong data-gsap-animate='split-text'>concept</strong> or preparing MVP development, we’ll guide every step.
+              <p className='get-started-headline' data-gsap-animate='split-text' data-gsap-splitby="lines">
+                Ready to <strong className='punchline-core' >launch</strong> your startup? <br /> Whether you're validating <strong className='punchline-core'>your</strong> <strong className='punchline-core' >concept</strong> or preparing MVP development, we’ll guide every step.
               </p>
               <p className='get-started-subtitle' data-gsap-animate='fade-up' data-gsap-distance="sm">
                 Launch fast, scale smart, and reduce risk with expert engineering and growth-focused support.
@@ -129,7 +150,7 @@ const Home = () => {
             </div>
 
             <div className='get-started-features'>
-              <h4 className='features-caption' data-gsap-animate='fade-up' data-gsap-distance="sm">Startup Toolkit</h4>
+              <h4 className='features-caption' data-gsap-animate='split-text' data-gsap-splitby="chars">Startup Toolkit</h4>
               <ul className='features-list' data-gsap-animate='stagger-zoom-in' data-gsap-stagger="0.45">
                 <li>Startup websites</li>
                 <li>Dashboards</li>
@@ -301,34 +322,36 @@ const Home = () => {
                 We are passionate about playing a part of your success story. With us, you're in capable hands - Let’s talk about your project. Complete the form and hit the send button to send us a quick message
               </span>
             </div>
-            <form className="column home-form" action="">
+            <FormElement formType="homeContact" className="column home-form" buttonText="Send Message" buttonWrapperClass="button-wrapper">
               <div className="form-inputs" data-gsap-animate="stagger-fade-up">
                 <div className='columns'>
                   <div className='column'>
                     <InputField
+                      name="name"
                       placeholder="Jane Doe"
                       label="Name"
+                      required
                     />
                   </div>
                   <div className='column'>
                     <InputField
+                      name="email"
                       type="email"
                       placeholder="example@domain.com"
                       label="Your Email"
+                      required
                     />
                   </div>
                 </div>
                 <SelectField
+                  name="subject"
                   label="Email subject"
                   data={contactFormSubjects}
+                  required
                 />
-                <TextareaField placeholder="Hi, my name is ..." label="Your Message" />
+                <TextareaField name="message" placeholder="Hi, my name is ..." label="Your Message" required />
               </div>
-
-              <div className="button-wrapper">
-                <button className='ibtn'>Send Message</button>
-              </div>
-            </form>
+            </FormElement>
           </div>
         </div>
 

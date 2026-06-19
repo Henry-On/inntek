@@ -7,11 +7,10 @@ const HeroCarousel = () => {
   return (
     <div className="hero-carousel">
 
-      
       <CarouselItem
         backgroundImage="/images/carousel-1.png"
         backgroundOverlay="#030f2fc9"
-        imageName='/images/portrait-hero.png'
+        imageName='/images/man-hand-sign.png'
         title="Enterprise-Grade IT Solutions"
         text="We deliver technology that transforms your business. Our tested, proven solutions evolve with your needs, ensuring peak performance and reliability that drives your competitive edge forward."
         className="active"
@@ -23,13 +22,12 @@ const HeroCarousel = () => {
         imageName='/images/carousel-image-1.png'
         title="Seamless Integration Into Your World"
         text="Connect your existing infrastructure effortlessly with solutions that fit your architecture perfectly. We ensure smooth transitions that enhance productivity without disrupting your operations—integration that simply works."
-
       />
       
       <CarouselItem
-        backgroundImage="/images/carousel-3.png"
+        backgroundImage="/images/carousel-4.png"
         backgroundOverlay="#032f0ec9"
-        imageName='/images/portrait-2.png'
+        imageName='/images/friendly-customer-service-lady.png'
         title="Support That Powers Your Business Growth"
         text="Expert support at every stage of your journey. From deployment to optimization, we're with you ensuring consistent performance, rapid problem resolution, and continuous improvements that scale with your ambitions."
       />
