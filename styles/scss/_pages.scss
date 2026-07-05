@@ -259,9 +259,12 @@
       }
     }
 
-    .contact-info-card {
+    .contact-info-item.contact-page-info {
       border-radius: 8px;
       box-shadow: 0px 5px 5px 0px rgba(162, 162, 162, 0.263);
+      padding: 24px 16px;
+      border: 1px solid var(--bg);
+      
 
       @media (min-width: $w-md) {
         width: calc(33% - 32px);
@@ -356,7 +359,7 @@
       justify-content: center;
       padding: 32px;
       transition: background-color .35s ease-in, color .35s ease-in-out,
-                  color 0.35s ease-in-out;
+        color 0.35s ease-in-out;
       max-width: 400px;
       margin: 0 auto;
       border-radius: 16px;
@@ -706,12 +709,12 @@
       .card {
         box-shadow: $shadow-md;
         transition: box-shadow 0.35s ease-in-out,
-                    color 0.5s ease-in-out,
-                    border-color 0.5s ease-in-out;
+          color 0.5s ease-in-out,
+          border-color 0.5s ease-in-out;
 
         &:hover {
           box-shadow: $shadow-hover;
-          color:black;
+          color: black;
           border-color: var(--primary);
         }
       }
@@ -735,18 +738,18 @@
 
 }
 
-  .ibtn.book-appointment {
-    background-color: var(--primary);
-    color: white;
-    z-index: 1;
-    margin: 16px auto auto auto;
+.ibtn.book-appointment {
+  background-color: var(--primary);
+  color: white;
+  z-index: 1;
+  margin: 16px auto auto auto;
 
-    .icon {
-      background-color: white;
-      opacity: 1;
-      @include rounded(32px);
-      color:var(--text-accent)
-    }
+  .icon {
+    background-color: white;
+    opacity: 1;
+    @include rounded(32px);
+    color: var(--text-accent)
   }
+}
 
 /* <! -- ENDS ABOUT PAGE STYLES --> */

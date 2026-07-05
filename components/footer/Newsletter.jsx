@@ -36,7 +36,7 @@ const Newsletter = () => {
       <h3 className="section-title text-accent">Get updates on new services, offers, and tech insights</h3>
       <form name="form" onSubmit={submitForm}>
         <div className="fa-pseudo wrapper-input">
-          <input type="email" name="email" placeholder="Your Email Address" required />
+          <input type="email" name="email" placeholder="You@Example.Com" required />
         </div>
         <button className="btn-newsletter ibtn bg-sec text-white" type="submit" disabled={submitting}>
           {submitting ? "SENDING..." : "SUBSCRIBE"}

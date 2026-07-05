@@ -123,9 +123,16 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  border-top-right-radius: 24px;
-  border-top-left-radius: 24px;
+  border-top-left-radius: 48px;
+  border-bottom-right-radius: 48px;
+  border-top: 8px groove var(--border);
+  border-bottom: 4px dashed var(--border);
   overflow: hidden;
+
+  @media(min-width:$w-lg) {
+    border-top-left-radius: 168px;
+    border-bottom-right-radius: 168px;
+  }
 
   &::before {
     @include absolute-fill;
@@ -163,6 +170,7 @@
     margin-bottom: 1rem;
     padding: 8px 16px;
     background-color: rgba(255, 255, 255, 0.179);
+    background-color: white;
     border-radius: 24px;
     color: var(--primary);
   }
@@ -209,6 +217,18 @@
         font-size: small;
 
       }
+    }
+  }
+
+  .action-button {
+    color: var(--text-accent);
+
+    .icon {
+      @include rounded(24px);
+      background-color: var(--primary);
+      opacity: 1;
+      color: white;
+      font-size: 14px;
     }
   }
 
@@ -296,12 +316,30 @@
 .start-up {
   gap: 48px;
 
+  .top-content {
+    @include flex-row(1rem);
+    align-items: center;
+
+    .main-text {
+      width: 100%;
+    }
+
+    .ibtn {
+      align-self: flex-end;
+      justify-self: flex-end;
+      box-shadow: none;
+      color: var(--text-accent);
+      font-weight: normal;
+      align-items: center;
+    }
+  }
+
   .mini-heading {
     font-size: 0.85rem;
     font-weight: bold;
     display: inline-block;
     padding: 8px 16px;
-    background-color: rgb(126 126 126 / 18%);
+    background-color: rgb(255, 255, 255);
     border-radius: 24px;
     color: var(--primary);
   }
@@ -405,7 +443,7 @@
     position: relative;
 
     @media (min-width: $w-lg) {
-      grid-template-columns: 40% 60%;
+      grid-template-columns: 45% 55%;
       grid-gap: 0;
       // text-align: left;
       margin-top: 48px;
@@ -416,6 +454,9 @@
       max-width: $max-text-width;
       margin: auto;
       text-align: center;
+      background: #fff2e3;
+      padding: 16px;
+      border-radius: 8px;
 
       .get-started-button {
         margin-left: auto;
@@ -423,9 +464,10 @@
       }
 
       @media (min-width: $w-lg) {
-        text-align: left;
+        text-align: left !important;
         margin: 0;
         justify-content: center;
+        padding: 32px;
 
         .get-started-button {
           margin-left: 0;
@@ -434,19 +476,17 @@
       }
 
       .get-started-headline {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         font-weight: 700;
         font-family: var(--font-heading);
+        background: #ffffff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: $shadow-md;
       }
 
-      .punchline-core {
-        background-color: var(--secondary);
-        border-radius: 4px;
-        letter-spacing: 1px;
-        padding: 5px 12px;
-        color: var(--primary);
-        font-size: 16px;
-        white-space: nowrap;
+      .get-started-subtitle {
+        padding: 8px 0 16px 0;
       }
     }
 
@@ -524,6 +564,12 @@
     padding-bottom: 50px;
   }
 
+  @media(min-width:$w-xl) {
+    .content {
+      max-width: none;
+    }
+  }
+
   .container-title {
     @include flex-column(.5rem);
     text-align: center;
@@ -538,6 +584,7 @@
     @media (min-width: $w-sm) {
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
   }
@@ -555,6 +602,10 @@
     @media (min-width: $w-sm) {
       width: calc(50% - 16px);
       flex-shrink: 0;
+    }
+
+    @media(min-width:$w-xl) {
+      width: calc(33.33% - 16px);
     }
   }
 
@@ -614,11 +665,14 @@
   }
 
   .container-stages {
-    @include flex-row;
-    gap: 1rem;
+    @include flex-row(1rem);
     overflow-x: auto;
-    padding: 32px;
+    padding: 16px;
     position: relative;
+
+    @media (min-width: $w-md) {
+      padding:32px;
+    }
   }
 
   .procedure-stage {
@@ -627,18 +681,12 @@
     max-width: $max-width-text;
     flex-shrink: 0;
     transform: scale(0.85);
-    padding: 32px;
     border-radius: 16px;
     transition: 0.35s;
-    @include flex-column(.5rem);
-
-    @media (min-width: $w-xs) {
-      padding: 48px 64px;
-    }
+    overflow: hidden;
 
     @media (min-width: $w-sm) {
       width: 70%;
-      padding: 64px;
     }
 
     @media (min-width: $w-md) {
@@ -647,14 +695,17 @@
 
     @media (min-width: $w-xl) {
       width: 90%;
-      padding: 48px 64px;
     }
 
     &.active {
       transform: scale(1);
       opacity: 1;
       background-color: white;
-      box-shadow: $shadow-hover;
+      box-shadow: $shadow-md;
+
+      @media (min-width: $w-xl) {
+        box-shadow: $shadow-hover;
+      }
 
       .title,
       .icon {
@@ -664,13 +715,19 @@
 
     .title {
       color: var(--text-accent);
+      color: white;
       font-weight: 600;
       display: none;
-    }
+      padding: 16px 32px 32px;
+      margin-bottom: -16px;
+      background-color: var(--primary);
+      position: relative;
 
-    .description {
-      border-left: 1px solid var(--border);
-      padding-left: 10px;
+      @media (min-width: $w-xs) {
+        padding-left: 64px;
+        padding-right: 64px;
+      }
+
     }
 
     .icon {
@@ -682,6 +739,19 @@
       background-color: var(--bg);
       text-align: center;
       display: none;
+    }
+
+  }
+
+  .description-wrapper {
+    @include flex-column(.5rem);
+    padding: 16px 32px 32px;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 16px;
+
+    @media (min-width: $w-xs) {
+      padding: 32px 64px;
     }
 
   }
@@ -723,57 +793,49 @@
   border-bottom: 1px solid var(--border);
   background-color: white;
 
-  .background-container {
-    overflow: hidden;
+  .image-container {
     position: relative;
-    background-image: url("/images/portrait-hero.png");
-    background-size: 50% auto;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: bottom left -50%;
-    border-radius: 16px;
+    padding-bottom: var(--padding-content-y);
+  }
 
-    @media (min-width: $w-sm) {
-      background-size: 20% auto;
-      background-position: bottom left;
-    }
+  .why-us-image {
+    display: none;
 
     @media (min-width: $w-lg) {
-      border-radius: 0;
-      background-attachment: scroll;
-      padding-bottom: 120px;
-      background-size: auto 90%;
-      overflow: visible;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 90%;
     }
   }
 
+
   .container-cards {
-    @include flex-column(1.2rem);
-    padding: 48px 32px;
-    background-image: linear-gradient(199deg, #69c4c354, rgba(202, 231, 171, 0.4117647059));
-    backdrop-filter: blur(2px);
+    @include flex-column(1rem);
 
     @media (min-width: $w-sm) {
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 2rem;
-      padding: 64px;
+      // gap: 2rem;
     }
 
     @media (min-width: $w-lg) {
-      border-radius: 24px;
-      margin-left: 200px;
-      border: 1px solid var(--border);
-      box-shadow: $shadow-hover;
+      margin-left: 230px;
     }
   }
 
   .card {
-    background-color: transparent;
-    border-radius: 0;
-    border: 0;
-    padding: 0;
+    transition: box-shadow 0.35s ease-in-out, background-color 0.35s ease-in-out;
     color: var(--text-accent);
+    box-shadow: $shadow-md;
+    padding-left: 24px;
+    border: none;
+
+    &:hover {
+      box-shadow: $shadow-hover;
+      background-color: #ffffff;
+    }
 
     @media (min-width: $w-sm) {
       width: calc(50% - 1rem);
@@ -790,9 +852,9 @@
       &::before {
         content: "";
         @include rounded(7px);
-        background-color: white;
+        background-color: var(--secondary);
         position: absolute;
-        bottom: -15px;
+        bottom: -10px;
         right: 8px;
       }
     }

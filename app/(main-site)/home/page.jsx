@@ -19,8 +19,10 @@ const Home = () => {
     return (
       <li className={`procedure-stage ${className}`} data-process={stageNumber} {...props}>
         <h2 className='title'>{title}</h2>
-        <p className='description'>{description}</p>
-        {icon}
+        <div className='description-wrapper'>
+          <p>{description}</p>
+          {icon}
+        </div>
       </li>
     )
   }
@@ -58,7 +60,7 @@ const Home = () => {
             </div>
             <div className="text-content" data-gsap-animate="stagger-fade-up" data-gsap-distance="md">
               <h2 className='section-title'>Solutions for Real Business Challenges</h2>
-              <BusinessStrategies className="business-strategies"/>
+              <BusinessStrategies className="business-strategies" />
               <p>At INN RADII, we harness technology to help businesses design, streamline, and implement smart solutions. Our goal is to simplify operations, maximize efficiency, and support growth across multiple industries with tailored service</p>
             </div>
           </div>
@@ -100,10 +102,12 @@ const Home = () => {
             <div className='bottom-container'>
               <IndustryListGrid />
               <ButtonLink
-                className="ibtn-primary"
+                className="action-button"
                 text="Request Services"
                 href="./our-services"
-                icon={<FontAwesomeIcon className="fas fa-long-arrow-alt-right" style={{ fontSize: "24px" }} />}
+                icon={<FontAwesomeIcon 
+                  className="fas fa-long-arrow-alt-right"  
+                />}
                 data-gsap-animate="fade-up"
                 data-gsap-distance="sm"
               />
@@ -114,10 +118,21 @@ const Home = () => {
 
       <div className="start-up">
         <div className="content">
-          <div className='text-left text-black pb-lg-3'>
-            <span className='mini-heading' data-gsap-animate="fade-down" data-gsap-distance="sm">End-to-End</span>
-            <h2 className='section-title'>Solutions for Startups</h2>
-            From Idea to launch - we build, scale, and support your product every step of the way
+          <div className='top-content text-left text-black pb-lg-3'>
+            <div className="main-text">
+              <span className='mini-heading d-xl-none' data-gsap-animate="fade-down" data-gsap-distance="sm">End-to-End</span>
+              <h2 className='section-title'>Solutions for Startups</h2>
+              From Idea to launch - we build, scale, and support your product every step of the way
+            </div>
+            <ButtonLink
+              className="d-none d-xl-inline-flex"
+              text="Book Appointment"
+              icon={<FontAwesomeIcon 
+                className="fas fa-calendar-alt"
+                style={{color:"orangered", fontSize:"16px"}}
+              />}
+              iconPosition="left"
+            />
           </div>
           <div className='wrapper-cards' data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.18">
             <Card_C
@@ -140,18 +155,18 @@ const Home = () => {
             />
           </div>
           <div className='get-started'>
-            <div className='get-started-main'>
-              <p className='get-started-headline' data-gsap-animate='split-text' data-gsap-splitby="lines">
-                Ready to <strong className='punchline-core' >launch</strong> your startup? <br /> Whether you're validating <strong className='punchline-core'>your</strong> <strong className='punchline-core' >concept</strong> or preparing MVP development, we’ll guide every step.
+            <div className='get-started-main' data-gsap-animate='stagger-fade-up' data-gsap-distance="md" data-gsap-stagger="0.25">
+              <p className='get-started-headline' >
+                Ready to launch your startup? Whether you're validating your concept or preparing MVP development, we’ll guide every step.
               </p>
-              <p className='get-started-subtitle' data-gsap-animate='fade-up' data-gsap-distance="sm">
-                Launch fast, scale smart, and reduce risk with expert engineering and growth-focused support.
+              <p className='get-started-subtitle' >
+                Get started today, launch fast, scale smart, and reduce risk with expert engineering and growth-focused support.
               </p>
             </div>
 
             <div className='get-started-features'>
-              <h4 className='features-caption' data-gsap-animate='split-text' data-gsap-splitby="chars">Startup Toolkit</h4>
-              <ul className='features-list' data-gsap-animate='stagger-zoom-in' data-gsap-stagger="0.45">
+              <h4 className='features-caption' data-gsap-animate='zoom-in' >Startup Toolkit</h4>
+              <ul className='features-list' data-gsap-animate='split-text' data-gsap-splitby="lines">
                 <li>Startup websites</li>
                 <li>Dashboards</li>
                 <li>MVP Development</li>
@@ -270,19 +285,19 @@ const Home = () => {
       </div>
 
       <div className="why-us">
-        <div className="content pb-xl-0">
-          <div className='max-width-text text-center d-flex flex-column gap-1 pb-4 align-items-center' data-gsap-animate="stagger-fade-up">
-            <SectionIcon
+        <div className="content pb-0">
+          <div className='max-width-text text-center d-flex flex-column gap-1 pb-lg-4 align-items-center' data-gsap-animate="stagger-fade-up">
+            {/* <SectionIcon
               icon="fa fa-gem"
               style={{ color: "#efd600", backgroundColor: "#ffffff" }}
-            />
+            /> */}
             <h2 className='section-title pseudo-underline'>Why Choose Us</h2>
             <span className='d-block'>Our commitment to you is beyond just technology. See why we are exceptional</span>
           </div>
 
-          <div className="background-container">
-            {/* <div className="content pt-0 position-relative"> */}
-            <div className="container-cards" data-gsap-animate="zoom-in" data-gsap-stagger="0.4">
+          <div className="image-container">
+            <img src="/images/portrait-hero.png" alt="" className='why-us-image' />
+            <div className="container-cards" data-gsap-animate="stagger-zoom-in" data-gsap-stagger="0.4">
               <Card_A
                 icon={"fas fa-sync-alt"}
                 title="Strategy and Process"
@@ -304,7 +319,6 @@ const Home = () => {
                 description="We put our clients at the center of everything we do; listening closely, adapting quickly, and delivering solutions that are tailored to real needs"
               />
             </div>
-            {/* </div> */}
           </div>
         </div>
       </div>

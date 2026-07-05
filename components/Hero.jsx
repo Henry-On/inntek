@@ -10,7 +10,7 @@ const Hero = ({ breadCrumb, title, description, button, image, alignImage = "lef
         <span className='breadCrumb'>{breadCrumb}</span>
         <h2 className='font-heading title'>{title}</h2>
         <div className='description'>{description}</div>
-        <p>{button}</p>
+        <p style={{overflow:"visible"}}>{button}</p>
       </div>
     </div>
   )

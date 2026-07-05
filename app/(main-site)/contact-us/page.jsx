@@ -50,7 +50,7 @@ const Contact = () => {
 
             <div className="info-text">
                 <div className="content">
-                    <div className="max-width-text text-center" data-gsap-animate="fade-up" data-gsap-distance="50">
+                    <div className="max-width-text text-center" data-gsap-animate="stagger-fade-up" data-gsap-stagger="0.2">
                         <span className='itext-primary small'>Get in touch</span>
                         <h2 className='section-title'>Not sure what improvement your business needs?</h2>
                         <span>Our team will take the time to understand your operations, identify challenges, and recommend the right technology to boost your efficiency, and improve growth. Let us handle the technical side while you focus on what matters most</span>
@@ -60,16 +60,19 @@ const Contact = () => {
                             icon="fas fa-envelope"
                             label="Email address"
                             value="support@innradii.com"
+                            className="contact-page-info"
                         />
                         <ContactInfoItem
                             icon="fas fa-phone-volume"
                             label="Call No"
                             value="08144447196"
+                            className="contact-page-info"
                         />
                         <ContactInfoItem
                             icon="fab fa-whatsapp"
                             label="WhatsApp Line"
                             value="09029198353"
+                            className="contact-page-info"
                         />
                     </div>
                 </div>
