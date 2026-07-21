@@ -24,6 +24,7 @@ function Footer() {
           <div>
             <span className='caption'>Quick Links</span>
             <ul className='links'>
+              <li><a href="/" >Home</a></li>
               <li><a href="./contact-us" >Contact Us</a></li>
               <li><a href="#" >Read Our Blog</a></li>
               <li><a href="#" >Frequently Asked Questions</a></li>

@@ -3,6 +3,7 @@ import '@/public/fontawesome5/css/fontawesome.min.css';
 import "@/styles/scss/stylesheet.scss"
 import BootstrapClient from '@/components/BootstrapClient'
 import GSAPController from '@/components/GSAPController'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: 'InnTek',
@@ -20,6 +21,7 @@ const RootLayout = ({ children }) => {
         {children}
         <BootstrapClient />
         <GSAPController />
+        <SpeedInsights />
       </body>
     </html>
   )

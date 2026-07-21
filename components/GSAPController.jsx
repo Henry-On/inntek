@@ -77,9 +77,7 @@ export default function GSAPController() {
         duration: 0.75
       });
 
-      const headerTL = gsap.timeline();
-      headerTL.from("#hero-section .wrapper-texts", { y: -50, opacity: 0, scale: 0.9, duration: 1 })
-        .call(() => document.querySelector("body").classList.add('show-header'));
+      gsap.from(".brand-logo", { opacity: 0, scale: 0.85, duration: 1, delay: 0.35 });
 
       gsap.utils.toArray("[data-gsap-animate='fade-up']").forEach(element => {
         gsap.from(element, {
@@ -135,57 +133,80 @@ export default function GSAPController() {
         });
       });
 
-      gsap.utils.toArray("[data-gsap-animate='split-text']").forEach(element => {
+      const setupSplitTextAnimations = () => {
+        gsap.utils.toArray("[data-gsap-animate='split-text']").forEach(element => {
+          const allowedSplitTypes = ["chars", "lines"];
 
-        const allowedSplitTypes = ["chars", "lines"];
+          // get the splitby data-attribute
+          const splitType = element.dataset.gsapSplitby;
+          if (!allowedSplitTypes.includes(splitType)) return console.warn(`Invalid splitby value: ${splitType}`);
 
-        // get the splitby data-attribute
-        const splitType = element.dataset.gsapSplitby;
-        if (!allowedSplitTypes.includes(splitType)) return console.warn(`Invalid splitby value: ${splitType}`);
+          if (splitType === "chars") {
+            const splitText = new SplitText(element, { type: "chars" });
+            splitTexts.push(splitText);
+            gsap.from(splitText.chars, {
+              opacity: 0,
+              yPercent: "random([-100, 100])",
+              stagger: {
+                amount: 0.5,
+                from: "random",
+              },
+              scrollTrigger: {
+                trigger: element
+              }
+            });
+          }
 
-        if (splitType === "chars") {
-          const splitText = new SplitText(element, { type: "chars" });
-          splitTexts.push(splitText);
-          gsap.from(splitText.chars, {
-            opacity: 0,
-            yPercent: "random([-100, 100])",
-            stagger: {
-              amount: 0.5,
-              from: "random",
-            },
-            scrollTrigger: {
-              trigger: element
-            }
-          });
+          if (splitType === "lines") {
+            const splitText = new SplitText(element, { type: "lines" });
+            splitTexts.push(splitText);
+            gsap.from(splitText.lines, {
+              opacity: 0,
+              yPercent: "100",
+              stagger: {
+                amount: 0.5,
+              },
+              scrollTrigger: {
+                trigger: element
+              }
+            });
+          }
+        });
+      };
+
+      const startSplitTextAnimations = () => {
+        if (document.fonts?.ready) {
+          document.fonts.ready.then(() => setupSplitTextAnimations());
+        } else {
+          setupSplitTextAnimations();
         }
+      };
 
-        if (splitType === "lines") {
-          const splitText = new SplitText(element, { type: "lines" });
-          splitTexts.push(splitText);
-          gsap.from(splitText.lines, {
-            opacity: 0,
-            yPercent: "100",
-            stagger: {
-              amount: 0.5,
-            },
-            scrollTrigger: {
-              trigger: element
-            }
-          });
-        }
-      });
+      startSplitTextAnimations();
 
       mm = ScrollTrigger.matchMedia({
 
         // Desktop
         "(min-width: 1200px)": function () {
-          ScrollTrigger.create({
-            trigger: ".industries",
-            start: "top top",
-            end: "bottom bottom",
-            pin: ".industries .top-container",
-            pinSpacing: false
-          });
+
+          Array.from(document.querySelectorAll("[data-gsap-trigger]")).forEach(element => {
+            const targetId = element.dataset.gsapTrigger;
+            const triggerTarget = document.getElementById(targetId);
+
+            if (!targetId || !triggerTarget) {
+              console.warn(`GSAPController: No trigger element found for data-gsap-trigger="${triggerId}"`);
+              return
+            }
+
+            ScrollTrigger.create({
+              trigger: element,
+              start: "top top",
+              end: "bottom bottom",
+              pin: triggerTarget,
+              pinSpacing: false
+            });
+
+          });          
         },
 
         "(max-width: 1199px)": function () {

@@ -80,47 +80,47 @@ const About = () => {
         />
       </HeroContainer>
       <div className='about__introduction' id='about__introduction'>
-        <div className='content introduction_content' data-gsap-animate="stagger-fade-up">
-          <h3 className='itext-primary fw-lighter small' data-gsap-animation="fade-down" style={{ backgroundColor: "white", borderRadius: "32px", padding: "8px 16px", margin: "auto", display: "inlineBlock" }}>Indigeneous I.T Company</h3>
-          <h1 className='font-heading fw-bold title' data-gsap-animation="fade-down">Innovation Radii</h1>
-          <p data-gsap-animation="fade-down">INN RADII is a home-grown IT leader committed to empowering organizations in today’s digital age. Well known for delivering end-to-end solutions that drive efficiency, innovation, and sustainable growth across multiple industries.</p>
-          <img src="/images/illustration-building.png" alt="" width={100} />
+        <div className='content' >
+          <div className='top-content' data-gsap-animate="stagger-fade-up">
+            <h3 className='itext-primary fw-lighter small' style={{ borderRadius: "32px", margin: "auto", display: "inlineBlock" }}>Indigeneous I.T Company</h3>
+            <h1 className='font-heading fw-bold title'>Innovation Radii</h1>
+            <p data-gsap-animation="fade-down">INN RADII is a home-grown IT leader committed to empowering organizations in today’s digital age. Well known for delivering end-to-end solutions that drive efficiency, innovation, and sustainable growth across multiple industries.</p>
+          </div>
+          <div className="about__cores">
+            <div className="core-columns" >
+              <CorePrinciple
+                title="Our Values"
+                description="Core principles of operation, building an agile, tech forward environment that enables organizations to thrive."
+                imageName="core-values.svg"
+                iconClassName="fa fa-eye"
+                data-gsap-animate="stagger-fade-up"
+                style={{ backgroundColor: "#2b8b63" }}
+              />
+              <CorePrinciple
+                title="Our Mission"
+                description="To deliver transformative, user-focused tech products and services that are reliable, user-focused, enhances everyday life, and drive sustainable digital growth, eliminating inefficiencies and  redundances" imageName="core-mission.svg"
+                className={"active"}
+                style={{ backgroundColor: "#8b2b2b" }}
+                iconClassName="fas fa-bullseye"
+                data-gsap-animate="stagger-fade-up"
+              />
+              <CorePrinciple
+                title="Commitment"
+                description="We have clearly defined principles and standards that guide every solution we deliver. We are fueled by innovation, committed to continuous improvement, creative thinking, and pushing boundaries to build impactful solutions. We do not aim to meet exoectations, we put the work to exceed expectations"
+                imageName="core-diamond.svg"
+                style={{ backgroundColor: "#708b2b" }}
+                data-gsap-animate="stagger-fade-up"
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <div className="about__cores ">
-        <div className="content text-center">
-          <div className='d-none flex-column gap-1 align-items-center max-width-text'>
-            <SectionIcon icon="fa fa-gem" />
-            <h3 className='section-title'>Operation Principles</h3>
-            <p>We have clearly defined principles and standards that guide every solution we deliver. This is how we ensure consistency, and quality outcomes every time.</p>
-          </div>
-          <div className="core-columns" >
-            <CorePrinciple
-              title="Our Values"
-              description="We value core principles of operation, building an agile, tech forward environment that enables organizations to thrive,  eliminating inefficiencies and  redundant procedures"
-              imageName="core-values.svg"
-              data-gsap-animate="stagger-fade-up"
-            />
-            <CorePrinciple
-              title="Our Mission"
-              description="To deliver transformative, user-focused tech products and services that are reliable, user-focused, enhance everyday life, and drive sustainable digital growth" imageName="core-mission.svg"
-              className={"active"}
-              data-gsap-animate="stagger-fade-up"
-            />
-            <CorePrinciple
-              title="Commitment"
-              description="We’re fueled by innovation, committed to continuous improvement, creative thinking, and pushing boundaries to build impactful solutions and exceed expectations"
-              imageName="core-diamond.svg"
-              data-gsap-animate="stagger-fade-up"
-            />
-          </div>
-        </div>
-      </div>
+
       <div className="about__stories">
         <div className="content">
           <div className='content-wrapper'>
             <div className="section" data-gsap-animate="stagger-fade-up">
-              <h3 className='section__title'>How We Deliver</h3>
+              <h3 className='title'>How We Deliver</h3>
               <div className="section__description">We focus on practical, measurable results — delivering reliable solutions on time and with clear communication at every step:</div>
               <ul className='principles-list'>
                 <li className="li">Clear Scope / Milestones</li>
@@ -130,13 +130,13 @@ const About = () => {
                 <li className="li">247 Support</li>
               </ul>
             </div>
-            <div className="section history">
+            <div className="history">
               <div className="row-stack">
                 <div className="main" data-gsap-animate="stagger-fade-up" data-gsap-stagger="0.2">
-                  <h3 className='section__title'>Built Small, Built to Last: Our Story of Growth</h3>
+                  <h3 className='title'>Built Small, Built to Last: Our Story of Growth</h3>
                   <div className="section__description" >From a three-person web‑design shop, we've grown into a multidisciplinary tech firm. Over time we added mobile apps, networking, IoT, and renewable‑energy services—always focused on durable, high‑impact results. What started as a bold, small team is now a trusted partner across industries. We've come far, but our best work is still ahead</div>
                 </div>
-                <div className="image-wrapper" data-gsap-animate="zoom-in">
+                <div className="image-wrapper">
                   <img src='/images/networking-2.png' alt="" />
                 </div>
               </div>
@@ -144,9 +144,9 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="about__why-us" >
+      <div className="about__why-us" data-gsap-trigger="pinned-content">
         <div className="wrapper-columns">
-          <div className="column-left" data-gsap-animate="stagger-zoom-in">
+          <div id="pinned-content" className="column-left" data-gsap-animate="stagger-zoom-in">
             <div className="container-image">
               <img className='hero-image' src="/images/people-users.png" alt='hero-man-holding-laptop' />
             </div>
@@ -169,7 +169,12 @@ const About = () => {
         <div className="content">
           <div className="heading-caption">
             <SectionTitle title="Scout Our Services" />
-            <a href="./our-services" style={{ fontWeight: "lighter" }}>All <i className='fa fa-caret-right'></i></a>
+            <ButtonLink
+              className='all-services-link'
+              text="All Services"
+              href="./our-services"
+              icon={<FontAwesomeIcon className="fa fa-caret-right" />}
+            />
           </div>
           <div className='service-cards' data-gsap-animate="stagger-zoom-in">
             <Card_B title="Web Development" description="We build visually appealing, high-performing websites using modern technologies, optimized for speed, usability, and SEO to help your brand stand out online." />
@@ -180,26 +185,25 @@ const About = () => {
             <Card_B title="CCTV Installations" description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results. We tailor the technology to client’s preference - continuously or only as required to monitor a particular event." />
           </div>
           <ButtonLink
-          className='book-appointment'
-          href="./contact-us" text="Book Appointment"
-          icon={<FontAwesomeIcon className='fas fa-rocket' />}
-          data-gsap-animate="fade-up" data-gsap-distance="sm"
-        />
+            className='book-appointment'
+            href="#header"
+            text="Back to Top"
+            icon={<FontAwesomeIcon className='fa fa-arrow-up' />}
+            data-gsap-animate="fade-up" data-gsap-distance="sm"
+          />
         </div>
       </div>
     </div>
-
   )
 }
 
-const CorePrinciple = ({ title, description, imageName, className, ...props }) => {
+const CorePrinciple = ({ title, description, iconClassName, imageName, className, ...props }) => {
   return (
     <div className={`column square-item ${className ? className : ''}`} {...props}>
+      <FontAwesomeIcon className={iconClassName || "fa fa-gem"} style={{ color: "white", opacity: 1 }} />
       <h3 className='column__title'>{title}</h3>
       <span>{description}</span>
-      <div className="wrapper-image">
-        <img className='column__image' src={`/images/icons/${imageName}`} alt="" />
-      </div>
+      <FontAwesomeIcon className={`background-icon ${iconClassName || "fa fa-gem"}`} />
     </div>
   )
 }

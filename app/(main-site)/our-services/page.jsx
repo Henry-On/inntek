@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero'
 import HeroContainer from '@/components/HeroContainer'
 import Testimonials from '@/components/testimonial/Testimonials'
-import {Card_B, Card_D, Card_E} from '@/components/cards'
+import { Card_B, Card_D, Card_E } from '@/components/cards'
 import Image from "next/image"
 import React from 'react'
 
@@ -10,6 +10,7 @@ import path from "path";
 import AutomationSlider from './AutomationSlider'
 import { ButtonLink } from '@/components/buttons'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
+import NetworkSolutionsItems from './NetworkSolutionsItems'
 
 const Services = async () => {
 
@@ -51,27 +52,16 @@ const Services = async () => {
           </div>
         </div>
       </div>
-      <div className='network-services'>
+      <div className='network-services' data-gsap-trigger="networking-items">
         <div className="content">
-          <div className='text-center max-width-text' data-gsap-animate="stagger-fade-up" >
+          <div className='top-content' data-gsp-animate="stagger-fade-up" id="networking-items" >
             <h2 className='section-title pseudo-underline'>Network Engineering/ ICT System Integration / IT Support</h2>
             <span>We offer wide range of networking services that aim at providing the most efficient and reliable work strategy to improve overall output. Our system integration process focuses on integrating  physical and virtual components of an organisation's systems.</span>
           </div>
-          <div className="wrapper-service-cards" data-gsap-animate="stagger-fade-up">
-            {
-              networkServices.map((e) => (
-                <Card_D
-                  key={e.SN}
-                  title={e.name}
-                  description={e.description}
-                  image={e.image}
-                  className={e.SN === 3 ? "layout-control" : ""}
-                />
-              ))
-            }
-          </div>
+          <NetworkSolutionsItems />
         </div>
       </div>
+
       <div className="power-cctv">
         <div className="content pb-3">
           <h2 className='text-center section-title'>CCTV and Power Solutions</h2>
@@ -113,10 +103,10 @@ const Services = async () => {
         </div>
       </div>
 
-      <Testimonials 
-      heading="Our Customers are Happy" 
-      description="Listen what our customers have to say, don't take our for it, take theirs"
-      style={{ backgroundColor: "white" }} 
+      <Testimonials
+        heading="Our Customers are Happy"
+        description="Listen what our customers have to say, don't take our for it, take theirs"
+        style={{ backgroundColor: "white" }}
       />
 
       <div className='service-bottom'>

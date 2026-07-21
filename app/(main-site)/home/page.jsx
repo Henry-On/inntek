@@ -12,6 +12,7 @@ import SectionIcon from '@/components/SectionIcon'
 import { contactFormSubjects } from '@/storage/contactFormSubjects'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 import IndustryListGrid from './IndustryListGrid'
+import BlogPosts from '@/components/BlogPosts'
 
 const Home = () => {
 
@@ -83,10 +84,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='industries' >
+      <div className='industries' data-gsap-trigger="pinned-content">
         <div className="content">
           <div className="wrapper-columns">
-            <div className="top-container" >
+            <div className="top-container" id="pinned-content">
               <div data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.12">
                 <span className='section-info' > Industries</span>
                 <h3 className='section-title item-heading'>We Serve Your Industry</h3>
@@ -324,6 +325,8 @@ const Home = () => {
       </div>
 
       <Testimonials />
+
+      <BlogPosts />
 
       <div className="home-contact">
         <div className="content pt-0">
