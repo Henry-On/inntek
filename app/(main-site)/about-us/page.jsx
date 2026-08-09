@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Card_B } from '@/components/cards'
 import SectionIcon from '@/components/SectionIcon'
 import React from 'react'
-import { ButtonLink } from '@/components/buttons'
+import { ButtonLink, Button } from '@/components/buttons'
 import { SectionTitle } from '../home/page'
 import HeroContainer from '@/components/HeroContainer'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
@@ -72,8 +72,8 @@ const About = () => {
           breadCrumb="/ about-us"
           title="Empowering Growth Through Smart Technology"
           description="At INN RADII, we harness automation, data insights, and seamless connectivity to streamline your operations, elevate decision-making, and tackle today’s toughest challenges"
-          button={<ButtonLink
-            href="#about__introduction"
+          button={<Button
+            data-scroll-to="about__introduction"
             text="Read More"
             icon={<FontAwesomeIcon className="fa fa-caret-down" style={{ fontSize: "24px" }} />}
           />}
@@ -119,9 +119,9 @@ const About = () => {
       <div className="about__stories">
         <div className="content">
           <div className='content-wrapper'>
-            <div className="section" data-gsap-animate="stagger-fade-up">
-              <h3 className='title'>How We Deliver</h3>
-              <div className="section__description">We focus on practical, measurable results — delivering reliable solutions on time and with clear communication at every step:</div>
+            <div className="top-section" data-gsap-animate="stagger-fade-up">
+              <h3 className='caption'>How We Deliver</h3>
+              <div className="title">We focus on practical, measurable results — delivering reliable solutions on time and with clear communication at every step:</div>
               <ul className='principles-list'>
                 <li className="li">Clear Scope / Milestones</li>
                 <li className="li">Dedicated teams</li>
@@ -129,6 +129,7 @@ const About = () => {
                 <li className="li">Quality Checks</li>
                 <li className="li">247 Support</li>
               </ul>
+              <FontAwesomeIcon className="fa fa-envira" />
             </div>
             <div className="history">
               <div className="row-stack">
@@ -137,7 +138,7 @@ const About = () => {
                   <div className="section__description" >From a three-person web‑design shop, we've grown into a multidisciplinary tech firm. Over time we added mobile apps, networking, IoT, and renewable‑energy services—always focused on durable, high‑impact results. What started as a bold, small team is now a trusted partner across industries. We've come far, but our best work is still ahead</div>
                 </div>
                 <div className="image-wrapper">
-                  <img src='/images/networking-2.png' alt="" />
+                  <Image src="/images/about-us-story-placeholder.webp" alt="innovation history representation" width="613" height="426" objectFit='cover'/>
                 </div>
               </div>
             </div>
@@ -148,10 +149,10 @@ const About = () => {
         <div className="wrapper-columns">
           <div id="pinned-content" className="column-left" data-gsap-animate="stagger-zoom-in">
             <div className="container-image">
-              <img className='hero-image' src="/images/people-users.png" alt='hero-man-holding-laptop' />
+              <Image src="/images/people-users.webp" alt='group-of-people-looking-at-laptop' width={768} height={834} />
             </div>
             <div className="container-image xl">
-              <img className='hero-image' src="/images/portrait-hero.png" alt='hero-man-holding-laptop' />
+              <Image src="/images/portrait-hero.png" alt='tech-guy' width={665} height={949} />
             </div>
           </div>
           <div className='content-text'>
@@ -184,9 +185,9 @@ const About = () => {
             <Card_B title="Solar Power Installation" description="Harness renewable energy, a wasteless and everlasting energy source.  We handle panel installation to smart energy distribution, tailored to meet your power needs reliably taking into account all necessary industry specification" />
             <Card_B title="CCTV Installations" description="Explore our Closed-circuit television (CCTV)cameras that go beyond video surveillance and provide high-quality cost-effective results. We tailor the technology to client’s preference - continuously or only as required to monitor a particular event." />
           </div>
-          <ButtonLink
+          <Button
             className='book-appointment'
-            href="#header"
+            data-scroll-to="header"
             text="Back to Top"
             icon={<FontAwesomeIcon className='fa fa-arrow-up' />}
             data-gsap-animate="fade-up" data-gsap-distance="sm"

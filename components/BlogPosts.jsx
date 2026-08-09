@@ -7,7 +7,7 @@ const blogPosts = [
     title: 'Scaling Secure Remote Work Networks',
     description:
       'Explore practical strategies for building secure, high-performance networks that support hybrid teams and remote collaboration.',
-    image: '/images/automation-1.png',
+    image: '/images/networking-data-center.webp',
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const blogPosts = [
     title: 'Optimizing Access Point Coverage',
     description:
       'Tips for mapping wireless coverage, reducing interference, and delivering consistent Wi-Fi performance across the workplace.',
-    image: '/images/techguy.png',
+    image: '/images/persons-three.webp',
   },
 ]
 

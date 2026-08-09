@@ -8,7 +8,7 @@ import SelectField from '@/components/form/SelectField'
 import TextareaField from '@/components/form/TextareaField'
 import { contactFormSubjects } from '@/storage/contactFormSubjects'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
-import { ButtonLink } from '@/components/buttons'
+import { Button } from '@/components/buttons'
 import ContactInfoItem from '@/components/ContactInfoItem'
 
 const Contact = () => {
@@ -21,9 +21,9 @@ const Contact = () => {
                     title="Need Help? Let's talk"
                     description="Our Customers and partners are the heart of everything we stand for. Whether you're seeking support, have a question, or just want to share your thought. We are available to help, any day, any time"
                     alignImage='right'
-                    button={<ButtonLink
+                    button={<Button
                         text="Drop a Message"
-                        href="#user-message-form"
+                        data-scroll-to="user-message-form"
                         icon={<FontAwesomeIcon className="fa fa-arrow-down" />}
                         iconPosition="left"
                     />}

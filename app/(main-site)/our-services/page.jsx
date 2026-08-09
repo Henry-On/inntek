@@ -8,7 +8,7 @@ import React from 'react'
 import fs from "fs/promises";
 import path from "path";
 import AutomationSlider from './AutomationSlider'
-import { ButtonLink } from '@/components/buttons'
+import { Button, ButtonLink } from '@/components/buttons'
 import FontAwesomeIcon from '@/components/FontAwesomeIcon'
 import NetworkSolutionsItems from './NetworkSolutionsItems'
 
@@ -29,11 +29,17 @@ const Services = async () => {
           breadCrumb="/ what-we-do"
           title="Empowering Growth Through Smart Technology"
           description="At INN RADII, we harness automation, data insights, and seamless connectivity to streamline your operations, elevate decision-making, and tackle today’s toughest challenges"
-          button={<a href="" className='ibtn'>Read More</a>}
+          button={<Button
+            text="Browse Services"
+            data-scroll-to="software-development"
+            className='our-services-cta'
+            icon={<FontAwesomeIcon className="fa fa-caret-down" />}
+            iconPosition="left"
+          />}
           alignImage='right'
         />
       </HeroContainer>
-      <div className='software-dev'>
+      <div className='software-dev' id="software-development">
         <div className="content">
           <h2 className='section-title pseudo-underline'>Software Development</h2>
           <div className="wrapper-service-cards" data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.16">

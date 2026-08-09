@@ -3,6 +3,7 @@ import ContactInfoItem from '@/components/ContactInfoItem';
 import FacebookPageClient from '@/components/footer/FacebookPageClient';
 import Newsletter from './Newsletter'
 import FooterAttribution from './FooterAttribution';
+import Link from "next/link"
 
 function Footer() {
 
@@ -11,9 +12,9 @@ function Footer() {
       <div className="content">
         <div className='column top-row'>
           <div>
-            <div className="brand-logo">
-              <img src="/images/logo-footer.png" alt="brand-logo" />
-            </div>
+            <Link className="brand-logo" href="/">
+              <img src="/images/logo.png" alt="brand-logo" />
+            </Link>
             <div className="text-black">
               Trusted by businesses to deliver reliable, innovative tech solutions with integrity, professionalism, and a focus on results
             </div>

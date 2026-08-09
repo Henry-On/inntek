@@ -39,7 +39,6 @@ export default function TestimonialCarousel() {
             <UserTestimony
                name="Henry | Software Engineer"
                comment={`The team at ${SITE_NAME} consistently delivers exceptional results. Working at this Organisation has strengthen my career, the attention to detail and commitment to quality product delivery.`}
-               image="/images/techguy.png"
             />
          </SwiperSlide>
          <SwiperSlide>

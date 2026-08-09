@@ -81,10 +81,6 @@
     transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, 
                 letter-spacing 0.35s ease-in-out;
 
-    .icon {
-        opacity: .5;
-    }
-
     &:hover {
         background-color: var(--primary);
         color: white;

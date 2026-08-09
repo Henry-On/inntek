@@ -1,5 +1,4 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
@@ -22,11 +21,11 @@ export default function AutomationSlider() {
             //     },
             // }}
         >
-            <SwiperSlide><img src="/images/automation-1.png" alt="automation-image-1" /></SwiperSlide>
-            <SwiperSlide><img src="/images/automation-2.png" alt="automation-image-2" /></SwiperSlide>
-            <SwiperSlide><img src="/images/automation-3.png" alt="automation-image-3" /></SwiperSlide>
-            <SwiperSlide><img src="/images/automation-4.png" alt="automation-image-4" /></SwiperSlide>
-            <SwiperSlide><img src="/images/automation-5.png" alt="automation-image-5" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-1.webp" alt="automation-image-1" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-2.webp" alt="automation-image-2" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-3.webp" alt="automation-image-3" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-4.webp" alt="automation-image-4" /></SwiperSlide>
+            <SwiperSlide><img src="/images/automation-5.webp" alt="automation-image-5" /></SwiperSlide>
         </Swiper>
     );
 }

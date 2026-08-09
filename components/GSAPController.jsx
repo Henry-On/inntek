@@ -77,7 +77,7 @@ export default function GSAPController() {
         duration: 0.75
       });
 
-      gsap.from(".brand-logo", { opacity: 0, scale: 0.85, duration: 1, delay: 0.35 });
+      gsap.from("#brand-logo", { opacity: 0, scale: 0.85, duration: 1, delay: 0.35 });
 
       gsap.utils.toArray("[data-gsap-animate='fade-up']").forEach(element => {
         gsap.from(element, {

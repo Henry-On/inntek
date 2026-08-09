@@ -51,6 +51,7 @@ export function initApp() {
   }
 
   const cleanupHeroCarousel = heroCarousel()
+
   if (cleanupHeroCarousel) {
     cleanups.push(cleanupHeroCarousel)
   }
@@ -59,6 +60,16 @@ export function initApp() {
     cleanups.forEach(cleanup => cleanup())
   }
 }
+
+Array.from(document.querySelectorAll("[data-scroll-to]")).forEach(function (e) {
+  e.addEventListener("click", (current) => {
+    current.preventDefault();
+    const section = e.getAttribute("data-scroll-to");
+    console.log("scrolling to section:", section);
+    if(!section) return;
+    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+  })
+});
 
 function heroCarousel() {
 
@@ -97,8 +108,15 @@ function heroCarousel() {
     // change to background gradients of the current slide
     const slideGradientColors = slides[index].getAttribute('data-background-overlay')
     const heroBackgroundImage = slides[index].getAttribute('data-background-image')
+    let heroBackgroundImageSet = slides[index].getAttribute('data-background-imageset')
     slidesBackground.style.backgroundColor = `${slideGradientColors}`
     heroContainer.style.backgroundImage = `url(${heroBackgroundImage})`
+
+    heroBackgroundImageSet = heroBackgroundImageSet.split(",");
+    const imageSetValue = heroBackgroundImageSet
+      .map((url) => `url(${url})`).join(", ");
+    // console.log("bg sets", heroBackgroundImageSet);
+    heroContainer.style.backgroundImage = `image-set(${imageSetValue})`
   }
 
   // function to go to the next slide

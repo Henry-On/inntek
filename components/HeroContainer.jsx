@@ -1,7 +1,8 @@
 import React from 'react'
+// import defaultBackground from '@/public/images/hero-background.webp'
 
 const HeroContainer = ({
-  backgroundImage = "/images/hero-background.png",
+  backgroundImage = "/images/hero-background.webp",
   backgroundOverlayColor="#000000c9",
   className,
   style,
