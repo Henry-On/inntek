@@ -65,8 +65,7 @@ Array.from(document.querySelectorAll("[data-scroll-to]")).forEach(function (e) {
   e.addEventListener("click", (current) => {
     current.preventDefault();
     const section = e.getAttribute("data-scroll-to");
-    console.log("scrolling to section:", section);
-    if(!section) return;
+    if (!section) return;
     document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
   })
 });
@@ -114,8 +113,7 @@ function heroCarousel() {
 
     heroBackgroundImageSet = heroBackgroundImageSet.split(",");
     const imageSetValue = heroBackgroundImageSet
-      .map((url) => `url(${url})`).join(", ");
-    // console.log("bg sets", heroBackgroundImageSet);
+      .map((url, index) => `url(${url}) ${index + 1}x`).join(", ");
     heroContainer.style.backgroundImage = `image-set(${imageSetValue})`
   }
 

@@ -72,7 +72,7 @@ export const UserTestimony = ({ name, comment, image, ...props }) => {
             </div>
             <div className='user'>
                <div className="image-wrapper">
-                  <img src={image ? image : "images/profile-avatar.png"} alt={`${name}'s profile`} />
+                  <img src={image ? image : "/images/profile-avatar.png"} alt={`${name}'s profile`} />
                </div>
                <span style={{ opacity: 0.75 }}>{name}</span>
             </div>

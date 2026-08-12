@@ -54,6 +54,7 @@ const Home = () => {
         <HeroCarousel />
       </HeroContainer>
       <div className='solutions'>
+        <div className="border-curve"></div>
         <div className="content">
           <div className='top-container'>
             <div className="image-wrapper">
@@ -89,8 +90,8 @@ const Home = () => {
           <div className="wrapper-columns">
             <div className="top-container" id="pinned-content">
               <div data-gsap-animate="stagger-fade-up" data-gsap-distance="sm" data-gsap-stagger="0.12">
-                <span className='section-info' > Industries</span>
-                <h3 className='section-title item-heading'>We Serve Your Industry</h3>
+                <span className='section-info' > Our Industries</span>
+                <h3 className='section-title'>We Serve Your Industry</h3>
                 <span className="d-block">Whether you're looking to implement a new system, upgrade your infrastructure, or need ongoing support. We will help you find the right solution for your business.</span>
                 <ul className="list-items" >
                   <li className="item">For Reliability</li>
@@ -166,7 +167,7 @@ const Home = () => {
             </div>
 
             <div className='get-started-features'>
-              <h4 className='features-caption' data-gsap-animate='zoom-in' >Startup Toolkit</h4>
+              <h3 className='features-caption' data-gsap-animate='zoom-in' >Startup Toolkit</h3>
               <ul className='features-list' data-gsap-animate='split-text' data-gsap-splitby="lines">
                 <li>Startup websites</li>
                 <li>Dashboards</li>
@@ -224,7 +225,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <img className='svg-services-pointer' alt="" src="images/services-pointer.svg" />
+        <img className='svg-services-pointer' alt="" src="/images/services-pointer.svg" />
       </div>
 
       <div className="work-procedures" id='work-procedures'>

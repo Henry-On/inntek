@@ -16,27 +16,28 @@ const HeroCarousel = () => {
     <div className="hero-carousel">
 
       <CarouselItem
+        titleTag="h1"
         backgroundImage="/images/carousel-1.webp"
-        backgroundImageset={["/images/carousel-1.webp","/images/carousel-1x.webp","/images/carousel-1xl.webp"]}
+        backgroundImageset={["/images/carousel-1.webp", "/images/carousel-1x.webp", "/images/carousel-1xl.webp"]}
         backgroundOverlay="#030f2fc9"
         displayImage={<Image className='hero-portrait' src={displayImage1} alt="IT Services" width={512} height={768} />}
         title="Enterprise-Grade IT Solutions"
         text="We deliver technology that transforms your business. Our tested, proven solutions evolve with your needs, ensuring peak performance and reliability that drives your competitive edge forward."
         className="active"
       />
-      
+
       <CarouselItem
         backgroundImage="/images/carousel-2.webp"
-        backgroundImageset={["/images/carousel-2.webp","/images/carousel-2x.webp","/images/carousel-2xl.webp"]}
+        backgroundImageset={["/images/carousel-2.webp", "/images/carousel-2x.webp", "/images/carousel-2xl.webp"]}
         backgroundOverlay="#2f0328c9"
         displayImage={<Image className='hero-portrait' src={displayImage2} alt="Integration" width={540} height={601} />}
         title="Seamless Integration Into Your World"
         text="Connect your existing infrastructure effortlessly with solutions that fit your architecture perfectly. We ensure smooth transitions that enhance productivity without disrupting your operations—integration that simply works."
       />
-      
+
       <CarouselItem
         backgroundImage="/images/carousel-3.webp"
-        backgroundImageset={["/images/carousel-3.webp","/images/carousel-3x.webp","/images/carousel-3xl.webp"]}
+        backgroundImageset={["/images/carousel-3.webp", "/images/carousel-3x.webp", "/images/carousel-3xl.webp"]}
         backgroundOverlay="#032f0ec9"
         displayImage={<Image className='hero-portrait' src={displayImage3} alt="customer service and support" width={663} height={768} />}
         title="Support That Powers Your Business Growth"
@@ -60,7 +61,9 @@ const HeroCarousel = () => {
   )
 }
 
-const CarouselItem = ({ displayImage, title, text, className, backgroundImage, backgroundImageset, backgroundOverlay, ...props }) => {
+const CarouselItem = ({ titleTag = "h2", displayImage, title, text, className, backgroundImage, backgroundImageset, backgroundOverlay, ...props }) => {
+
+  const TitleTag = titleTag
   return (
     <div
       className={`carousel-item ${className || ''}`}
@@ -72,7 +75,7 @@ const CarouselItem = ({ displayImage, title, text, className, backgroundImage, b
 
       {displayImage}
       <div className='menu-group'>
-        <h2 className='title text-white'><span>{title}</span></h2>
+        <TitleTag className='title text-white'><span>{title}</span></TitleTag>
         <p className='text'>{text}</p>
       </div>
     </div>

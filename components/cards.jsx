@@ -57,7 +57,7 @@ export const Card_D = ({ title, description, image, onPress, className, ...props
     )
 }
 
-export const Card_E = ({ title, description, image, onPress, className, ...props }) => {
+export const Card_E = ({ title, description, image, onPress, className="", ...props }) => {
     return (
         <div
             className={`card card-e ${className}`}

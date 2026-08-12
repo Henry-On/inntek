@@ -41,7 +41,7 @@ function FormElement({
   }
 
   return (
-    <form action="" {...props} onSubmit={handleSubmit}>
+    <form {...props} onSubmit={handleSubmit}>
       {children}
       {buttonWrapperClass ? (
         <div className={buttonWrapperClass}>

@@ -42,10 +42,6 @@ body {
         gap: 1rem;
         align-items: center;
         margin-left: auto;
-
-        @media (min-width:$w-md) {
-            margin-right: autos;
-        }
     }
 
     .nav-link {

@@ -22,7 +22,7 @@ const FacebookPageClient = () => {
 
     <div className='wrapper-facebook-plugin'>
       <div id="fb-root"></div>
-      <div className="fb-page" data-href="https://www.facebook.com/profile.php?id=100068848209543" datatabs="timeline" data-width="" dataheight="" data-small-header="true" dataadapt-container-width="true" data-hidecover="false" data-showfacepile="true">
+      <div className="fb-page" data-href="https://www.facebook.com/profile.php?id=100068848209543" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
         <blockquote cite="https://www.facebook.com/profile.php?id=100068848209543" className="fb-xfbmlparse-ignore"><a href="https://www.facebook.com/profile.php?id=100068848209543">Life As You Know It</a></blockquote>
       </div>
     </div>

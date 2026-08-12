@@ -2,7 +2,6 @@ import React from 'react'
 
 function IndustryList({
   className,
-  style,
   title,
   description,
   icon,
@@ -14,15 +13,9 @@ function IndustryList({
     ? React.cloneElement(icon, { 'aria-hidden': 'true' })
     : icon;
 
-  const containerStyle = {
-    ...(style || {}),
-    ...(backgroundColor ? { backgroundColor } : {}),
-  };
-
   return (
     <div
       className={`industry-item ${className || ''}`.trim()}
-      style={containerStyle}
       {...props}
     >
       <div className="no-text" aria-hidden="true">

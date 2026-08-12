@@ -24,7 +24,7 @@ const Contact = () => {
                     button={<Button
                         text="Drop a Message"
                         data-scroll-to="user-message-form"
-                        icon={<FontAwesomeIcon className="fa fa-arrow-down" />}
+                        icon={<FontAwesomeIcon className="fa fa-caret-down" />}
                         iconPosition="left"
                     />}
                 />

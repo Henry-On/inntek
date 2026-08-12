@@ -14,7 +14,7 @@ const blogPosts = [
     title: 'Data Center Trends for Modern Business',
     description:
       'Learn how DCaaS and infrastructure automation can reduce costs while improving reliability for enterprise applications.',
-    image: '/images/cctv cam.jpeg',
+    image: '/images/cctv-camera.jpeg',
   },
   {
     id: 4,

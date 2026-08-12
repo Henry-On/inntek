@@ -1,16 +1,40 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+:root {
+  --background-curve-radius: 48px;
+
+  @media (min-width: $w-lg) {
+    --background-curve-radius: 128px;
+  }
+
+}
+
 .solutions {
+  position: relative;
+
+  .border-curve {
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    right: 0;
+    height: 300px;
+    width: 300px;
+
+    &::before {
+      content: "";
+      @include absolute-fill;
+      background-color: var(--bg);
+      border-bottom-right-radius: var(--background-curve-radius);
+      z-index: 1;
+    }
+  }
+
   .content {
-    @include flex-column(24px);
-    // position: relative;
-    // z-index: 1;
-    // max-width: $max-width-text;
-    // margin: auto;
+    position: relative;
+    z-index: 2;
 
     @media (min-width: $w-md) {
-      // flex-direction: row;
       gap: 64px;
     }
   }
@@ -118,36 +142,21 @@
 }
 
 .industries {
-  position: relative;
-  background-image: image-set(url("/images/hero-background.webp"),
-      url("/images/hero-background-x.webp"),
-      url("/images/hero-background-xl.webp"));
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  border-top-left-radius: 48px;
-  border-bottom-right-radius: 48px;
-  border-top: 8px groove var(--border);
-  border-bottom: 4px dashed var(--border);
+  background-color: white;
+  border-top-left-radius: var(--background-curve-radius);
+  border-bottom-right-radius: var(--background-curve-radius);
+  // border-bottom: 1px dashed var(--border);
   overflow: hidden;
-
-  @media(min-width:$w-lg) {
-    border-top-left-radius: 128px;
-    border-bottom-right-radius: 128px;
-  }
-
-  &::before {
-    @include absolute-fill;
-    content: "";
-    background-color: rgb(46 42 4 / 75%);
-  }
 
   .wrapper-columns {
     @include flex-column(1.5rem);
 
+    @media (min-width: $w-md) {
+      gap: 3.5rem;
+    }
+
     @media (min-width: $w-lg) {
       flex-direction: row;
-      gap: 3.5rem;
     }
   }
 
@@ -156,7 +165,6 @@
     text-align: center;
     max-width: $max-width-text;
     margin: 0 auto;
-    color: white;
 
     @media (min-width:$w-lg) {
       text-align: left;
@@ -166,28 +174,22 @@
   }
 
   .section-info {
-    font-size: 0.85rem;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 1rem;
-    padding: 8px 16px;
-    background-color: var(--secondary);
-    border-radius: 24px;
-    color: white;
+    color: var(--primary);
   }
 
-  h3 {
-    color: white;
+  .section-title {
+    color: var(--text-accent);
   }
 
   .industry-list-grid {
-    @include flex-column(16px);
+    @include flex-column(24px);
     overflow: visible;
 
     @media (min-width: $w-sm) {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 48px;
     }
 
     @media (min-width: $w-lg) {
@@ -206,14 +208,13 @@
 
     .item {
       display: inline-block;
-      // font-size: 16px;
 
       &::before {
         @include fa-pseudo;
         content: "\f00c";
         @include rounded(24px);
-        background-color: white;
-        color: var(--primary);
+        background-color: var(--primary);
+        color: white;
         margin-right: 7px;
         font-size: small;
 
@@ -223,13 +224,13 @@
 
   .action-button {
     color: var(--text-accent);
+    box-shadow: none;
 
     .icon {
-      @include rounded(24px);
-      background-color: var(--primary);
-      opacity: 1;
+      @include rounded(18px);
+      background-color: var(--secondary);
       color: white;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -243,31 +244,17 @@
   }
 
   .industry-item {
-    @include flex-row;
-    gap: 1rem;
+    @include flex-row(1rem);
     position: relative;
-    padding: 32px 32px 32px 12px;
-    background-color: rgba(0, 0, 0, 0.371);
-    border: 1px solid transparent;
-    transition: border 0.25s ease-in-out;
-    color: rgba(255, 255, 255, 0.801);
-    border-radius: 16px;
-    box-shadow: 9px 10px 16px -3px rgb(44 44 44 / 79%);
-
-    @media (min-width: $w-xs) {
-      padding: 46px 46px 46px 32px;
-    }
 
     @media (min-width: $w-sm) {
       width: 400px;
       flex-shrink: 0;
       flex-grow: 1;
-      padding: 46px 46px 46px 24px;
     }
 
     @media (min-width: $w-lg) {
       width: auto;
-      padding: 52px 52px 52px 38px;
     }
 
     &:hover {
@@ -276,7 +263,7 @@
     }
 
     .item-heading {
-      color: white;
+      color: var(--secondary);
       font-size: 1.15rem;
       font-weight: 700;
       font-family: var(--font-heading);
@@ -299,15 +286,16 @@
 
     .icon {
       font-size: 18px;
+      color: white;
     }
 
     .no-text {
       @include flex-column(0px);
-      justify-content: center;
+      // justify-content: center;
     }
 
     .decoration-line {
-      display: block;
+      display: none;
       width: 1px;
       margin: auto;
       height: 100%;
@@ -342,12 +330,6 @@
   }
 
   .mini-heading {
-    font-size: 0.85rem;
-    font-weight: bold;
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 24px;
     color: var(--primary);
   }
 
@@ -465,11 +447,10 @@
       @include flex-column(16px);
       max-width: $max-text-width;
       text-align: center;
-      background: #ffe2c0;
-      background-image: linear-gradient(rgb(83 77 20), #cdb967);
+      background-image: linear-gradient(rgb(138 127 21 / 76%), #77905ebf);
       padding: 16px;
       border-radius: 8px;
-      margin:auto;
+      margin: auto;
 
       .get-started-button {
         margin-left: auto;
@@ -495,6 +476,8 @@
         background: #ffffff;
         padding: 24px 16px;
         box-shadow: $shadow-hover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
 
         @media (min-width: $w-lg) {
           padding: 24px 32px;
@@ -574,7 +557,7 @@
 .services {
   background-color: var(--secondary);
   background-color: rgb(114 103 15 / 77%);
-  background-image: url("/images/h.svg"), linear-gradient(287deg, transparent, rgba(26, 99, 121, 0.35));
+  background-image: url("/images/bg-hexagon.svg"), linear-gradient(287deg, transparent, rgba(26, 99, 121, 0.35));
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
